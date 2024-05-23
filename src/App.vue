@@ -1,28 +1,49 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <MainScreen2 v-if="currentScreen === 0" />
+    <MainScreen1 v-if="currentScreen === 1" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import MainScreen1 from './components/setup/first/MainScreen.vue'
+import MainScreen2 from './components/setup/second/MainScreen.vue'
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    MainScreen1,
+    MainScreen2,
+  },
+  data() {
+    return {
+      currentScreen: 0,
+      screens: [MainScreen1, MainScreen2],
+    }
+  },
+  methods: {
+    nextScreen() {
+      this.currentScreen++
+    },
+    prevScreen() {
+      this.currentScreen--
+    },
+  },
 }
 </script>
 
 <style lang="scss">
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  background-color: black;
+  font-family: Satoshi-variable, sans-serif;
+  height: 100vh;
+  padding-top: 30px;
 }
 </style>
