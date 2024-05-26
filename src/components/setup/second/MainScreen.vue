@@ -111,6 +111,7 @@ export default {
         // 'Places Of Worship',
         // 'Real Estate',
         'Retail',
+        'Digital Menu Boards',
         // 'Software & Services',
         // 'Telecommunication',
         // 'Other',
@@ -190,7 +191,8 @@ export default {
 
 <style lang="scss" scoped>
 .main-screen {
-  max-width: 1600px;
+  max-height: 860px;
+  max-width: 90%;
   background: #fff;
   border-radius: 30px;
   margin: 0 auto;
@@ -227,7 +229,7 @@ export default {
       gap: 17px;
       padding-bottom: 170px;
       .warning {
-        border: 2px solid red !important;
+        border: 1px solid red !important;
       }
       &.state-active {
         padding-bottom: 100px;

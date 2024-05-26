@@ -10,29 +10,35 @@
     <ul class="main-screen__list">
       <Screen
         text="Coffee 1"
-        :img-src="require(`@/assets/${industry}-last.png`)"
+        :img-src="require(`@/assets/${industry}-last-1.png`)"
       />
       <Screen
         text="Coffee 2"
-        :img-src="require(`@/assets/${industry}-last.png`)"
+        :img-src="require(`@/assets/${industry}-last-2.png`)"
       />
       <Screen
         text="Coffee 3"
-        :img-src="require(`@/assets/${industry}-last.png`)"
+        :img-src="require(`@/assets/${industry}-last-3.png`)"
       />
       <Screen
         text="Coffee 3"
-        :img-src="require(`@/assets/${industry}-last.png`)"
+        :img-src="require(`@/assets/${industry}-last-4.png`)"
       />
-      <Screen text="Menu" :img-src="require(`@/assets/${industry}-last.png`)" />
-      <Screen text="Menu" :img-src="require(`@/assets/${industry}-last.png`)" />
+      <Screen
+        text="Menu"
+        :img-src="require(`@/assets/${industry}-last-5.png`)"
+      />
+      <Screen
+        text="Menu"
+        :img-src="require(`@/assets/${industry}-last-6.png`)"
+      />
       <Screen
         text="Menu 2"
-        :img-src="require(`@/assets/${industry}-last.png`)"
+        :img-src="require(`@/assets/${industry}-last-7.png`)"
       />
       <Screen
         text="Menu 3"
-        :img-src="require(`@/assets/${industry}-last.png`)"
+        :img-src="require(`@/assets/${industry}-last-8.png`)"
       />
     </ul>
     <a href="#" class="main-screen__btn hover-btn">Finish</a>
@@ -55,7 +61,8 @@ export default {
 
 <style lang="scss" scoped>
 .main-screen {
-  max-width: 1600px;
+  max-height: 860px;
+  max-width: 90%;
   background: #fff;
   border-radius: 43px;
   margin: 0 auto;

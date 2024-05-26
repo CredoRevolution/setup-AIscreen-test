@@ -150,7 +150,8 @@ export default {
 
 <style lang="scss" scoped>
 .main-screen {
-  max-width: 1600px;
+  max-height: 860px;
+  max-width: 90%;
   background: #fff;
   border-radius: 30px;
   margin: 0 auto;
@@ -185,9 +186,9 @@ export default {
       display: flex;
       flex-direction: column;
       gap: 17px;
-      padding-bottom: 170px;
+      padding-bottom: 100px;
       .warning {
-        border: 2px solid red !important;
+        border: 1px solid red !important;
       }
       &.state-active {
         padding-bottom: 100px;

@@ -12,11 +12,19 @@ export default {
     text: String,
     imgSrc: String,
   },
+  data() {
+    return {}
+  },
   methods: {
     addActive() {
+      let allScreens = document.querySelectorAll('.screen.active')
+
       if (this.$el.classList.contains('active')) {
         this.$el.classList.remove('active')
       } else {
+        if (allScreens.length === 4) {
+          return
+        }
         this.$el.classList.add('active')
       }
     },
@@ -37,10 +45,12 @@ export default {
   padding: 8px 8px 10px 8px;
   background-color: #fff;
   border: 2px solid transparent;
-  &__img {
+
+  img {
     border-radius: 12px;
     width: 100%;
   }
+
   &.active {
     background-color: #f5f5f8;
     border: 2px solid #0071e2;

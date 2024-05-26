@@ -59,10 +59,11 @@ export default {
 }
 
 #app {
-  background-color: black;
+  background: url('../src/assets/main-bg.png');
+  background-size: cover;
+  height: 120vh;
   font-family: Satoshi-variable, sans-serif;
-  height: 100vh;
-  padding-top: 30px;
+  padding-top: 100px;
 }
 
 button {
