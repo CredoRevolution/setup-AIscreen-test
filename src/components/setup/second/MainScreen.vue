@@ -206,6 +206,7 @@ export default {
     display: flex;
     max-width: 426px;
     flex-direction: column;
+    width: 70%;
     .main-screen-main__logo {
       margin-bottom: 111px;
       max-width: 128px;
@@ -227,12 +228,12 @@ export default {
       display: flex;
       flex-direction: column;
       gap: 17px;
-      padding-bottom: 170px;
+      padding-bottom: 35%;
       .warning {
         border: 1px solid red !important;
       }
       &.state-active {
-        padding-bottom: 100px;
+        padding-bottom: 18.5%;
       }
       .main-screen__form-btn {
         margin-top: 14px;

@@ -40,7 +40,7 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 320px;
+  width: 22%;
   border-radius: 20px;
   padding: 8px 8px 10px 8px;
   background-color: #fff;
