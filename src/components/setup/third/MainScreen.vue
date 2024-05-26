@@ -169,7 +169,7 @@ export default {
     flex-direction: column;
     width: 70%;
     .main-screen-main__logo {
-      margin-bottom: 111px;
+      margin-bottom: 10%;
       max-width: 128px;
       padding-top: 27px;
     }
@@ -188,7 +188,7 @@ export default {
     .main-screen-main__form {
       display: flex;
       flex-direction: column;
-      gap: 17px;
+      gap: 8px;
       .warning {
         border: 1px solid red !important;
       }
