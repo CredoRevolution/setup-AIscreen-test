@@ -63,7 +63,7 @@ export default {
   background-size: cover;
   height: 100vh;
   font-family: Satoshi-variable, sans-serif;
-  padding-top: 100px;
+  padding-top: 50px;
 }
 
 button {

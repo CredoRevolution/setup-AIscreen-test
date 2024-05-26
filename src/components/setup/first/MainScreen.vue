@@ -61,7 +61,8 @@ export default {
 
 <style lang="scss" scoped>
 .main-screen {
-  max-height: 860px;
+  max-height: 95%;
+  height: 95%;
   max-width: 90%;
   background: #fff;
   border-radius: 43px;
