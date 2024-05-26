@@ -40,6 +40,46 @@
               required
             />
           </div>
+          <p class="main-screen__form-text">
+            How many screens do you intend to connect?
+          </p>
+          <div class="main-screen__form-switch">
+            <button
+              class="main-screen__form-switch-btn active"
+              type="button"
+              @click.prevent="makeActive"
+            >
+              1-10
+            </button>
+            <button
+              class="main-screen__form-switch-btn"
+              type="button"
+              @click.prevent="makeActive"
+            >
+              11-50
+            </button>
+            <button
+              class="main-screen__form-switch-btn"
+              type="button"
+              @click.prevent="makeActive"
+            >
+              51-199
+            </button>
+            <button
+              class="main-screen__form-switch-btn"
+              type="button"
+              @click.prevent="makeActive"
+            >
+              200-499
+            </button>
+            <button
+              class="main-screen__form-switch-btn"
+              type="button"
+              @click.prevent="makeActive"
+            >
+              500+
+            </button>
+          </div>
           <button
             class="main-screen__form-btn hover-btn"
             @click.prevent="nextScreen"
@@ -87,6 +127,13 @@ export default {
       } else {
         console.log('Please fill in all required fields')
       }
+    },
+    makeActive(e) {
+      const buttons = this.$el.querySelectorAll('.main-screen__form-switch-btn')
+      buttons.forEach((button) => {
+        button.classList.remove('active')
+      })
+      e.target.classList.add('active')
     },
   },
   data() {
@@ -151,6 +198,43 @@ export default {
         text-align: center;
         display: unset;
         padding: 17px 0;
+      }
+      .main-screen__form-text {
+        font-family: Satoshi-variable, sans-serif;
+        margin-top: 14px;
+        margin-bottom: -5px;
+        font-weight: 700;
+        font-size: 17px;
+        line-height: 21px;
+        color: #14121f;
+      }
+      .main-screen__form-switch {
+        display: flex;
+        flex-direction: row;
+        padding: 3px;
+        border: 1px solid #86868b80;
+        border-radius: 999px;
+
+        .main-screen__form-switch-btn {
+          padding: 12px 17px;
+          background: #fff;
+          border-radius: 999px;
+          font-weight: 500;
+          font-size: 17px;
+          line-height: 21px;
+          color: #86868b;
+          border: 1px solid transparent;
+          &:not(:last-child) {
+            border-right: 1px solid #86868b80;
+            border-radius: 0;
+          }
+          &.active {
+            border: 1px solid #141414;
+            background: #141414;
+            border-radius: 999px;
+            color: #fff;
+          }
+        }
       }
       .main-screen__form-item {
         .main-screen__form-input {
