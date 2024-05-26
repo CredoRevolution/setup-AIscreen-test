@@ -8,14 +8,32 @@
       quickly and easily.
     </p>
     <ul class="main-screen__list">
-      <Screen text="Coffee 1" :img-src="require('@/assets/coffee1.png')" />
-      <Screen text="Coffee 2" :img-src="require('@/assets/coffee1.png')" />
-      <Screen text="Coffee 3" :img-src="require('@/assets/coffee1.png')" />
-      <Screen text="Coffee 3" :img-src="require('@/assets/coffee1.png')" />
-      <Screen text="Menu" :img-src="require('@/assets/coffee1.png')" />
-      <Screen text="Menu" :img-src="require('@/assets/coffee1.png')" />
-      <Screen text="Menu 2" :img-src="require('@/assets/coffee1.png')" />
-      <Screen text="Menu 3" :img-src="require('@/assets/coffee1.png')" />
+      <Screen
+        text="Coffee 1"
+        :img-src="require(`@/assets/${industry}-last.png`)"
+      />
+      <Screen
+        text="Coffee 2"
+        :img-src="require(`@/assets/${industry}-last.png`)"
+      />
+      <Screen
+        text="Coffee 3"
+        :img-src="require(`@/assets/${industry}-last.png`)"
+      />
+      <Screen
+        text="Coffee 3"
+        :img-src="require(`@/assets/${industry}-last.png`)"
+      />
+      <Screen text="Menu" :img-src="require(`@/assets/${industry}-last.png`)" />
+      <Screen text="Menu" :img-src="require(`@/assets/${industry}-last.png`)" />
+      <Screen
+        text="Menu 2"
+        :img-src="require(`@/assets/${industry}-last.png`)"
+      />
+      <Screen
+        text="Menu 3"
+        :img-src="require(`@/assets/${industry}-last.png`)"
+      />
     </ul>
     <a href="#" class="main-screen__btn hover-btn">Finish</a>
   </div>
@@ -28,6 +46,9 @@ export default {
   name: 'MainScreen',
   components: {
     Screen,
+  },
+  props: {
+    industry: String,
   },
 }
 </script>

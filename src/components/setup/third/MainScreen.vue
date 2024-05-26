@@ -7,25 +7,17 @@
           alt="aiscreen"
           class="main-screen-main__logo"
         />
-        <h2 class="main-screen-main__title">
-          Welcome to AIScreen Mykita Shcherbina!
-        </h2>
+        <h2 class="main-screen-main__title">And lastly...</h2>
         <p class="main-screen-main__text">
           Show your content on screen or in demo mode in 60 seconds. Get started
           quickly and easily.
         </p>
-        <form
-          action="#"
-          :class="[
-            'main-screen-main__form',
-            { 'state-active': selectedCountry === 'USA' },
-          ]"
-        >
+        <form action="#" class="main-screen-main__form">
           <div class="main-screen__form-item">
             <input
               type="text"
               class="main-screen__form-input"
-              placeholder="Input text"
+              placeholder="Job Title"
               required
             />
           </div>
@@ -33,35 +25,20 @@
             <select
               class="main-screen__form-select main-screen__form-select_industry"
               required
-              @change="changeIndustry"
             >
-              <option value="plug" disabled selected>Industry</option>
-              <option
-                v-for="industry in industries"
-                :key="industry"
-                :value="industry"
-              >
-                {{ industry }}
-              </option>
+              <option value="plug" disabled selected>Job function</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
             </select>
           </div>
           <div class="main-screen__form-item">
-            <select
-              class="main-screen__form-select"
+            <input
+              type="text"
+              class="main-screen__form-input"
+              placeholder="Phone number"
               required
-              v-model="selectedCountry"
-            >
-              <option value="" disabled selected>Country</option>
-              <option value="USA">USA</option>
-              <option value="NotUSA">Not USA</option>
-            </select>
-          </div>
-          <div class="main-screen__form-item" v-if="selectedCountry === 'USA'">
-            <select class="main-screen__form-select" required>
-              <option value="" disabled selected>State</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-            </select>
+            />
           </div>
           <button
             class="main-screen__form-btn hover-btn"
@@ -74,18 +51,12 @@
       <div class="main-screen__img">
         <div class="backgorund">
           <img
-            v-if="industry"
             :src="require(`@/assets/${industry}.png`)"
             alt="img"
             class="backgorund__img"
           />
         </div>
-        <img
-          :src="require(`@/assets/${industry}-small.png`)"
-          alt="img"
-          v-if="industry"
-          class="main-screen-main__small-img"
-        />
+        <img :src="require(`@/assets/${industry}-small.png`)" alt="img" />
       </div>
     </div>
   </div>
@@ -94,30 +65,6 @@
 <script>
 export default {
   name: 'MainScreen',
-  data() {
-    return {
-      selectedCountry: '',
-      industry: '',
-      industries: [
-        // 'Energy',
-        // 'Events',
-        // 'Education',
-        'Finance',
-        // 'Fitness',
-        // 'Healthcare',
-        // 'Hospitality/Food Beverage',
-        // 'Manufacturing',
-        // 'Media & Advertising',
-        // 'Places Of Worship',
-        // 'Real Estate',
-        'Retail',
-        // 'Software & Services',
-        // 'Telecommunication',
-        // 'Other',
-      ],
-    }
-  },
-  computed: {},
   methods: {
     nextScreen() {
       const form = this.$el.querySelector('form')
@@ -141,49 +88,15 @@ export default {
         console.log('Please fill in all required fields')
       }
     },
-    changeIndustry() {
-      const selectElement = this.$el.querySelector(
-        '.main-screen__form-select_industry'
-      )
-      const img = this.$el.querySelector('.main-screen-main__small-img')
-      const bigImg = this.$el.querySelector('.main-screen-main__small-img')
-
-      if (this.industry) {
-        if (img && bigImg) {
-          img.style.transition = 'all 0.2s ease-out'
-          img.style.opacity = 0
-          bigImg.style.transition = 'all 0.2s ease-out'
-          bigImg.style.opacity = 0
-          console.log('change industry')
-        }
-      }
-
-      setTimeout(() => {
-        const selectedOption =
-          selectElement?.querySelector('option:checked') ||
-          selectElement?.querySelector('option[value="plug"]')
-
-        this.industry = selectedOption ? selectedOption.value : ''
-        this.$emit('changeIndustry', this.industry)
-        console.log(this.industry)
-      }, 200)
-
-      if (this.industry) {
-        if (img && bigImg) {
-          setTimeout(() => {
-            img.style.opacity = 1
-            img.style.transition = 'all 0.2s ease-out'
-            setTimeout(() => {
-              bigImg.style.opacity = 1
-              bigImg.style.transition = 'all 0.2s ease-out'
-            }, 300)
-          }, 300)
-        }
-      }
-    },
   },
-  mounted() {
-    this.changeIndustry()
+  data() {
+    return {}
+  },
+  props: {
+    industry: {
+      type: String,
+      default: 'plug',
+    },
   },
 }
 </script>
@@ -304,16 +217,6 @@ export default {
       transform: translate(-50%, -50%);
       width: 75%;
       height: 50%;
-      &::after {
-        content: '';
-        width: 110%;
-        height: 110%;
-        background: rgba(0, 0, 0, 0.5);
-        position: absolute;
-        top: 0;
-        left: 0;
-        border-radius: 17px;
-      }
     }
   }
 }
