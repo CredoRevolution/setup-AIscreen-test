@@ -228,12 +228,12 @@ export default {
       display: flex;
       flex-direction: column;
       gap: 17px;
-      padding-bottom: 35%;
+      padding-bottom: 18.5%;
       .warning {
         border: 1px solid red !important;
       }
       &.state-active {
-        padding-bottom: 18.5%;
+        padding-bottom: 2%;
       }
       .main-screen__form-btn {
         margin-top: 14px;

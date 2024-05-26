@@ -187,7 +187,7 @@ export default {
       display: flex;
       flex-direction: column;
       gap: 17px;
-      padding-bottom: 18.5%;
+      padding-bottom: 2%;
       .warning {
         border: 1px solid red !important;
       }

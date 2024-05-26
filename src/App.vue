@@ -61,7 +61,7 @@ export default {
 #app {
   background: url('../src/assets/main-bg.png');
   background-size: cover;
-  height: 120vh;
+  height: 100vh;
   font-family: Satoshi-variable, sans-serif;
   padding-top: 100px;
 }
