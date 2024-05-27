@@ -25,34 +25,36 @@
           <div class="main-screen__form-item">
             <input
               type="text"
-              class="main-screen__form-input"
+              class="main-screen__form-input main-screen__form-item-warnings"
               placeholder="Input text"
               required
             />
+            <div class="warning-text">123 test</div>
           </div>
           <div class="main-screen__form-item">
             <CustomSelect
               :options="industries"
               :default="'Industry'"
               v-model="industry"
-              class="main-screen__form-select_industry"
+              class="main-screen__form-select_industry main-screen__form-item-warnings"
               @getInfo="getInfo"
-              required
             />
           </div>
+
           <div class="main-screen__form-item">
             <CustomSelect
               :options="['USA', 'Russia', 'Australia']"
               :default="'Country'"
               v-model="selectedCountry"
-              required
+              class="main-screen__form-select_country main-screen__form-item-warnings"
             />
           </div>
           <div class="main-screen__form-item" v-if="selectedCountry === 'USA'">
             <CustomSelect
               :options="['1', '2', '3']"
               :default="'State'"
-              required
+              v-model="state"
+              class="main-screen__form-select_state main-screen__form-item-warnings"
             />
           </div>
           <button
@@ -89,8 +91,9 @@ export default {
   name: 'MainScreen',
   data() {
     return {
-      selectedCountry: '',
+      selectedCountry: 'Country',
       industry: 'Industry',
+      state: 'State',
       industries: [
         // 'Energy',
         // 'Events',
@@ -109,6 +112,7 @@ export default {
         // 'Telecommunication',
         // 'Other',
       ],
+      validation: false,
     }
   },
   components: {
@@ -116,22 +120,63 @@ export default {
   },
   computed: {},
   methods: {
-    nextScreen() {
+    checkValidation() {
       const form = this.$el.querySelector('form')
       const requiredFields = form.querySelectorAll('[required]')
-      let isValid = true
+      const allFields = form.querySelectorAll(
+        'form .main-screen__form-item-warnings'
+      )
+      this.validation = true
+
+      if (this.selectedCountry === 'Country') {
+        this.validation = false
+        form
+          .querySelector('.main-screen__form-select_country')
+          .classList.add('warning') // Add a CSS class for styling
+      } else {
+        form
+          .querySelector('.main-screen__form-select_country')
+          .classList.remove('warning')
+      }
+      if (this.industry === 'Industry') {
+        this.validation = false
+        form
+          .querySelector('.main-screen__form-select_industry')
+          .classList.add('warning') // Add a CSS class for styling
+      } else {
+        form
+          .querySelector('.main-screen__form-select_industry')
+          .classList.remove('warning')
+      }
+      if (this.selectedCountry === 'USA' && this.state === 'State') {
+        this.validation = false
+        form
+          .querySelector('.main-screen__form-select_state')
+          .classList.add('warning') // Add a CSS class for styling
+      } else if (this.selectedCountry === 'USA' && this.state !== 'State') {
+        form
+          .querySelector('.main-screen__form-select_state')
+          .classList.remove('warning')
+      }
+
+      allFields.forEach((field) => {
+        field.addEventListener('click', () => {
+          field.classList.remove('warning')
+        })
+      })
 
       requiredFields.forEach((field) => {
-        console.log(field.industry)
-        if (field.value === '') {
-          isValid = false
+        if (!field.value) {
+          this.validation = false
           field.classList.add('warning') // Add a CSS class for styling
         } else {
           field.classList.remove('warning') // Remove the CSS class if field is filled
         }
       })
-
-      if (isValid) {
+    },
+    nextScreen() {
+      this.checkValidation()
+      if (this.validation) {
         this.$emit('nextScreen')
         console.log('nextScreen')
       } else {
@@ -147,7 +192,6 @@ export default {
       console.log('current industry', this.industry)
 
       if (this.industry) {
-        console.log('123')
         if (img && bigImg) {
           bigImg.style.transition = 'all 0.2s ease-out'
           bigImg.style.opacity = 0
@@ -159,7 +203,6 @@ export default {
 
       setTimeout(() => {
         this.$emit('changeIndustry', this.industry)
-        console.log(this.industry)
       }, 300)
 
       if (this.industry) {
@@ -176,7 +219,6 @@ export default {
       }
     },
     getInfo(industry) {
-      console.log('input', industry)
       this.industry = industry
       for (let i = 0; i < this.industries.length; i++) {
         if (this.industries[i] === industry) {

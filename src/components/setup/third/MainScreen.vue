@@ -16,7 +16,7 @@
           <div class="main-screen__form-item">
             <input
               type="text"
-              class="main-screen__form-input"
+              class="main-screen__form-input main-screen__form-item-warnings"
               placeholder="Job Title"
               required
             />
@@ -25,13 +25,15 @@
             <CustomSelect
               :options="['1', '2', '3']"
               :default="'Job function'"
+              v-model="job"
+              class="main-screen__form-select_job main-screen__form-item-warnings"
             />
           </div>
 
           <div class="main-screen__form-item">
             <input
               type="text"
-              class="main-screen__form-input"
+              class="main-screen__form-input main-screen__form-item-warnings"
               placeholder="Phone number"
               required
             />
@@ -39,9 +41,9 @@
           <p class="main-screen__form-text">
             How many screens do you intend to connect?
           </p>
-          <div class="main-screen__form-switch">
+          <div class="main-screen__form-switch main-screen__form-item-warnings">
             <button
-              class="main-screen__form-switch-btn active"
+              class="main-screen__form-switch-btn passive"
               type="button"
               @click.prevent="makeActive"
             >
@@ -106,23 +108,63 @@ export default {
   components: {
     CustomSelect,
   },
+  data() {
+    return {
+      job: 'Job function',
+      validation: false,
+    }
+  },
   methods: {
-    nextScreen() {
+    checkValidation() {
       const form = this.$el.querySelector('form')
       const requiredFields = form.querySelectorAll('[required]')
-      let isValid = true
+      const allFields = form.querySelectorAll(
+        'form .main-screen__form-item-warnings'
+      )
+      const switchBtn = this.$el.querySelectorAll(
+        '.main-screen__form-switch-btn'
+      )
+      const switchBtnWrapper = this.$el.querySelector(
+        '.main-screen__form-switch'
+      )
+
+      this.validation = true
+
+      switchBtn.forEach((btn) => {
+        if (btn.classList.contains('passive')) {
+          this.validation = false
+          switchBtnWrapper.classList.add('warning')
+        }
+      })
+      if (this.job === 'Job function') {
+        this.validation = false
+        form
+          .querySelector('.main-screen__form-select_job')
+          .classList.add('warning') // Add a CSS class for styling
+      } else {
+        form
+          .querySelector('.main-screen__form-select_job')
+          .classList.remove('warning')
+      }
+
+      allFields.forEach((field) => {
+        field.addEventListener('click', () => {
+          field.classList.remove('warning')
+        })
+      })
 
       requiredFields.forEach((field) => {
-        console.log(field.value)
-        if (field.value == 'plug' || !field.value) {
-          isValid = false
+        if (!field.value) {
+          this.validation = false
           field.classList.add('warning') // Add a CSS class for styling
         } else {
           field.classList.remove('warning') // Remove the CSS class if field is filled
         }
       })
-
-      if (isValid) {
+    },
+    nextScreen() {
+      this.checkValidation()
+      if (this.validation) {
         this.$emit('nextScreen')
         console.log('nextScreen')
       } else {
@@ -133,12 +175,10 @@ export default {
       const buttons = this.$el.querySelectorAll('.main-screen__form-switch-btn')
       buttons.forEach((button) => {
         button.classList.remove('active')
+        button.classList.remove('passive')
       })
       e.target.classList.add('active')
     },
-  },
-  data() {
-    return {}
   },
   props: {
     industry: {

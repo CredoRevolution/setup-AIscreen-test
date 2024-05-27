@@ -14,7 +14,9 @@
           returnInfo()
         "
       >
-        {{ option }}
+        <div class="item" :class="{ active: selected == option }">
+          {{ option }}
+        </div>
       </div>
     </div>
   </div>
@@ -24,8 +26,7 @@
 export default {
   name: 'CustomSelect',
   methods: {
-    returnInfo(industry) {
-      console.log(this.selected)
+    returnInfo() {
       this.$emit('getInfo', this.selected)
     },
   },
@@ -69,13 +70,12 @@ export default {
   outline: none;
   line-height: 47px;
   border-radius: 13px;
-  padding: 15px;
   width: 100%;
   font-weight: 500;
   font-size: 17px;
   line-height: 21px;
   color: #86868b;
-  border: 1px solid #86868b80;
+  border: 1px solid transparent;
   &::after {
     content: '';
     width: 40px;
@@ -89,14 +89,11 @@ export default {
   }
 }
 .main-screen__form-select {
-  border-radius: 13px;
-  padding: 15px;
   width: 100%;
   font-weight: 500;
   font-size: 17px;
   line-height: 21px;
   color: #86868b;
-  border: 1px solid #86868b80;
   &::placeholder {
     color: #86868b;
     font-weight: 500;
@@ -110,9 +107,18 @@ export default {
   color: #86868b;
   cursor: pointer;
   user-select: none;
+  border-radius: 13px;
+  padding: 15px;
+  border: 1px solid #86868b80;
 }
 
 .custom-select .selected.open {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border: 1px solid #0071e2;
+  padding: 15px;
+  box-shadow: 0px 0px 8px #0071e254;
+  border-bottom: 1px solid #86868b80;
   &:after {
     transform: rotateX(180deg);
   }
@@ -134,9 +140,12 @@ export default {
 
 .custom-select .items {
   color: #86868b;
-  border-radius: 6px;
+  border-bottom-left-radius: 13px;
+  border-bottom-right-radius: 13px;
+  box-shadow: 0px 0px 8px #0071e254;
   overflow: hidden;
-  border: 1px solid #86868b80;
+  border: 1px solid #0071e2;
+  border-top: 0;
   position: absolute;
   background-color: #fff;
   left: 0;
@@ -145,15 +154,24 @@ export default {
   z-index: 100;
 }
 
-.custom-select .items div {
+.custom-select .items .item {
   color: #86868b;
   padding: 15px;
   cursor: pointer;
   user-select: none;
+  &.active {
+    color: #14121f;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    &:after {
+      content: url(@/assets/check.svg);
+    }
+  }
 }
 
 .custom-select .items div:hover {
-  background-color: #86868b80;
+  color: #14121f;
 }
 
 .selectHide {
