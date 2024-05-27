@@ -22,16 +22,12 @@
             />
           </div>
           <div class="main-screen__form-item">
-            <select
-              class="main-screen__form-select main-screen__form-select_industry"
-              required
-            >
-              <option value="plug" disabled selected>Job function</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-            </select>
+            <CustomSelect
+              :options="['1', '2', '3']"
+              :default="'Job function'"
+            />
           </div>
+
           <div class="main-screen__form-item">
             <input
               type="text"
@@ -103,8 +99,13 @@
 </template>
 
 <script>
+import CustomSelect from '@/components/form/CustomSelect.vue'
+
 export default {
   name: 'MainScreen',
+  components: {
+    CustomSelect,
+  },
   methods: {
     nextScreen() {
       const form = this.$el.querySelector('form')
@@ -226,11 +227,9 @@ export default {
           line-height: 21px;
           color: #86868b;
           border: 1px solid transparent;
-          &:not(:last-child) {
-            border-right: 1px solid #86868b80;
-            border-radius: 0;
-          }
+          transition: all 0.3s ease;
           &.active {
+            transition: all 0.3s ease;
             border: 1px solid #141414;
             background: #141414;
             border-radius: 999px;
@@ -240,23 +239,6 @@ export default {
       }
       .main-screen__form-item {
         .main-screen__form-input {
-          background: #fff;
-          border-radius: 13px;
-          padding: 15px;
-          width: 100%;
-          font-weight: 500;
-          font-size: 17px;
-          line-height: 21px;
-          color: #86868b;
-          border: 1px solid #86868b80;
-          &::placeholder {
-            color: #86868b;
-            font-weight: 500;
-            font-size: 17px;
-            line-height: 21px;
-          }
-        }
-        .main-screen__form-select {
           background: #fff;
           border-radius: 13px;
           padding: 15px;

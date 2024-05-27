@@ -3,7 +3,8 @@
     <div class="main-screen-wrapper">
       <div class="main-screen__main">
         <img
-          src="@/assets/logo.svg"
+          v-if="require(`@/assets/logo.svg`)"
+          :src="require(`@/assets/logo.svg`)"
           alt="aiscreen"
           class="main-screen-main__logo"
         />
@@ -30,38 +31,29 @@
             />
           </div>
           <div class="main-screen__form-item">
-            <select
-              class="main-screen__form-select main-screen__form-select_industry"
+            <CustomSelect
+              :options="industries"
+              :default="'Industry'"
+              v-model="industry"
+              class="main-screen__form-select_industry"
+              @getInfo="getInfo"
               required
-              @change="changeIndustry"
-            >
-              <option value="plug" disabled selected>Industry</option>
-              <option
-                v-for="industry in industries"
-                :key="industry"
-                :value="industry"
-              >
-                {{ industry }}
-              </option>
-            </select>
+            />
           </div>
           <div class="main-screen__form-item">
-            <select
-              class="main-screen__form-select"
-              required
+            <CustomSelect
+              :options="['USA', 'Russia', 'Australia']"
+              :default="'Country'"
               v-model="selectedCountry"
-            >
-              <option value="" disabled selected>Country</option>
-              <option value="USA">USA</option>
-              <option value="NotUSA">Not USA</option>
-            </select>
+              required
+            />
           </div>
           <div class="main-screen__form-item" v-if="selectedCountry === 'USA'">
-            <select class="main-screen__form-select" required>
-              <option value="" disabled selected>State</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-            </select>
+            <CustomSelect
+              :options="['1', '2', '3']"
+              :default="'State'"
+              required
+            />
           </div>
           <button
             class="main-screen__form-btn hover-btn"
@@ -74,16 +66,16 @@
       <div class="main-screen__img">
         <div class="backgorund">
           <img
-            v-if="industry"
+            v-if="industry && require(`@/assets/${industry}.png`)"
             :src="require(`@/assets/${industry}.png`)"
             alt="img"
             class="backgorund__img"
           />
         </div>
         <img
+          v-if="industry && require(`@/assets/${industry}-small.png`)"
           :src="require(`@/assets/${industry}-small.png`)"
           alt="img"
-          v-if="industry"
           class="main-screen-main__small-img"
         />
       </div>
@@ -92,12 +84,13 @@
 </template>
 
 <script>
+import CustomSelect from '@/components/form/CustomSelect.vue'
 export default {
   name: 'MainScreen',
   data() {
     return {
       selectedCountry: '',
-      industry: '',
+      industry: 'Industry',
       industries: [
         // 'Energy',
         // 'Events',
@@ -118,6 +111,9 @@ export default {
       ],
     }
   },
+  components: {
+    CustomSelect,
+  },
   computed: {},
   methods: {
     nextScreen() {
@@ -126,8 +122,8 @@ export default {
       let isValid = true
 
       requiredFields.forEach((field) => {
-        console.log(field.value)
-        if (field.value == 'plug' || !field.value) {
+        console.log(field.industry)
+        if (field.value === '') {
           isValid = false
           field.classList.add('warning') // Add a CSS class for styling
         } else {
@@ -147,38 +143,44 @@ export default {
         '.main-screen__form-select_industry'
       )
       const img = this.$el.querySelector('.main-screen-main__small-img')
-      const bigImg = this.$el.querySelector('.main-screen-main__small-img')
+      const bigImg = this.$el.querySelector('.backgorund__img')
+      console.log('current industry', this.industry)
 
       if (this.industry) {
+        console.log('123')
         if (img && bigImg) {
-          img.style.transition = 'all 0.2s ease-out'
-          img.style.opacity = 0
           bigImg.style.transition = 'all 0.2s ease-out'
           bigImg.style.opacity = 0
-          console.log('change industry')
+          img.style.transition = 'all 0.2s ease-out'
+          img.style.opacity = 0
+          console.log('change industry completed')
         }
       }
 
       setTimeout(() => {
-        const selectedOption =
-          selectElement?.querySelector('option:checked') ||
-          selectElement?.querySelector('option[value="plug"]')
-
-        this.industry = selectedOption ? selectedOption.value : ''
         this.$emit('changeIndustry', this.industry)
         console.log(this.industry)
-      }, 200)
+      }, 300)
 
       if (this.industry) {
         if (img && bigImg) {
           setTimeout(() => {
-            img.style.opacity = 1
-            img.style.transition = 'all 0.2s ease-out'
+            bigImg.style.opacity = 1
+            bigImg.style.transition = 'all 0.2s ease-out'
             setTimeout(() => {
-              bigImg.style.opacity = 1
-              bigImg.style.transition = 'all 0.2s ease-out'
+              img.style.opacity = 1
+              img.style.transition = 'all 0.2s ease-out'
             }, 300)
           }, 300)
+        }
+      }
+    },
+    getInfo(industry) {
+      console.log('input', industry)
+      this.industry = industry
+      for (let i = 0; i < this.industries.length; i++) {
+        if (this.industries[i] === industry) {
+          this.changeIndustry()
         }
       }
     },
@@ -243,24 +245,9 @@ export default {
         padding: 17px 0;
       }
       .main-screen__form-item {
+        position: relative;
+
         .main-screen__form-input {
-          background: #fff;
-          border-radius: 13px;
-          padding: 15px;
-          width: 100%;
-          font-weight: 500;
-          font-size: 17px;
-          line-height: 21px;
-          color: #86868b;
-          border: 1px solid #86868b80;
-          &::placeholder {
-            color: #86868b;
-            font-weight: 500;
-            font-size: 17px;
-            line-height: 21px;
-          }
-        }
-        .main-screen__form-select {
           background: #fff;
           border-radius: 13px;
           padding: 15px;
