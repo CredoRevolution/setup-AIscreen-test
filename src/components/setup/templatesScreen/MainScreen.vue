@@ -9,47 +9,19 @@
       Show your content on screen or in demo mode in 60 seconds. Get started
       quickly and easily.
     </p>
-    <ul class="main-screen__list">
+    <ul class="main-screen__list main-screen__list_templates">
       <Screen
-        text="Coffee 1"
-        :img-src="require(`@/assets/${industry}-last-1.png`)"
+        text="Main"
+        :img-src="require(`@/assets/Finance-template-1.png`)"
         @getActiveData="getActiveData"
       />
+      <!-- ОБЯЗАТЕЛЬНО ЗАМЕНИТЬ НА ${INDUSTRY!!!!!!!!} -->
       <Screen
-        text="Coffee 2"
-        :img-src="require(`@/assets/${industry}-last-2.png`)"
+        text="Content + Weather Right + News"
+        :img-src="require(`@/assets/Finance-template-2.png`)"
         @getActiveData="getActiveData"
       />
-      <Screen
-        text="Coffee 3"
-        :img-src="require(`@/assets/${industry}-last-3.png`)"
-        @getActiveData="getActiveData"
-      />
-      <Screen
-        text="Coffee 3"
-        :img-src="require(`@/assets/${industry}-last-4.png`)"
-        @getActiveData="getActiveData"
-      />
-      <Screen
-        text="Menu"
-        :img-src="require(`@/assets/${industry}-last-5.png`)"
-        @getActiveData="getActiveData"
-      />
-      <Screen
-        text="Menu"
-        :img-src="require(`@/assets/${industry}-last-6.png`)"
-        @getActiveData="getActiveData"
-      />
-      <Screen
-        text="Menu 2"
-        :img-src="require(`@/assets/${industry}-last-7.png`)"
-        @getActiveData="getActiveData"
-      />
-      <Screen
-        text="Menu 3"
-        :img-src="require(`@/assets/${industry}-last-8.png`)"
-        @getActiveData="getActiveData"
-      />
+      <!-- ОБЯЗАТЕЛЬНО ЗАМЕНИТЬ НА ${INDUSTRY!!!!!!!!} -->
     </ul>
     <a href="#" class="main-screen__btn hover-btn" @click="nextScreen"
       >Finish</a
@@ -68,7 +40,6 @@ export default {
   props: {
     industry: String,
   },
-
   data() {
     return {
       validation: false,
@@ -84,6 +55,9 @@ export default {
         window.alert('Please fill in all required fields')
       }
     },
+    getActiveData(el) {
+      console.log(el)
+    },
     checkValidation() {
       const allScreens = document.querySelectorAll('.screen')
       this.validation = false
@@ -93,10 +67,6 @@ export default {
           return
         }
       })
-    },
-
-    getActiveData(el) {
-      console.log(el)
     },
   },
 }

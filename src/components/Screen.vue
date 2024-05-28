@@ -18,22 +18,28 @@ export default {
   methods: {
     addActive() {
       let allScreens = document.querySelectorAll('.screen.active')
-
+      let parent = this.$el.closest('.main-screen__list_templates')
+      if (parent) {
+        let allScreens = parent.querySelectorAll('.screen')
+        allScreens.forEach((screen) => {
+          screen.classList.remove('active')
+        })
+        this.sendActiveData(this.$el)
+        this.$el.classList.add('active')
+        return
+      }
       if (this.$el.classList.contains('active')) {
         this.$el.classList.remove('active')
       } else {
         if (allScreens.length === 4) {
           return
         }
+        this.sendActiveData(this.$el)
         this.$el.classList.add('active')
       }
-
-      this.progressBar()
     },
-    progressBar() {
-      let allScreens = document.querySelectorAll('.screen.active')
-      let progress = document.querySelector('.main-screen__progress .progress')
-      progress.style.width = `${(allScreens.length / 4) * 100}%`
+    sendActiveData($el) {
+      this.$emit('getActiveData', $el)
     },
   },
 }
