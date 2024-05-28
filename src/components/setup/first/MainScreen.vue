@@ -1,7 +1,9 @@
 <template>
   <div class="main-screen">
     <img src="@/assets/logo.svg" alt="aiscreen" class="main-screen__logo" />
-    <div class="main-screen__progress"></div>
+    <div class="main-screen__progress">
+      <div class="progress"></div>
+    </div>
     <h2 class="main-screen__title">Smooth Setup in 60 seconds…</h2>
     <p class="main-screen__text">
       Show your content on screen or in demo mode in 60 seconds. Get started
@@ -77,12 +79,12 @@ export default {
     border-radius: 13px;
     position: relative;
 
-    &::after {
-      content: '';
+    .progress {
+      transition: all 0.3s ease;
       position: absolute;
       top: 0;
       left: 0;
-      width: 15%;
+      width: 1%;
       height: 100%;
       background: #14121f;
       border-radius: 13px;

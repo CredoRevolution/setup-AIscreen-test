@@ -27,12 +27,22 @@ export default {
         }
         this.$el.classList.add('active')
       }
+
+      this.progressBar()
+    },
+    progressBar() {
+      let allScreens = document.querySelectorAll('.screen.active')
+      let progress = document.querySelector('.main-screen__progress .progress')
+      progress.style.width = `${(allScreens.length / 4) * 100}%`
     },
   },
 }
 </script>
 
 <style lang="scss" scoped>
+@function rem($px) {
+  @return ($px / 16px) + rem;
+}
 .screen {
   cursor: pointer;
   width: 30%;
@@ -41,13 +51,13 @@ export default {
   align-items: center;
   justify-content: center;
   width: 22%;
-  border-radius: 20px;
-  padding: 8px 8px 10px 8px;
+  border-radius: rem(20px);
+  padding: rem(8px) rem(8px) rem(10px) rem(8px);
   background-color: #fff;
   border: 2px solid transparent;
 
   img {
-    border-radius: 12px;
+    border-radius: rem(12px);
     width: 100%;
   }
 
@@ -59,10 +69,10 @@ export default {
     }
   }
   &__text {
-    font-size: 17px;
-    line-height: 21px;
+    font-size: rem(17px);
+    line-height: rem(21px);
     text-align: center;
-    margin-top: 8px;
+    margin-top: rem(8px);
     letter-spacing: 0.02em;
     font-weight: 700;
     color: #86868b;

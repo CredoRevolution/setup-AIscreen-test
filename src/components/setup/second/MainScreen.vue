@@ -162,15 +162,16 @@ export default {
       allFields.forEach((field) => {
         field.addEventListener('click', () => {
           field.classList.remove('warning')
+          field.parentNode.classList.remove('warning')
         })
       })
 
       requiredFields.forEach((field) => {
         if (!field.value) {
           this.validation = false
-          field.classList.add('warning') // Add a CSS class for styling
+          field.parentNode.classList.add('warning') // Add a CSS class for styling
         } else {
-          field.classList.remove('warning') // Remove the CSS class if field is filled
+          field.parentNode.classList.remove('warning') // Remove the CSS class if field is filled
         }
       })
     },

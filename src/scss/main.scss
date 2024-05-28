@@ -6,12 +6,20 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+}
+
+@function rem($value) {
+  @return $value / 16px + rem;
+}
+
 #app {
   background: url('../src/assets/main-bg.png');
   background-size: cover;
   height: 100vh;
   font-family: Satoshi-variable, sans-serif;
-  padding-top: 50px;
+  padding-top: rem(50px);
 }
 
 button {
@@ -24,15 +32,17 @@ button {
   }
 }
 
+// 397 144
+
 .hover-btn {
   font-weight: 700;
-  font-size: 24px;
-  line-height: 29px;
+  font-size: rem(24px);
+  line-height: rem(29px);
   letter-spacing: 0.02em;
   color: #fff;
-  padding: 17px 31px;
+  padding: rem(17px) rem(31px);
   background: #0071e2;
-  border-radius: 999px;
+  border-radius: rem(30px);
   text-decoration: none;
   transition: all 0.3s ease;
   box-sizing: content-box;
@@ -53,7 +63,7 @@ button {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border-radius: 30px;
+    border-radius: rem(30px);
     z-index: -1;
     transition: all 0.3s;
     box-sizing: content-box;
@@ -65,8 +75,8 @@ button {
   transition: all 0.3s ease;
   width: 100% !important;
   height: 100% !important;
-  padding: 3px;
-  border-radius: 1000px;
+  padding: rem(3px);
+  border-radius: rem(999px);
 }
 
 .main-screen {
@@ -74,81 +84,119 @@ button {
   max-width: 90%;
   height: 95%;
   background: #fff;
-  border-radius: 30px;
+  border-radius: rem(30px);
   margin: 0 auto;
-  padding: 13px 13px 14px 80px;
+  padding: rem(13px) rem(13px) rem(14px) rem(80px);
   &-wrapper {
     display: flex;
     flex-direction: row;
-    gap: 90px;
+    gap: rem(90px);
     height: 100%;
   }
   &__main {
     display: flex;
-    max-width: 426px;
+    max-width: rem(426px);
     flex-direction: column;
     width: 70%;
     .main-screen-main__logo {
       margin-bottom: 10%;
       max-width: 128px;
-      padding-top: 27px;
+      padding-top: rem(27px);
     }
     .main-screen-main__title {
-      line-height: 48px;
-      font-size: 40px;
-      margin-bottom: 17px;
+      line-height: rem(48px);
+      font-size: rem(40px);
+      margin-bottom: rem(17px);
     }
     .main-screen-main__text {
-      line-height: 21px;
-      font-size: 17px;
-      margin-bottom: 55px;
+      line-height: rem(21px);
+      font-size: rem(17px);
+      margin-bottom: rem(55px);
       font-weight: 700;
       color: #86868b;
     }
     .main-screen-main__form {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: rem(15px);
       .main-screen__form-text {
         font-family: Satoshi-variable, sans-serif;
-        margin-top: 14px;
+        margin-top: rem(14px);
         margin-bottom: -5px;
         font-weight: 700;
-        font-size: 17px;
-        line-height: 21px;
+        font-size: rem(17px);
+        line-height: rem(21px);
         color: #14121f;
       }
       .main-screen__form-switch {
         display: flex;
         flex-direction: row;
-        padding: 3px;
+        padding: rem(3px);
         border: 1px solid #86868b80;
-        border-radius: 999px;
-
+        border-radius: rem(999px);
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
         .main-screen__form-switch-btn {
-          padding: 12px 17px;
+          padding: rem(12px) rem(17px);
           background: #fff;
-          border-radius: 999px;
+          border-radius: rem(999px);
           font-weight: 500;
-          font-size: 17px;
-          line-height: 21px;
+          font-size: rem(17px);
+          line-height: rem(21px);
           color: #86868b;
           border: 1px solid transparent;
           transition: all 0.3s ease;
+          position: relative;
+          &:not(:last-child):after {
+            position: absolute;
+            top: 15%;
+            right: 0;
+            height: 70%;
+            content: '';
+            margin-left: rem(17px);
+            border-left: 1px solid #86868b80;
+          }
           &.passive {
             background: #f5f5f8;
+            &::after {
+              content: '';
+              margin-left: 0;
+              border: none;
+            }
           }
+
           &.active {
             transition: all 0.3s ease;
             border: 1px solid #141414;
             background: #141414;
-            border-radius: 999px;
+            border-radius: rem(999px);
             color: #fff;
+            &::after {
+              content: '';
+              margin-left: 0;
+              border: none;
+            }
+            border-left: 0;
           }
         }
       }
       .warning {
         border: 1px solid #d42b2b !important;
+        position: relative;
+        margin-bottom: 10px;
+        &::before {
+          content: url('@/assets/warning.svg') '    Please, correct the data';
+          font-size: rem(15px);
+          line-height: rem(18px);
+          font-weight: 500;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          bottom: -110%;
+          left: 0;
+          color: #d42b2b;
+        }
         &::placeholder {
           color: #d42b2b !important;
         }
@@ -156,37 +204,46 @@ button {
       .warning-text {
         display: none;
         color: #d42b2b;
-        font-size: 13px;
-        line-height: 16px;
-        margin-top: 5px;
+        font-size: rem(13px);
+        line-height: rem(16px);
+        margin-top: rem(5px);
       }
       &.state-active {
       }
       .main-screen__form-btn {
-        margin-top: 14px;
+        margin-top: rem(14px);
         width: 100%;
         text-align: center;
         display: unset;
-        padding: 17px 0;
+        padding: rem(17px) 0;
       }
       .main-screen__form-item {
         position: relative;
-
+        border: 1px solid transparent;
+        &.warning {
+          .main-screen__form-input {
+            color: #d42b2b;
+            &::placeholder {
+              color: #d42b2b;
+            }
+          }
+        }
+        border-radius: rem(13px);
         .main-screen__form-input {
           background: #fff;
-          border-radius: 13px;
-          padding: 15px;
+          border-radius: rem(13px);
+          padding: rem(15px);
           width: 100%;
           font-weight: 500;
-          font-size: 17px;
-          line-height: 21px;
+          font-size: rem(17px);
+          line-height: rem(21px);
           color: #86868b;
           border: 1px solid #86868b80;
           &::placeholder {
             color: #86868b;
             font-weight: 500;
-            font-size: 17px;
-            line-height: 21px;
+            font-size: rem(17px);
+            line-height: rem(21px);
           }
           &:focus {
             border: 1px solid #0071e2 !important;
@@ -202,7 +259,7 @@ button {
               top: 50%;
               left: 50%;
               transform: translate(-50%, -50%);
-              border-radius: 13px;
+              border-radius: rem(13px);
               z-index: 1;
               transition: all 0.3s;
               box-sizing: content-box;
@@ -240,7 +297,7 @@ button {
       }
       width: 100%;
       height: 100%;
-      border-radius: 17px;
+      border-radius: rem(17px);
     }
     img {
       position: absolute;
@@ -257,7 +314,7 @@ button {
         position: absolute;
         top: 0;
         left: 0;
-        border-radius: 17px;
+        border-radius: rem(17px);
       }
     }
   }

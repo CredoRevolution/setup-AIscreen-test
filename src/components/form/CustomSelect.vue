@@ -63,42 +63,45 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@function rem($px) {
+  @return ($px / 16px) + rem;
+}
 .custom-select {
   position: relative;
   width: 100%;
   text-align: left;
   outline: none;
-  line-height: 47px;
-  border-radius: 13px;
+  line-height: rem(47px);
+  border-radius: rem(13px);
   width: 100%;
   font-weight: 500;
-  font-size: 17px;
-  line-height: 21px;
+  font-size: rem(17px);
+  line-height: rem(21px);
   color: #86868b;
   border: 1px solid transparent;
   &::after {
     content: '';
-    width: 40px;
-    height: 40px;
+    width: rem(40px);
+    height: rem(40px);
     position: absolute;
-    top: 6px;
-    right: 6px;
+    top: rem(6px);
+    right: rem(6px);
     background: #86868b29;
-    border-radius: 10px;
+    border-radius: rem(10px);
     transition: all 0.3s ease;
   }
 }
 .main-screen__form-select {
   width: 100%;
   font-weight: 500;
-  font-size: 17px;
-  line-height: 21px;
+  font-size: rem(17px);
+  line-height: rem(21px);
   color: #86868b;
   &::placeholder {
     color: #86868b;
     font-weight: 500;
-    font-size: 17px;
-    line-height: 21px;
+    font-size: rem(17px);
+    line-height: rem(21px);
   }
 }
 
@@ -107,16 +110,22 @@ export default {
   color: #86868b;
   cursor: pointer;
   user-select: none;
-  border-radius: 13px;
-  padding: 15px;
+  border-radius: rem(13px);
+  padding: rem(15px);
   border: 1px solid #86868b80;
+}
+
+.custom-select.warning {
+  .selected {
+    color: #d42b2b;
+  }
 }
 
 .custom-select .selected.open {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   border: 1px solid #0071e2;
-  padding: 15px;
+  padding: rem(15px);
   box-shadow: 0px 0px 8px #0071e254;
   border-bottom: 1px solid #86868b80;
   &:after {
@@ -127,15 +136,15 @@ export default {
 .custom-select .selected:after {
   position: absolute;
   content: '';
-  top: 6px;
-  right: 6px;
-  width: 40px;
-  height: 40px;
+  top: rem(6px);
+  right: rem(6px);
+  width: rem(40px);
+  height: rem(40px);
   background: url('@/assets/arrow-down.svg');
   background-position: center;
   background-repeat: no-repeat;
   transition: all 0.3s ease;
-  border-radius: 10px;
+  border-radius: rem(10px);
 }
 
 .custom-select .items {
@@ -156,7 +165,7 @@ export default {
 
 .custom-select .items .item {
   color: #86868b;
-  padding: 15px;
+  padding: rem(15px);
   cursor: pointer;
   user-select: none;
   &.active {
