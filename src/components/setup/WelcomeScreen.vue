@@ -3,8 +3,8 @@
     <div class="main-screen-wrapper">
       <div class="main-screen__main">
         <img
-          v-if="require(`@/assets/logo.svg`)"
-          :src="require(`@/assets/logo.svg`)"
+          v-if="require(`@/assets/img/logo.svg`)"
+          :src="require(`@/assets/img/logo.svg`)"
           alt="aiscreen"
           class="main-screen-main__logo"
         />
@@ -23,13 +23,7 @@
           ]"
         >
           <div class="main-screen__form-item">
-            <input
-              type="text"
-              class="main-screen__form-input main-screen__form-item-warnings"
-              placeholder="Input text"
-              required
-            />
-            <div class="warning-text">123 test</div>
+            <CustomInput :placeholderText="'Input Text'" />
           </div>
           <div class="main-screen__form-item">
             <CustomSelect
@@ -68,15 +62,15 @@
       <div class="main-screen__img">
         <div class="backgorund">
           <img
-            v-if="industry && require(`@/assets/${industry}.png`)"
-            :src="require(`@/assets/${industry}.png`)"
+            v-if="industry && require(`@/assets/img/${industry}.png`)"
+            :src="require(`@/assets/img/${industry}.png`)"
             alt="img"
             class="backgorund__img"
           />
         </div>
         <img
-          v-if="industry && require(`@/assets/${industry}-small.png`)"
-          :src="require(`@/assets/${industry}-small.png`)"
+          v-if="industry && require(`@/assets/img/${industry}-small.png`)"
+          :src="require(`@/assets/img/${industry}-small.png`)"
           alt="img"
           class="main-screen-main__small-img"
         />
@@ -87,8 +81,9 @@
 
 <script>
 import CustomSelect from '@/components/form/CustomSelect.vue'
+import CustomInput from '@/components/form/CustomInput.vue'
 export default {
-  name: 'MainScreen',
+  name: 'WelcomeScreen',
   data() {
     return {
       selectedCountry: 'Country',
@@ -117,6 +112,7 @@ export default {
   },
   components: {
     CustomSelect,
+    CustomInput,
   },
   computed: {},
   methods: {

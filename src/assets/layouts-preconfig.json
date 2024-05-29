@@ -1,0 +1,242 @@
+[
+	{
+		"id": 1,
+		"name": "Main",
+		"zones": [
+			{
+				"id": 1,
+				"name": "Main",
+				"top": "0",
+				"left": "0",
+				"width": "100%",
+				"height": "100%",
+				"filling": "Fill zone",
+				"content": []
+			}
+		]
+	},
+	{
+		"id": 12,
+		"name": "Content + Weather Right + News",
+		"zones": [
+			{
+				"id": 1,
+				"name": "Main",
+				"top": "0",
+				"left": "0",
+				"width": "75%",
+				"height": "90%",
+				"filling": "Fill zone",
+				"content": []
+			},
+			{
+				"id": 2,
+				"name": "Right Bar",
+				"top": "0",
+				"left": "75%",
+				"width": "25%",
+				"height": "90%",
+				"filling": "Fill zone",
+				"content": [
+					{
+						"id": 252,
+						"alias": "weather_Weather",
+						"type": "application",
+						"name": "Demo Weather",
+						"duration": 10000
+					}
+				]
+			},
+			{
+				"id": 3,
+				"name": "Footer",
+				"top": "90%",
+				"left": "0",
+				"width": "100%",
+				"height": "10%",
+				"filling": "Fill zone",
+				"content": [
+					{
+						"id": 943,
+						"app_alias": "news_CNN News",
+						"type": "application",
+						"name": "Demo cnn",
+						"duration": 10000
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": 10,
+		"name": "Content + Weather Left + News",
+		"zones": [
+			{
+				"id": 1,
+				"name": "Main",
+				"top": "0",
+				"left": "25%",
+				"width": "75%",
+				"height": "90%",
+				"filling": "Fill zone",
+				"content": []
+			},
+			{
+				"id": 2,
+				"name": "Left Bar",
+				"top": "0",
+				"left": "0%",
+				"width": "25%",
+				"height": "90%",
+				"filling": "Fill zone",
+				"content": [
+					{
+						"id": 252,
+						"alias": "weather_Weather",
+						"type": "application",
+						"name": "Demo Weather",
+						"duration": 10000
+					}
+				]
+			},
+			{
+				"id": 3,
+				"name": "Footer",
+				"top": "90%",
+				"left": "0",
+				"width": "100%",
+				"height": "10%",
+				"filling": "Fill zone",
+				"content": [
+					{
+						"id": 943,
+						"app_alias": "news_CNN News",
+						"type": "application",
+						"name": "Demo cnn",
+						"duration": 10000
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": 9,
+		"name": "Content + Weather + News Top",
+		"zones": [
+			{
+				"id": 1,
+				"name": "Main",
+				"top": "10%",
+				"left": "0",
+				"width": "75%",
+				"height": "90%",
+				"filling": "Fill zone",
+				"content": []
+			},
+			{
+				"id": 2,
+				"name": "Right Bar",
+				"top": "10%",
+				"left": "75%",
+				"width": "25%",
+				"height": "90%",
+				"filling": "Fill zone",
+				"content": [
+					{
+						"id": 252,
+						"alias": "weather_Weather",
+						"type": "application",
+						"name": "Demo Weather",
+						"duration": 10000
+					}
+				]
+			},
+			{
+				"id": 3,
+				"name": "Footer",
+				"top": "0",
+				"left": "0",
+				"width": "100%",
+				"height": "10%",
+				"filling": "Fill zone",
+				"content": [
+					{
+						"id": 943,
+						"app_alias": "news_CNN News",
+						"type": "application",
+						"name": "Demo cnn",
+						"duration": 10000
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": 3,
+		"name": "Content + Weather 1",
+		"zones": [
+			{
+				"id": 1,
+				"name": "Main",
+				"top": "0",
+				"left": "0",
+				"width": "75%",
+				"height": "100%",
+				"filling": "Fill zone",
+				"content": []
+			},
+			{
+				"id": 2,
+				"name": "Right Bar",
+				"top": "0",
+				"left": "75%",
+				"width": "25%",
+				"height": "100%",
+				"filling": "Fill zone",
+				"content": [
+					{
+						"id": 252,
+						"alias": "weather_Weather",
+						"type": "application",
+						"name": "Demo Weather",
+						"duration": 10000
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": 4,
+		"name": "Content + Weather 2",
+		"zones": [
+			{
+				"id": 1,
+				"name": "Main",
+				"top": "0",
+				"left": "25%",
+				"width": "75%",
+				"height": "100%",
+				"filling": "Fill zone",
+				"content": []
+			},
+			{
+				"id": 2,
+				"name": "Left Bar",
+				"top": "0",
+				"left": "0%",
+				"width": "25%",
+				"height": "100%",
+				"filling": "Fill zone",
+				"content": [
+					{
+						"id": 252,
+						"alias": "weather_Weather",
+						"type": "application",
+						"name": "Demo Weather",
+						"duration": 10000
+					}
+				]
+			}
+		]
+	}
+]

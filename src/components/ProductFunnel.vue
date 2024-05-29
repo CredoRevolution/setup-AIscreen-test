@@ -1,0 +1,92 @@
+<template>
+  <div id="productFunnel">
+    <WelcomeScreen
+      v-if="currentScreen === 0"
+      @nextScreen="nextScreen"
+      @changeIndustry="changeIndustry"
+    />
+    <LastlyScreen
+      v-if="currentScreen === 1"
+      @nextScreen="nextScreen"
+      :industry="industry"
+    />
+    <TemplatesScreen
+      v-if="currentScreen === 2"
+      :industry="industry"
+      @nextScreen="nextScreen"
+    />
+    <ZonesScreen
+      v-if="currentScreen === 3"
+      :industry="industry"
+      @nextScreen="nextScreen"
+    />
+    <TeamScreen
+      v-if="currentScreen === 4"
+      :industry="industry"
+      @nextScreen="nextScreen"
+    />
+  </div>
+</template>
+
+<script>
+import TemplatesScreen from './setup/TemplatesScreen.vue'
+import WelcomeScreen from './setup/WelcomeScreen.vue'
+import LastlyScreen from './setup/LastlyScreen.vue'
+import ZonesScreen from './setup/ZonesScreen.vue'
+import TeamScreen from './setup/TeamScreen.vue'
+export default {
+  name: 'ProductFunnel',
+  components: {
+    ZonesScreen,
+    WelcomeScreen,
+    LastlyScreen,
+    TemplatesScreen,
+    TeamScreen,
+  },
+  data() {
+    return {
+      currentScreen: 0,
+      industry: '',
+    }
+  },
+  methods: {
+    nextScreen() {
+      this.currentScreen++
+      console.log(this.currentScreen)
+
+      this.progressBar()
+    },
+    prevScreen() {
+      this.currentScreen--
+      console.log(this.currentScreen)
+    },
+    changeIndustry(industry) {
+      this.industry = industry
+      console.log(this.industry)
+    },
+    progressBar() {
+      this.$nextTick(() => {
+        let progress = document.querySelector(
+          '.main-screen__progress .progress'
+        )
+        if (progress) {
+          if (this.currentScreen === 2) {
+            progress.style.width = '0'
+            setTimeout(() => {
+              progress.style.transition = 'width 0.5s ease'
+              progress.style.width = '15%'
+            }, 200)
+          }
+          if (this.currentScreen === 3) {
+            progress.style.width = '15%'
+            setTimeout(() => {
+              progress.style.transition = 'width 0.5s ease'
+              progress.style.width = '45%'
+            }, 200)
+          }
+        }
+      })
+    },
+  },
+}
+</script>

@@ -11,7 +11,7 @@
 }
 
 #app {
-  background: url('../src/assets/main-bg.png');
+  background: url('../src/assets/img/main-bg.png');
   background-size: cover;
   height: 100vh;
   font-family: Satoshi-variable, sans-serif;
@@ -28,8 +28,14 @@ button {
   }
 }
 
-// 397 144
-
+.blue-btn {
+  &:hover {
+    background: #3598fb;
+  }
+  &::before {
+    display: none;
+  }
+}
 .hover-btn {
   font-weight: 700;
   font-size: rem(24px);
@@ -76,9 +82,8 @@ button {
 }
 
 .main-screen {
-  max-height: 95%;
   max-width: 90%;
-  height: 95%;
+
   background: #fff;
   border-radius: rem(30px);
   margin: 0 auto;
@@ -96,7 +101,7 @@ button {
     width: 70%;
     .main-screen-main__logo {
       margin-bottom: 10%;
-      max-width: 128px;
+      max-width: rem(128px);
       padding-top: rem(27px);
     }
     .main-screen-main__title {
@@ -115,6 +120,7 @@ button {
       display: flex;
       flex-direction: column;
       gap: rem(15px);
+      padding-bottom: rem(170px);
       .main-screen__form-text {
         font-family: Satoshi-variable, sans-serif;
         margin-top: rem(14px);
@@ -182,7 +188,8 @@ button {
         position: relative;
         margin-bottom: 10px;
         &::before {
-          content: url('@/assets/warning.svg') '    Please, correct the data';
+          content: url('@/assets/img/warning.svg')
+            '    Please, correct the data';
           font-size: rem(15px);
           line-height: rem(18px);
           font-weight: 500;
@@ -205,6 +212,7 @@ button {
         margin-top: rem(5px);
       }
       &.state-active {
+        padding-bottom: rem(98px);
       }
       .main-screen__form-btn {
         margin-top: rem(14px);
@@ -225,53 +233,6 @@ button {
           }
         }
         border-radius: rem(13px);
-        .main-screen__form-input {
-          background: #fff;
-          border-radius: rem(13px);
-          padding: rem(15px);
-          width: 100%;
-          font-weight: 500;
-          font-size: rem(17px);
-          line-height: rem(21px);
-          color: #86868b;
-          border: 1px solid #86868b80;
-          &::placeholder {
-            color: #86868b;
-            font-weight: 500;
-            font-size: rem(17px);
-            line-height: rem(21px);
-          }
-          &:focus {
-            border: 1px solid #0071e2 !important;
-            color: #14121f;
-            outline: none;
-            box-shadow: 0px 0px 8px #0071e254; /* Добавьте нужный вам box-shadow стиль */
-            transition: all 0.3s ease;
-            &::after {
-              content: '';
-              width: 100%;
-              height: 100%;
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-              border-radius: rem(13px);
-              z-index: 1;
-              transition: all 0.3s;
-              box-sizing: content-box;
-              background: rgba(0, 113, 226, 0.25);
-              backdrop-filter: blur(5px);
-            }
-          }
-          &:active {
-            border: 1px solid #0071e2 !important;
-            color: #14121f;
-          }
-          &:focus-visible {
-            border: 1px solid #0071e2 !important;
-            outline: none;
-          }
-        }
       }
     }
   }
@@ -317,8 +278,6 @@ button {
 }
 
 .main-screen_screens.main-screen {
-  max-height: 95%;
-  height: 95%;
   max-width: 90%;
   background: #fff;
   border-radius: rem(43px);

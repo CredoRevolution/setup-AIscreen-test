@@ -140,7 +140,7 @@ export default {
   right: rem(6px);
   width: rem(40px);
   height: rem(40px);
-  background: url('@/assets/arrow-down.svg');
+  background: url('@/assets/img/arrow-down.svg');
   background-position: center;
   background-repeat: no-repeat;
   transition: all 0.3s ease;
@@ -168,13 +168,17 @@ export default {
   padding: rem(15px);
   cursor: pointer;
   user-select: none;
+  &:hover {
+    transition: all 0.3s ease;
+    background: rgba(0, 0, 0, 0.05);
+  }
   &.active {
     color: #14121f;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     &:after {
-      content: url(@/assets/check.svg);
+      content: url(@/assets/img/check.svg);
     }
   }
 }

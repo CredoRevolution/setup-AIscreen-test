@@ -3,7 +3,7 @@
     <div class="main-screen-wrapper">
       <div class="main-screen__main">
         <img
-          src="@/assets/logo.svg"
+          src="@/assets/img/logo.svg"
           alt="aiscreen"
           class="main-screen-main__logo"
         />
@@ -12,14 +12,9 @@
           Show your content on screen or in demo mode in 60 seconds. Get started
           quickly and easily.
         </p>
-        <form action="#" class="main-screen-main__form">
+        <form action="#" class="main-screen-main__form state-active">
           <div class="main-screen__form-item">
-            <input
-              type="text"
-              class="main-screen__form-input main-screen__form-item-warnings"
-              placeholder="Job Title"
-              required
-            />
+            <CustomInput :placeholderText="'Job Title'" />
           </div>
           <div class="main-screen__form-item">
             <CustomSelect
@@ -31,12 +26,7 @@
           </div>
 
           <div class="main-screen__form-item">
-            <input
-              type="text"
-              class="main-screen__form-input main-screen__form-item-warnings"
-              placeholder="Phone number"
-              required
-            />
+            <CustomInput :placeholderText="'Phone number'" />
           </div>
           <p class="main-screen__form-text">
             How many screens do you intend to connect?
@@ -79,7 +69,7 @@
             </button>
           </div>
           <button
-            class="main-screen__form-btn hover-btn"
+            class="main-screen__form-btn hover-btn blue-btn"
             @click.prevent="nextScreen"
           >
             Next step
@@ -89,12 +79,12 @@
       <div class="main-screen__img">
         <div class="backgorund">
           <img
-            :src="require(`@/assets/${industry}.png`)"
+            :src="require(`@/assets/img/${industry}.png`)"
             alt="img"
             class="backgorund__img"
           />
         </div>
-        <img :src="require(`@/assets/${industry}-small.png`)" alt="img" />
+        <img :src="require(`@/assets/img/${industry}-small.png`)" alt="img" />
       </div>
     </div>
   </div>
@@ -102,11 +92,13 @@
 
 <script>
 import CustomSelect from '@/components/form/CustomSelect.vue'
+import CustomInput from '@/components/form/CustomInput.vue'
 
 export default {
-  name: 'MainScreen',
+  name: 'LastlyScreen',
   components: {
     CustomSelect,
+    CustomInput,
   },
   data() {
     return {

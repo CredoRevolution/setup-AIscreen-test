@@ -1,6 +1,6 @@
 <template>
   <div class="main-screen main-screen_screens">
-    <img src="@/assets/logo.svg" alt="aiscreen" class="main-screen__logo" />
+    <img src="@/assets/img/logo.svg" alt="aiscreen" class="main-screen__logo" />
     <div class="main-screen__progress">
       <div class="progress"></div>
     </div>
@@ -10,44 +10,44 @@
       quickly and easily.
     </p>
     <ul class="main-screen__list">
-      <Screen
+      <Template
         text="Coffee 1"
-        :img-src="require(`@/assets/${industry}-last-1.png`)"
+        :img-src="require(`@/assets/img/${industry}-last-1.png`)"
         @getActiveData="getActiveData"
       />
-      <Screen
+      <Template
         text="Coffee 2"
-        :img-src="require(`@/assets/${industry}-last-2.png`)"
+        :img-src="require(`@/assets/img/${industry}-last-2.png`)"
         @getActiveData="getActiveData"
       />
-      <Screen
+      <Template
         text="Coffee 3"
-        :img-src="require(`@/assets/${industry}-last-3.png`)"
+        :img-src="require(`@/assets/img/${industry}-last-3.png`)"
         @getActiveData="getActiveData"
       />
-      <Screen
+      <Template
         text="Coffee 3"
-        :img-src="require(`@/assets/${industry}-last-4.png`)"
+        :img-src="require(`@/assets/img/${industry}-last-4.png`)"
         @getActiveData="getActiveData"
       />
-      <Screen
+      <Template
         text="Menu"
-        :img-src="require(`@/assets/${industry}-last-5.png`)"
+        :img-src="require(`@/assets/img/${industry}-last-5.png`)"
         @getActiveData="getActiveData"
       />
-      <Screen
+      <Template
         text="Menu"
-        :img-src="require(`@/assets/${industry}-last-6.png`)"
+        :img-src="require(`@/assets/img/${industry}-last-6.png`)"
         @getActiveData="getActiveData"
       />
-      <Screen
+      <Template
         text="Menu 2"
-        :img-src="require(`@/assets/${industry}-last-7.png`)"
+        :img-src="require(`@/assets/img/${industry}-last-7.png`)"
         @getActiveData="getActiveData"
       />
-      <Screen
+      <Template
         text="Menu 3"
-        :img-src="require(`@/assets/${industry}-last-8.png`)"
+        :img-src="require(`@/assets/img/${industry}-last-8.png`)"
         @getActiveData="getActiveData"
       />
     </ul>
@@ -58,12 +58,12 @@
 </template>
 
 <script>
-import Screen from '@/components/Screen.vue'
+import Template from '@/components/Template.vue'
 
 export default {
-  name: 'MainScreen',
+  name: 'DesignsScreen',
   components: {
-    Screen,
+    Template,
   },
   props: {
     industry: String,

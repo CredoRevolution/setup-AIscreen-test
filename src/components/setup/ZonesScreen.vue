@@ -1,6 +1,6 @@
 <template>
   <div class="main-screen main-screen_screens">
-    <img src="@/assets/logo.svg" alt="aiscreen" class="main-screen__logo" />
+    <img src="@/assets/img/logo.svg" alt="aiscreen" class="main-screen__logo" />
     <div class="main-screen__progress">
       <div class="progress"></div>
     </div>
@@ -10,15 +10,15 @@
       quickly and easily.
     </p>
     <ul class="main-screen__list main-screen__list_templates">
-      <Screen
+      <Template
         text="Main"
-        :img-src="require(`@/assets/Finance-template-1.png`)"
+        :img-src="require(`@/assets/img/Finance-template-1.png`)"
         @getActiveData="getActiveData"
       />
       <!-- ОБЯЗАТЕЛЬНО ЗАМЕНИТЬ НА ${INDUSTRY!!!!!!!!} -->
-      <Screen
+      <Template
         text="Content + Weather Right + News"
-        :img-src="require(`@/assets/Finance-template-2.png`)"
+        :img-src="require(`@/assets/img/Finance-template-2.png`)"
         @getActiveData="getActiveData"
       />
       <!-- ОБЯЗАТЕЛЬНО ЗАМЕНИТЬ НА ${INDUSTRY!!!!!!!!} -->
@@ -30,12 +30,13 @@
 </template>
 
 <script>
-import Screen from '@/components/Screen.vue'
+import Template from '@/components/Template.vue'
+import layouts from '@/assets/layouts-preconfig.json'
 
 export default {
-  name: 'MainScreen',
+  name: 'ZonesScreen',
   components: {
-    Screen,
+    Template,
   },
   props: {
     industry: String,
