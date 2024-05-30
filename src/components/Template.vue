@@ -17,26 +17,45 @@ export default {
   },
   methods: {
     addActive() {
-      let allScreens = document.querySelectorAll('.screen.active')
-      let parent = this.$el.closest('.main-screen__list_templates')
-      if (parent) {
-        let allScreens = parent.querySelectorAll('.screen')
-        allScreens.forEach((screen) => {
-          screen.classList.remove('active')
-        })
-        this.sendActiveData(this.$el)
-        this.$el.classList.add('active')
+      const allScreens = this.getAllScreens()
+      const isActive = this.isActive()
+      const isTemplatesList = this.isTemplatesList()
+
+      if (isTemplatesList) {
+        this.deactivateAllScreens()
+        this.activateCurrentScreen()
         return
       }
-      if (this.$el.classList.contains('active')) {
-        this.$el.classList.remove('active')
+      if (isActive) {
+        this.deactivateCurrentScreen()
       } else {
         if (allScreens.length === 4) {
           return
         }
-        this.sendActiveData(this.$el)
-        this.$el.classList.add('active')
+        this.activateCurrentScreen()
       }
+    },
+    deactivateAllScreens() {
+      const screens = this.getAllScreens()
+      screens.forEach((screen) => {
+        screen.classList.remove('active')
+      })
+    },
+    deactivateCurrentScreen() {
+      this.$el.classList.remove('active')
+    },
+    getAllScreens() {
+      return Array.from(document.querySelectorAll('.screen.active'))
+    },
+    isActive() {
+      return this.$el.classList.contains('active')
+    },
+    isTemplatesList() {
+      return this.$el.closest('.main-screen__list_templates') !== null
+    },
+    activateCurrentScreen() {
+      this.sendActiveData(this.$el)
+      this.$el.classList.add('active')
     },
     sendActiveData($el) {
       this.$emit('getActiveData', $el)

@@ -1,19 +1,62 @@
 <template>
-  <input
-    type="text"
-    :class="['main-screen__form-input', 'main-screen__form-item-warnings']"
-    :placeholder="placeholderText"
-    required
-  />
+  <div class="test">
+    <input
+      type="text"
+      :class="[
+        'main-screen__form-input',
+        'main-screen__form-item-warnings',
+        $v.name.$error ? 'error' : '',
+      ]"
+      :placeholder="placeholderText"
+      required
+      v-model.trim="$v.name.$model"
+      @input="this.checkValidation"
+    />
+    <div class="error" v-if="!$v.name.minLength">
+      Name must have at least {{ $v.name.$params.minLength.min }} letters.
+    </div>
+  </div>
 </template>
 
 <script>
+import { required, minLength } from 'vuelidate/lib/validators'
 export default {
   name: 'CustomInput',
   props: {
     placeholderText: {
       type: String,
       required: true,
+    },
+  },
+  data() {
+    return {
+      name: '',
+      isValid: false,
+    }
+  },
+  validations: {
+    name: {
+      required,
+      minLength: minLength(5),
+    },
+  },
+  mounted() {
+    this.$v.$reset()
+  },
+  methods: {
+    checkValidation() {
+      if (this.$v) {
+        this.$v.$touch()
+        if (!this.$v.$invalid) {
+          console.log('valid')
+          this.isValid = true
+          this.$emit('checkValidation', this.isValid)
+        } else {
+          this.isValid = false
+        }
+      } else {
+        console.error('this.$v is null or undefined')
+      }
     },
   },
 }
@@ -34,6 +77,9 @@ export default {
   line-height: rem(21px);
   color: #86868b;
   border: 1px solid #86868b80;
+  &.error {
+    border: 1px solid red;
+  }
   &::placeholder {
     color: #86868b;
     font-weight: 500;

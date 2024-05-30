@@ -32,6 +32,7 @@
             How many screens do you intend to connect?
           </p>
           <div class="main-screen__form-switch main-screen__form-item-warnings">
+            <div class="main-screen__form-switch-slider"></div>
             <button
               class="main-screen__form-switch-btn passive"
               type="button"
@@ -165,12 +166,92 @@ export default {
       }
     },
     makeActive(e) {
-      const buttons = this.$el.querySelectorAll('.main-screen__form-switch-btn')
-      buttons.forEach((button) => {
+      const slider = this.$el?.querySelector('.main-screen__form-switch-slider')
+      const buttons = this.$el?.querySelectorAll(
+        '.main-screen__form-switch-btn'
+      )
+      buttons?.forEach((button) => {
         button.classList.remove('active')
         button.classList.remove('passive')
       })
-      e.target.classList.add('active')
+      e.target?.classList.add('active')
+
+      const sliderContainer = slider?.parentElement
+      const activeButton = Array.from(buttons || []).find((button) =>
+        button.classList.contains('active')
+      )
+      const activeButtonIndex = Array.from(buttons || []).indexOf(activeButton)
+      const activeButtonOffsetTop = activeButton?.offsetTop ?? 0
+      const activeButtonOffsetLeft = activeButton?.offsetLeft ?? 0
+      const activeButtonHeight = activeButton?.offsetHeight ?? 0
+      const activeButtonWidth = activeButton?.offsetWidth ?? 0
+      const targetButtonIndex = Array.from(buttons || []).indexOf(e.target)
+      const targetButtonOffsetTop = e.target?.offsetTop ?? 0
+      const targetButtonOffsetLeft = e.target?.offsetLeft ?? 0
+      const targetButtonHeight = e.target?.offsetHeight ?? 0
+      const targetButtonWidth = e.target?.offsetWidth ?? 0
+
+      const isToRight = targetButtonIndex > activeButtonIndex
+
+      sliderContainer?.classList.remove('left')
+      sliderContainer?.classList.remove('right')
+      sliderContainer?.classList.add(isToRight ? 'right' : 'left')
+
+      const targetTop =
+        activeButtonOffsetTop +
+        (targetButtonOffsetTop - activeButtonOffsetTop) *
+          (targetButtonIndex - activeButtonIndex)
+      const targetLeft =
+        activeButtonOffsetLeft +
+        (targetButtonOffsetLeft - activeButtonOffsetLeft) *
+          (targetButtonIndex - activeButtonIndex)
+      const targetHeight = targetButtonHeight
+      const targetWidth = targetButtonWidth
+      if (
+        targetTop >= 0 &&
+        targetTop + targetHeight <= sliderContainer.offsetHeight &&
+        targetLeft >= 0 &&
+        targetLeft + targetWidth <= sliderContainer.offsetWidth
+      ) {
+        slider.style.top = `${
+          targetTop - (targetHeight - activeButtonHeight) / 2
+        }px`
+        slider.style.left = `${
+          targetLeft - (targetWidth - activeButtonWidth) / 2
+        }px`
+        slider.style.height = `${targetHeight}px`
+        slider.style.width = `${targetWidth}px`
+      } else if (targetTop < 0) {
+        slider.style.top = '0px'
+        slider.style.left = `${
+          activeButtonOffsetLeft +
+          (targetButtonOffsetLeft - activeButtonOffsetLeft) *
+            (targetButtonIndex - activeButtonIndex) -
+          (targetWidth - activeButtonWidth) / 2
+        }px`
+        slider.style.height = `${targetButtonHeight}px`
+        slider.style.width = `${targetWidth}px`
+      } else if (targetLeft < 0) {
+        slider.style.top = `${
+          activeButtonOffsetTop +
+          (targetButtonOffsetTop - activeButtonOffsetTop) *
+            (targetButtonIndex - activeButtonIndex) -
+          (targetHeight - activeButtonHeight) / 2
+        }px`
+        slider.style.left = '0px'
+        slider.style.height = `${targetButtonHeight}px`
+        slider.style.width = `${targetButtonWidth}px`
+      } else {
+        slider.style.top = `${sliderContainer.offsetHeight - targetHeight}px`
+        slider.style.left = `${
+          activeButtonOffsetLeft +
+          (targetButtonOffsetLeft - activeButtonOffsetLeft) *
+            (targetButtonIndex - activeButtonIndex) -
+          (targetWidth - activeButtonWidth) / 2
+        }px`
+        slider.style.height = `${targetButtonHeight}px`
+        slider.style.width = `${targetButtonWidth}px`
+      }
     },
   },
   props: {

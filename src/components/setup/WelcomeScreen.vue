@@ -23,32 +23,36 @@
           ]"
         >
           <div class="main-screen__form-item">
-            <CustomInput :placeholderText="'Input Text'" />
+            <CustomInput
+              :placeholderText="'Input Text'"
+              @checkValidation="checkValidation"
+            />
           </div>
           <div class="main-screen__form-item">
             <CustomSelect
               :options="industries"
               :default="'Industry'"
-              v-model="industry"
+              v-model.trim="industry"
               class="main-screen__form-select_industry main-screen__form-item-warnings"
               @getInfo="getInfo"
             />
           </div>
 
           <div class="main-screen__form-item">
-            <CustomSelect
-              :options="['USA', 'Russia', 'Australia']"
-              :default="'Country'"
+            <SearchSelect
+              :optionsCount="Countries"
+              @USAState="USAState"
+              required
+              class="main-screen__form-item-warnings"
               v-model="selectedCountry"
-              class="main-screen__form-select_country main-screen__form-item-warnings"
             />
           </div>
           <div class="main-screen__form-item" v-if="selectedCountry === 'USA'">
-            <CustomSelect
-              :options="['1', '2', '3']"
-              :default="'State'"
+            <SearchSelect
+              :optionsCount="States"
+              required
+              class="main-screen__form-item-warnings"
               v-model="state"
-              class="main-screen__form-select_state main-screen__form-item-warnings"
             />
           </div>
           <button
@@ -82,13 +86,18 @@
 <script>
 import CustomSelect from '@/components/form/CustomSelect.vue'
 import CustomInput from '@/components/form/CustomInput.vue'
+import SearchSelect from '@/components/form/SearchSelect.vue'
+import { required, minLength, between } from 'vuelidate/lib/validators'
+
 export default {
   name: 'WelcomeScreen',
   data() {
     return {
-      selectedCountry: 'Country',
-      industry: 'Industry',
-      state: 'State',
+      selectedCountry: '',
+      industry: '',
+      state: '',
+      name: '',
+      isValid: false,
       industries: [
         // 'Energy',
         // 'Events',
@@ -107,78 +116,38 @@ export default {
         // 'Telecommunication',
         // 'Other',
       ],
-      validation: false,
+      Countries: [
+        { name: 'USA' },
+        { name: 'Russia' },
+        { name: 'Australia' },
+        // 'Other',
+      ],
+      States: [
+        { name: 'texas' },
+        { name: 'ohio' },
+        { name: 'california' },
+        // 'Other',
+      ],
     }
   },
   components: {
     CustomSelect,
     CustomInput,
+    SearchSelect,
   },
   computed: {},
   methods: {
-    checkValidation() {
-      const form = this.$el.querySelector('form')
-      const requiredFields = form.querySelectorAll('[required]')
-      const allFields = form.querySelectorAll(
-        'form .main-screen__form-item-warnings'
-      )
-      this.validation = true
-
-      if (this.selectedCountry === 'Country') {
-        this.validation = false
-        form
-          .querySelector('.main-screen__form-select_country')
-          .classList.add('warning') // Add a CSS class for styling
+    checkValidation(isValid) {
+      if (isValid !== undefined) {
+        this.isValid = isValid
       } else {
-        form
-          .querySelector('.main-screen__form-select_country')
-          .classList.remove('warning')
+        console.error('isValid argument is undefined')
+        this.isValid = false
       }
-      if (this.industry === 'Industry') {
-        this.validation = false
-        form
-          .querySelector('.main-screen__form-select_industry')
-          .classList.add('warning') // Add a CSS class for styling
-      } else {
-        form
-          .querySelector('.main-screen__form-select_industry')
-          .classList.remove('warning')
-      }
-      if (this.selectedCountry === 'USA' && this.state === 'State') {
-        this.validation = false
-        form
-          .querySelector('.main-screen__form-select_state')
-          .classList.add('warning') // Add a CSS class for styling
-      } else if (this.selectedCountry === 'USA' && this.state !== 'State') {
-        form
-          .querySelector('.main-screen__form-select_state')
-          .classList.remove('warning')
-      }
-
-      allFields.forEach((field) => {
-        field.addEventListener('click', () => {
-          field.classList.remove('warning')
-          field.parentNode.classList.remove('warning')
-        })
-      })
-
-      requiredFields.forEach((field) => {
-        if (!field.value) {
-          this.validation = false
-          field.parentNode.classList.add('warning') // Add a CSS class for styling
-        } else {
-          field.parentNode.classList.remove('warning') // Remove the CSS class if field is filled
-        }
-      })
     },
     nextScreen() {
-      this.checkValidation()
-      if (this.validation) {
-        this.$emit('nextScreen')
-        console.log('nextScreen')
-      } else {
-        console.log('Please fill in all required fields')
-      }
+      console.log('nextScreen')
+      this.$emit('nextScreen')
     },
     changeIndustry() {
       const selectElement = this.$el.querySelector(
@@ -222,6 +191,9 @@ export default {
           this.changeIndustry()
         }
       }
+    },
+    USAState(value) {
+      this.selectedCountry = value
     },
   },
   mounted() {

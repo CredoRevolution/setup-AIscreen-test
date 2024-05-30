@@ -139,9 +139,17 @@ button {
         flex-wrap: wrap;
         align-items: center;
         justify-content: space-evenly;
+        position: relative;
+        &-slider {
+          position: absolute;
+          background: rgba(20, 20, 20, 1);
+          border: 1px solid rgba(20, 20, 20, 1);
+          border-radius: rem(999px);
+          transition: all 0.3s ease;
+        }
         .main-screen__form-switch-btn {
           padding: rem(12px) rem(17px);
-          background: #fff;
+          background: transparent;
           border-radius: rem(999px);
           font-weight: 500;
           font-size: rem(17px);
@@ -150,15 +158,15 @@ button {
           border: 1px solid transparent;
           transition: all 0.3s ease;
           position: relative;
-          &:not(:last-child):after {
-            position: absolute;
-            top: 15%;
-            right: 0;
-            height: 70%;
-            content: '';
-            margin-left: rem(17px);
-            border-left: 1px solid #86868b80;
-          }
+          //   &:not(:last-child):after {
+          //     position: absolute;
+          //     top: 15%;
+          //     right: 0;
+          //     height: 70%;
+          //     content: '';
+          //     margin-left: rem(17px);
+          //     border-left: 1px solid #86868b80;
+          //   }
           &.passive {
             background: #f5f5f8;
             &::after {
@@ -169,11 +177,11 @@ button {
           }
 
           &.active {
-            transition: all 0.3s ease;
-            border: 1px solid #141414;
-            background: #141414;
+            transition: all 0.5s ease;
             border-radius: rem(999px);
             color: #fff;
+            background: transparent;
+            border: 1px solid transparent;
             &::after {
               content: '';
               margin-left: 0;
@@ -262,7 +270,7 @@ button {
       left: 50%;
       transform: translate(-50%, -50%);
       width: 75%;
-      height: 50%;
+      height: auto;
       &::after {
         content: '';
         width: 110%;
@@ -348,4 +356,8 @@ button {
     margin-left: auto;
     width: max-content;
   }
+}
+
+.multiselect {
+  z-index: 10;
 }

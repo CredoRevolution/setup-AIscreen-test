@@ -1,5 +1,10 @@
 <template>
-  <div class="custom-select" :tabindex="tabindex" @blur="open = false">
+  <div
+    class="custom-select"
+    :tabindex="tabindex"
+    @blur="open = false"
+    :class="{ error: $v.selected.$error }"
+  >
     <div class="selected" :class="{ open: open }" @click="open = !open">
       {{ selected }}
     </div>
@@ -14,7 +19,11 @@
           returnInfo()
         "
       >
-        <div class="item" :class="{ active: selected == option }">
+        <div
+          class="item"
+          :class="{ active: selected == option }"
+          @click="setSelected(option)"
+        >
           {{ option }}
         </div>
       </div>
@@ -23,13 +32,29 @@
 </template>
 
 <script>
+import { required } from 'vuelidate/lib/validators'
+
+const mustBeSelected = (value) => value !== 'Industry'
 export default {
   name: 'CustomSelect',
   methods: {
     returnInfo() {
       this.$emit('getInfo', this.selected)
     },
+    setSelected(option) {
+      if (this.option === 'Industry') {
+        console.log('Industry')
+      }
+      this.selected = option
+      this.$v.selected.$touch()
+      if (!this.$v.selected.$invalid) {
+        console.log('valid')
+      } else {
+        console.log('invalid')
+      }
+    },
   },
+
   props: {
     options: {
       type: Array,
@@ -54,9 +79,18 @@ export default {
         ? this.options[0]
         : null,
       open: false,
+      selected: '',
     }
   },
+  validations: {
+    selected: {
+      required,
+      mustBeSelected,
+    },
+  },
   mounted() {
+    this.setSelected(this.default)
+    this.$v.$reset()
     this.$emit('getInfo', this.selected)
   },
 }
@@ -71,7 +105,6 @@ export default {
   width: 100%;
   text-align: left;
   outline: none;
-  line-height: rem(47px);
   border-radius: rem(13px);
   width: 100%;
   font-weight: 500;
@@ -79,6 +112,7 @@ export default {
   line-height: rem(21px);
   color: #86868b;
   border: 1px solid transparent;
+
   &::after {
     content: '';
     width: rem(40px);
@@ -90,7 +124,11 @@ export default {
     border-radius: rem(10px);
     transition: all 0.3s ease;
   }
+  &.error {
+    border: 1px solid red;
+  }
 }
+
 .main-screen__form-select {
   width: 100%;
   font-weight: 500;
@@ -145,6 +183,7 @@ export default {
   background-repeat: no-repeat;
   transition: all 0.3s ease;
   border-radius: rem(10px);
+  z-index: 3;
 }
 
 .custom-select .items {
