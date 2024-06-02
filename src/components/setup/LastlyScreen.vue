@@ -14,7 +14,11 @@
         </p>
         <form action="#" class="main-screen-main__form state-active">
           <div class="main-screen__form-item">
-            <CustomInput :placeholderText="'Job Title'" />
+            <CustomInput
+              :placeholderText="'Job Title'"
+              ref="validation1"
+              :defaultErrorText="'Please Fill In This Field'"
+            />
           </div>
           <div class="main-screen__form-item">
             <CustomSelect
@@ -22,53 +26,22 @@
               :default="'Job function'"
               v-model="job"
               class="main-screen__form-select_job main-screen__form-item-warnings"
+              ref="validation2"
+              :defaultErrorText="'Select Job function'"
             />
           </div>
 
           <div class="main-screen__form-item">
-            <CustomInput :placeholderText="'Phone number'" />
+            <CustomInput
+              :placeholderText="'Phone number'"
+              ref="validation3"
+              :defaultErrorText="'Please Fill In This Field'"
+            />
           </div>
           <p class="main-screen__form-text">
             How many screens do you intend to connect?
           </p>
-          <div class="main-screen__form-switch main-screen__form-item-warnings">
-            <div class="main-screen__form-switch-slider"></div>
-            <button
-              class="main-screen__form-switch-btn passive"
-              type="button"
-              @click.prevent="makeActive"
-            >
-              1-10
-            </button>
-            <button
-              class="main-screen__form-switch-btn"
-              type="button"
-              @click.prevent="makeActive"
-            >
-              11-50
-            </button>
-            <button
-              class="main-screen__form-switch-btn"
-              type="button"
-              @click.prevent="makeActive"
-            >
-              51-199
-            </button>
-            <button
-              class="main-screen__form-switch-btn"
-              type="button"
-              @click.prevent="makeActive"
-            >
-              200-499
-            </button>
-            <button
-              class="main-screen__form-switch-btn"
-              type="button"
-              @click.prevent="makeActive"
-            >
-              500+
-            </button>
-          </div>
+          <CustomTabs ref="validation4" :defaultErrorText="'Select Amount'" />
           <button
             class="main-screen__form-btn hover-btn blue-btn"
             @click.prevent="nextScreen"
@@ -94,164 +67,46 @@
 <script>
 import CustomSelect from '@/components/form/CustomSelect.vue'
 import CustomInput from '@/components/form/CustomInput.vue'
-
+import CustomTabs from '@/components/form/CustomTabs.vue'
 export default {
   name: 'LastlyScreen',
   components: {
     CustomSelect,
     CustomInput,
+    CustomTabs,
   },
   data() {
     return {
       job: 'Job function',
-      validation: false,
+      validationCount: 0,
     }
   },
   methods: {
-    // checkValidation() {
-    //   const form = this.$el.querySelector('form')
-    //   const requiredFields = form.querySelectorAll('[required]')
-    //   const allFields = form.querySelectorAll(
-    //     'form .main-screen__form-item-warnings'
-    //   )
-    //   const switchBtn = this.$el.querySelectorAll(
-    //     '.main-screen__form-switch-btn'
-    //   )
-    //   const switchBtnWrapper = this.$el.querySelector(
-    //     '.main-screen__form-switch'
-    //   )
-
-    //   this.validation = true
-
-    //   switchBtn.forEach((btn) => {
-    //     if (btn.classList.contains('passive')) {
-    //       this.validation = false
-    //       switchBtnWrapper.classList.add('warning')
-    //     }
-    //   })
-    //   if (this.job === 'Job function') {
-    //     this.validation = false
-    //     form
-    //       .querySelector('.main-screen__form-select_job')
-    //       .classList.add('warning') // Add a CSS class for styling
-    //   } else {
-    //     form
-    //       .querySelector('.main-screen__form-select_job')
-    //       .classList.remove('warning')
-    //   }
-
-    //   allFields.forEach((field) => {
-    //     field.addEventListener('click', () => {
-    //       field.classList.remove('warning')
-    //       field.parentNode.classList.remove('warning')
-    //     })
-    //   })
-
-    //   requiredFields.forEach((field) => {
-    //     if (!field.value) {
-    //       this.validation = false
-    //       field.parentNode.classList.add('warning') // Add a CSS class for styling
-    //     } else {
-    //       field.parentNode.classList.remove('warning') // Remove the CSS class if field is filled
-    //     }
-    //   })
-    // },
-    nextScreen() {
-      // this.checkValidation()
-      if (true) {
-        this.$emit('nextScreen')
-        console.log('nextScreen')
-      } else {
-        console.log('Please fill in all required fields')
+    checkAllValidations() {
+      this.validationCount = 0
+      const validations = [
+        this.$refs.validation1,
+        this.$refs.validation2,
+        this.$refs.validation3,
+        this.$refs.validation4,
+      ]
+      validations.forEach((item) => {
+        if (item) {
+          item.checkValidation()
+        } else {
+          return
+        }
+        if (item.checkValidation()) {
+          this.validationCount++
+        }
+      })
+      console.log(this.validationCount, 'validations of', validations.length)
+      if (this.validationCount === validations.length) {
+        return true
       }
     },
-    makeActive(e) {
-      const slider = this.$el?.querySelector('.main-screen__form-switch-slider')
-      const buttons = this.$el?.querySelectorAll(
-        '.main-screen__form-switch-btn'
-      )
-      buttons?.forEach((button) => {
-        button.classList.remove('active')
-        button.classList.remove('passive')
-      })
-      e.target?.classList.add('active')
-
-      const sliderContainer = slider?.parentElement
-      const activeButton = Array.from(buttons || []).find((button) =>
-        button.classList.contains('active')
-      )
-      const activeButtonIndex = Array.from(buttons || []).indexOf(activeButton)
-      const activeButtonOffsetTop = activeButton?.offsetTop ?? 0
-      const activeButtonOffsetLeft = activeButton?.offsetLeft ?? 0
-      const activeButtonHeight = activeButton?.offsetHeight ?? 0
-      const activeButtonWidth = activeButton?.offsetWidth ?? 0
-      const targetButtonIndex = Array.from(buttons || []).indexOf(e.target)
-      const targetButtonOffsetTop = e.target?.offsetTop ?? 0
-      const targetButtonOffsetLeft = e.target?.offsetLeft ?? 0
-      const targetButtonHeight = e.target?.offsetHeight ?? 0
-      const targetButtonWidth = e.target?.offsetWidth ?? 0
-
-      const isToRight = targetButtonIndex > activeButtonIndex
-
-      sliderContainer?.classList.remove('left')
-      sliderContainer?.classList.remove('right')
-      sliderContainer?.classList.add(isToRight ? 'right' : 'left')
-
-      const targetTop =
-        activeButtonOffsetTop +
-        (targetButtonOffsetTop - activeButtonOffsetTop) *
-          (targetButtonIndex - activeButtonIndex)
-      const targetLeft =
-        activeButtonOffsetLeft +
-        (targetButtonOffsetLeft - activeButtonOffsetLeft) *
-          (targetButtonIndex - activeButtonIndex)
-      const targetHeight = targetButtonHeight
-      const targetWidth = targetButtonWidth
-      if (
-        targetTop >= 0 &&
-        targetTop + targetHeight <= sliderContainer.offsetHeight &&
-        targetLeft >= 0 &&
-        targetLeft + targetWidth <= sliderContainer.offsetWidth
-      ) {
-        slider.style.top = `${
-          targetTop - (targetHeight - activeButtonHeight) / 2
-        }px`
-        slider.style.left = `${
-          targetLeft - (targetWidth - activeButtonWidth) / 2
-        }px`
-        slider.style.height = `${targetHeight}px`
-        slider.style.width = `${targetWidth}px`
-      } else if (targetTop < 0) {
-        slider.style.top = '0px'
-        slider.style.left = `${
-          activeButtonOffsetLeft +
-          (targetButtonOffsetLeft - activeButtonOffsetLeft) *
-            (targetButtonIndex - activeButtonIndex) -
-          (targetWidth - activeButtonWidth) / 2
-        }px`
-        slider.style.height = `${targetButtonHeight}px`
-        slider.style.width = `${targetWidth}px`
-      } else if (targetLeft < 0) {
-        slider.style.top = `${
-          activeButtonOffsetTop +
-          (targetButtonOffsetTop - activeButtonOffsetTop) *
-            (targetButtonIndex - activeButtonIndex) -
-          (targetHeight - activeButtonHeight) / 2
-        }px`
-        slider.style.left = '0px'
-        slider.style.height = `${targetButtonHeight}px`
-        slider.style.width = `${targetButtonWidth}px`
-      } else {
-        slider.style.top = `${sliderContainer.offsetHeight - targetHeight}px`
-        slider.style.left = `${
-          activeButtonOffsetLeft +
-          (targetButtonOffsetLeft - activeButtonOffsetLeft) *
-            (targetButtonIndex - activeButtonIndex) -
-          (targetWidth - activeButtonWidth) / 2
-        }px`
-        slider.style.height = `${targetButtonHeight}px`
-        slider.style.width = `${targetButtonWidth}px`
-      }
+    nextScreen() {
+      if (this.checkAllValidations()) this.$emit('nextScreen')
     },
   },
   props: {

@@ -23,7 +23,18 @@
           ]"
         >
           <div class="main-screen__form-item">
-            <CustomInput :placeholderText="'Input Text'" ref="validation" />
+            <CustomInput
+              :placeholderText="'Input Text'"
+              ref="validation1"
+              :defaultErrorText="'Please Fill In This Field'"
+            />
+          </div>
+          <div class="main-screen__form-item">
+            <CustomInput
+              :placeholderText="'Input Text2'"
+              ref="validation2"
+              :defaultErrorText="'Please Fill In This Field'"
+            />
           </div>
           <div class="main-screen__form-item">
             <CustomSelect
@@ -32,6 +43,8 @@
               v-model.trim="industry"
               class="main-screen__form-select_industry main-screen__form-item-warnings"
               @getInfo="getInfo"
+              ref="validation3"
+              :defaultErrorText="'Select Industry'"
             />
           </div>
 
@@ -42,6 +55,9 @@
               required
               class="main-screen__form-item-warnings"
               v-model="selectedCountry"
+              ref="validation4"
+              :default="'Select Country'"
+              :defaultErrorText="'Select Country'"
             />
           </div>
           <div
@@ -53,10 +69,13 @@
               required
               class="main-screen__form-item-warnings"
               v-model="state"
+              ref="validation5"
+              :default="'Select State'"
+              :defaultErrorText="'Select State'"
             />
           </div>
           <button
-            class="main-screen__form-btn hover-btn"
+            class="main-screen__form-btn hover-btn blue-btn"
             @click.prevent="nextScreen"
           >
             Next step
@@ -87,7 +106,6 @@
 import CustomSelect from '@/components/form/CustomSelect.vue'
 import CustomInput from '@/components/form/CustomInput.vue'
 import SearchSelect from '@/components/form/SearchSelect.vue'
-import { required, minLength, between } from 'vuelidate/lib/validators'
 import axios from 'axios'
 
 export default {
@@ -98,9 +116,10 @@ export default {
       industry: '',
       state: '',
       name: '',
-      industries: ['Finance', 'Digital Menu Boards'],
+      industries: ['Finance', 'Digital Menu Boards', 'Retail'],
       Countries: [],
       States: [],
+      validationCount: 0,
     }
   },
   components: {
@@ -110,23 +129,37 @@ export default {
   },
   computed: {},
   methods: {
-    nextScreen() {
-      console.log(this.$refs)
-      if (this.$refs['validation'] && this.$refs['validation'].length) {
-        this.$refs['validation'].filter((el) => {
-          el.checkValidation()
-          if (!el.checkValidation()) {
-            console.log('checkValidationFalse')
-          } else {
-            console.log('checkValidationTrue')
-          }
-        })
-      } else {
-        this.$refs['validation'].checkValidation()
-        console.log('123')
+    checkAllValidations() {
+      this.validationCount = 0
+      const validations = [
+        this.$refs.validation1,
+        this.$refs.validation2,
+        this.$refs.validation3,
+        this.$refs.validation4,
+        this.$refs.validation5,
+      ]
+      validations.forEach((item) => {
+        if (item) {
+          item.checkValidation()
+        } else {
+          return
+        }
+        if (item.checkValidation()) {
+          this.validationCount++
+        }
+      })
+      console.log(this.validationCount, 'validations of', validations.length)
+      if (this.selectedCountry !== 'United States') {
+        if (this.validationCount === validations.length - 1) {
+          return true
+        }
       }
-      console.log('nextScreen')
-      this.$emit('nextScreen')
+      if (this.validationCount === validations.length) {
+        return true
+      }
+    },
+    nextScreen() {
+      if (this.checkAllValidations()) this.$emit('nextScreen')
     },
     changeIndustry() {
       const selectElement = this.$el.querySelector(
@@ -173,7 +206,6 @@ export default {
           this.Countries = Object.keys(response.data).map((key) => ({
             name: key,
           }))
-          console.log('Countries', this.Countries)
         })
     },
     getUSStates() {
@@ -183,7 +215,6 @@ export default {
         )
         .then((response) => {
           this.States = response.data
-          console.log('States', this.States)
           this.States = Object.keys(response.data).map((key) => ({
             name: key,
           }))

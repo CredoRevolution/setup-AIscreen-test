@@ -11,16 +11,14 @@
     </p>
     <ul class="main-screen__list main-screen__list_templates">
       <Template
-        text="Main"
-        :img-src="require(`@/assets/img/Finance-template-1.png`)"
+        v-for="(template, index) in templates"
+        :key="index"
+        :text="template.name"
+        :img-src="require(`@/assets/img/Finance-template-${index + 1}.png`)"
         @getActiveData="getActiveData"
+        ref="template"
       />
       <!-- ОБЯЗАТЕЛЬНО ЗАМЕНИТЬ НА ${INDUSTRY!!!!!!!!} -->
-      <Template
-        text="Content + Weather Right + News"
-        :img-src="require(`@/assets/img/Finance-template-2.png`)"
-        @getActiveData="getActiveData"
-      />
       <!-- ОБЯЗАТЕЛЬНО ЗАМЕНИТЬ НА ${INDUSTRY!!!!!!!!} -->
     </ul>
     <a href="#" class="main-screen__btn hover-btn" @click="nextScreen"
@@ -31,6 +29,7 @@
 
 <script>
 import Template from '@/components/Template.vue'
+import layoutsData from '@/assets/layouts-preconfig.json'
 
 export default {
   name: 'ZonesScreen',
@@ -39,35 +38,48 @@ export default {
   },
   props: {
     industry: String,
+    templatesData: Array,
   },
   data() {
     return {
-      validation: false,
+      templates: [{ name: 'Main' }, { name: 'Content + Weather Right + News' }],
+      layoutsData,
     }
   },
 
   methods: {
+    pushTemplatesData(i) {
+      this.layoutsData[i].zones[0].content.push(this.templatesData)
+      console.log(this.layoutsData)
+    },
     nextScreen() {
-      this.checkValidation()
-      if (this.validation) {
+      if (this.checkValidation()) {
         this.$emit('nextScreen')
-      } else {
-        window.alert('Please fill in all required fields')
       }
     },
     getActiveData(el) {
       console.log(el)
     },
     checkValidation() {
-      const allScreens = document.querySelectorAll('.screen')
-      this.validation = false
-      allScreens.forEach((screen) => {
-        if (screen.classList.contains('active')) {
-          this.validation = true
-          return
+      let activeScreens = 0
+      for (let i = 0; i < this.$refs.template.length; i++) {
+        if (this.$refs.template[i].isActive()) {
+          activeScreens++
+          this.pushTemplatesData(i)
+          break
+        } else {
+          activeScreens = 0
         }
-      })
+      }
+      if (activeScreens >= 1) {
+        return true
+      }
+      window.alert('Please select 1 zone')
+      return false
     },
+  },
+  mounted() {
+    console.log(this.layoutsData)
   },
 }
 </script>

@@ -14,11 +14,13 @@
       v-if="currentScreen === 2"
       :industry="industry"
       @nextScreen="nextScreen"
+      @getTemplatesData="getTemplatesData"
     />
     <ZonesScreen
       v-if="currentScreen === 3"
       :industry="industry"
       @nextScreen="nextScreen"
+      :templatesData="templatesData"
     />
     <TeamScreen
       v-if="currentScreen === 4"
@@ -48,6 +50,7 @@ export default {
     return {
       currentScreen: 0,
       industry: '',
+      templatesData: [],
     }
   },
   methods: {
@@ -63,6 +66,10 @@ export default {
     },
     closeScreen() {
       this.currentScreen = 999
+    },
+    getTemplatesData(templatesData) {
+      this.templatesData = templatesData
+      console.log(this.templatesData)
     },
     changeIndustry(industry) {
       this.industry = industry

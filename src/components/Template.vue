@@ -1,5 +1,5 @@
 <template>
-  <div class="screen" @click="addActive">
+  <div class="screen" @click="toggleActive" ref="screen">
     <img alt="img" class="sreen__img" :src="imgSrc" />
     <p class="screen__text">{{ text }}</p>
   </div>
@@ -16,7 +16,7 @@ export default {
     return {}
   },
   methods: {
-    addActive() {
+    toggleActive() {
       const allScreens = this.getAllScreens()
       const isActive = this.isActive()
       const isTemplatesList = this.isTemplatesList()
@@ -48,7 +48,10 @@ export default {
       return Array.from(document.querySelectorAll('.screen.active'))
     },
     isActive() {
-      return this.$el.classList.contains('active')
+      if (this.$el.classList.contains('active')) {
+        return true
+      }
+      return false
     },
     isTemplatesList() {
       return this.$el.closest('.main-screen__list_templates') !== null

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div @click="resetValidation">
     <multiselect
       v-model="value"
       :options="optionsCount"
@@ -10,13 +10,19 @@
       label="name"
       track-by="name"
       @select="checkState"
+      :class="{ error: $v.value.$error }"
     ></multiselect>
-    <!-- <pre class="language-json"><code>{{ value }}</code></pre> -->
+    <p v-if="showError && !$v.value.mustBeSelected" class="error-message">
+      {{ defaultErrorText }}
+    </p>
   </div>
 </template>
 
 <script>
 import Multiselect from 'vue-multiselect'
+import { required } from 'vuelidate/lib/validators'
+
+const mustBeSelected = (value, vm) => value.name !== vm.default
 
 export default {
   name: 'SearchSelect',
@@ -25,14 +31,43 @@ export default {
   },
   data() {
     return {
-      value: { name: 'Select one' },
+      value: { name: this.default },
+      showError: false,
     }
   },
   props: {
     optionsCount: {},
+    default: {
+      type: String,
+      required: true,
+    },
+    defaultErrorText: {
+      type: String,
+      required: false,
+    },
+  },
+  validations: {
+    value: {
+      required,
+      mustBeSelected,
+    },
   },
 
   methods: {
+    checkValidation() {
+      if (this.$v) {
+        this.$v.$touch()
+        if (!this.$v.$invalid) {
+          return true
+        }
+        this.showError = true
+        return false
+      }
+    },
+    resetValidation() {
+      this.showError = false
+      this.$v.$reset()
+    },
     nameWithLang({ name }) {
       return `${name}`
     },
@@ -41,10 +76,13 @@ export default {
     },
     checkState() {
       if (this.value.name) {
-        console.log(this.value.name)
         this.$emit('USAState', this.value.name)
       }
     },
+  },
+
+  mounted() {
+    this.resetValidation()
   },
 }
 </script>
@@ -67,6 +105,11 @@ export default {
   border: 1px solid transparent;
   z-index: auto !important;
   box-sizing: border-box;
+  &.error {
+    .multiselect__tags {
+      border: 1px solid red;
+    }
+  }
 
   &::after {
     content: '';

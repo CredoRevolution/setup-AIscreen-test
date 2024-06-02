@@ -1,59 +1,47 @@
 <template>
-  <div
-    class="custom-select"
-    :tabindex="tabindex"
-    @blur="open = false"
-    :class="{ error: $v.selected.$error }"
-  >
-    <div class="selected" :class="{ open: open }" @click="open = !open">
-      {{ selected }}
-    </div>
-    <div class="items" :class="{ selectHide: !open }">
-      <div
-        v-for="(option, i) of options"
-        :key="i"
-        @click="
-          selected = option
-          open = false
-          $emit('input', option)
-          returnInfo()
-        "
-      >
+  <div class="custom-select-wrapper" @click="resetValidation">
+    <div
+      class="custom-select"
+      :tabindex="tabindex"
+      @blur="open = false"
+      :class="{ error: $v.selected.$error }"
+    >
+      <div class="selected" :class="{ open: open }" @click="open = !open">
+        {{ selected }}
+      </div>
+      <div class="items" :class="{ selectHide: !open }">
         <div
-          class="item"
-          :class="{ active: selected == option }"
-          @click="setSelected(option)"
+          v-for="(option, i) of options"
+          :key="i"
+          @click="
+            selected = option
+            open = false
+            $emit('input', option)
+            returnInfo()
+          "
         >
-          {{ option }}
+          <div
+            class="item"
+            :class="{ active: selected == option }"
+            @click="setSelected(option)"
+          >
+            {{ option }}
+          </div>
         </div>
       </div>
     </div>
+    <p v-if="showError && !$v.selected.mustBeSelected" class="error-message">
+      {{ defaultErrorText }}
+    </p>
   </div>
 </template>
 
 <script>
 import { required } from 'vuelidate/lib/validators'
 
-const mustBeSelected = (value) => value !== 'Industry'
+const mustBeSelected = (value, vm) => value !== vm.default
 export default {
   name: 'CustomSelect',
-  methods: {
-    returnInfo() {
-      this.$emit('getInfo', this.selected)
-    },
-    setSelected(option) {
-      if (this.option === 'Industry') {
-        console.log('Industry')
-      }
-      this.selected = option
-      this.$v.selected.$touch()
-      if (!this.$v.selected.$invalid) {
-        console.log('valid')
-      } else {
-        console.log('invalid')
-      }
-    },
-  },
 
   props: {
     options: {
@@ -64,6 +52,10 @@ export default {
       type: String,
       required: false,
       default: null,
+    },
+    defaultErrorText: {
+      type: String,
+      required: false,
     },
     tabindex: {
       type: Number,
@@ -80,6 +72,7 @@ export default {
         : null,
       open: false,
       selected: '',
+      showError: false,
     }
   },
   validations: {
@@ -88,9 +81,33 @@ export default {
       mustBeSelected,
     },
   },
+  methods: {
+    returnInfo() {
+      this.$emit('getInfo', this.selected)
+    },
+    setSelected(option) {
+      if (this.option === 'Industry') {
+      }
+      this.selected = option
+    },
+    checkValidation() {
+      if (this.$v) {
+        this.$v.$touch()
+        if (!this.$v.$invalid) {
+          return true
+        }
+        this.showError = true
+        return false
+      }
+    },
+    resetValidation() {
+      this.$v.$reset()
+      this.showError = false
+    },
+  },
   mounted() {
     this.setSelected(this.default)
-    this.$v.$reset()
+    this.resetValidation()
     this.$emit('getInfo', this.selected)
   },
 }
@@ -125,7 +142,9 @@ export default {
     transition: all 0.3s ease;
   }
   &.error {
-    border: 1px solid red;
+    .selected {
+      border: 1px solid red;
+    }
   }
 }
 

@@ -11,43 +11,10 @@
     </p>
     <ul class="main-screen__list">
       <Template
-        text="Coffee 1"
-        :img-src="require(`@/assets/img/${industry}-last-1.png`)"
-        @getActiveData="getActiveData"
-      />
-      <Template
-        text="Coffee 2"
-        :img-src="require(`@/assets/img/${industry}-last-2.png`)"
-        @getActiveData="getActiveData"
-      />
-      <Template
-        text="Coffee 3"
-        :img-src="require(`@/assets/img/${industry}-last-3.png`)"
-        @getActiveData="getActiveData"
-      />
-      <Template
-        text="Coffee 3"
-        :img-src="require(`@/assets/img/${industry}-last-4.png`)"
-        @getActiveData="getActiveData"
-      />
-      <Template
-        text="Menu"
-        :img-src="require(`@/assets/img/${industry}-last-5.png`)"
-        @getActiveData="getActiveData"
-      />
-      <Template
-        text="Menu"
-        :img-src="require(`@/assets/img/${industry}-last-6.png`)"
-        @getActiveData="getActiveData"
-      />
-      <Template
-        text="Menu 2"
-        :img-src="require(`@/assets/img/${industry}-last-7.png`)"
-        @getActiveData="getActiveData"
-      />
-      <Template
-        text="Menu 3"
-        :img-src="require(`@/assets/img/${industry}-last-8.png`)"
+        v-for="(template, index) in templates"
+        :key="index"
+        :text="template.name"
+        :img-src="require(`@/assets/img/${industry}-last-${index + 1}.png`)"
         @getActiveData="getActiveData"
       />
     </ul>
@@ -59,31 +26,29 @@
 
 <script>
 import Template from '@/components/Template.vue'
-import layoutsData from '@/assets/layouts-preconfig.json'
-const layouts = layoutsData?.map((layout) => layout) || []
-console.log(layouts)
-import axios from 'axios'
 
 export default {
   name: 'DesignsScreen',
   components: {
     Template,
   },
-  data() {
-    return {
-      layouts,
-    }
-  },
   props: {
     industry: String,
   },
-
   data() {
     return {
-      validation: false,
+      templates: [
+        { name: 'Coffee 1' },
+        { name: 'Coffee 2' },
+        { name: 'Coffee 3' },
+        { name: 'Coffee 3' },
+        { name: 'Menu' },
+        { name: 'Menu' },
+        { name: 'Menu 2' },
+        { name: 'Menu 3' },
+      ],
     }
   },
-
   methods: {
     nextScreen() {
       this.checkValidation()
@@ -113,10 +78,12 @@ export default {
         activeScreensNames.push(screenName)
       })
 
-      layouts[0].zones[0].content.push(...activeScreensNames)
-      layouts[1].zones[0].content.push(...activeScreensNames)
+      this.$emit('getTemplatesData', activeScreensNames)
 
-      console.log(layouts)
+      // layouts[0].zones[0].content.push(...activeScreensNames)
+      // layouts[1].zones[0].content.push(...activeScreensNames)
+
+      // console.log(layouts)
     },
     getActiveData(el) {
       console.log(el)

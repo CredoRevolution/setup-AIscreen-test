@@ -10,10 +10,13 @@
       :placeholder="placeholderText"
       required
       v-model.trim="$v.name.$model"
-      @input="checkValidation"
+      @click="resetValidation"
     />
-    <div class="error" v-if="!$v.name.minLength">
+    <div class="error-message" v-if="showError && !$v.name.minLength">
       Name must have at least {{ $v.name.$params.minLength.min }} letters.
+    </div>
+    <div class="error-message" v-if="showError && !$v.name.required">
+      {{ defaultErrorText }}
     </div>
   </div>
 </template>
@@ -27,11 +30,16 @@ export default {
       type: String,
       required: true,
     },
+    defaultErrorText: {
+      type: String,
+      required: false,
+    },
   },
   data() {
     return {
       name: '',
       isValid: false,
+      showError: false,
     }
   },
   validations: {
@@ -41,23 +49,26 @@ export default {
     },
   },
   mounted() {
-    this.$v.$reset()
+    this.resetValidation()
   },
+
   methods: {
     checkValidation() {
       if (this.$v) {
         this.$v.$touch()
         if (!this.$v.$invalid) {
-          console.log('valid')
           this.isValid = true
-          this.$emit('checkValidation', this.isValid)
         } else {
           this.isValid = false
+          this.showError = true
         }
-      } else {
-        console.error('this.$v is null or undefined')
       }
       return this.isValid
+    },
+    resetValidation() {
+      this.$v.$reset()
+      this.isValid = false
+      this.showError = false
     },
   },
 }
