@@ -1,5 +1,5 @@
 <template>
-  <div id="productFunnel">
+  <div id="productFunnel" class="product-funnel">
     <WelcomeScreen
       v-if="currentScreen === 0"
       @nextScreen="nextScreen"
@@ -24,6 +24,7 @@
       v-if="currentScreen === 4"
       :industry="industry"
       @nextScreen="nextScreen"
+      @closeScreen="closeScreen"
     />
   </div>
 </template>
@@ -59,6 +60,9 @@ export default {
     prevScreen() {
       this.currentScreen--
       console.log(this.currentScreen)
+    },
+    closeScreen() {
+      this.currentScreen = 999
     },
     changeIndustry(industry) {
       this.industry = industry

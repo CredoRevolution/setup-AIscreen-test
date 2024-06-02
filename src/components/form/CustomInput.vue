@@ -10,7 +10,7 @@
       :placeholder="placeholderText"
       required
       v-model.trim="$v.name.$model"
-      @input="this.checkValidation"
+      @input="checkValidation"
     />
     <div class="error" v-if="!$v.name.minLength">
       Name must have at least {{ $v.name.$params.minLength.min }} letters.
@@ -57,6 +57,7 @@ export default {
       } else {
         console.error('this.$v is null or undefined')
       }
+      return this.isValid
     },
   },
 }

@@ -31,7 +31,6 @@
 
 <script>
 import Template from '@/components/Template.vue'
-import layouts from '@/assets/layouts-preconfig.json'
 
 export default {
   name: 'ZonesScreen',

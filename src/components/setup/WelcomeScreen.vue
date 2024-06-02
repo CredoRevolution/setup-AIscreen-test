@@ -23,10 +23,7 @@
           ]"
         >
           <div class="main-screen__form-item">
-            <CustomInput
-              :placeholderText="'Input Text'"
-              @checkValidation="checkValidation"
-            />
+            <CustomInput :placeholderText="'Input Text'" ref="validation" />
           </div>
           <div class="main-screen__form-item">
             <CustomSelect
@@ -47,7 +44,10 @@
               v-model="selectedCountry"
             />
           </div>
-          <div class="main-screen__form-item" v-if="selectedCountry === 'USA'">
+          <div
+            class="main-screen__form-item"
+            v-if="selectedCountry === 'United States'"
+          >
             <SearchSelect
               :optionsCount="States"
               required
@@ -88,6 +88,7 @@ import CustomSelect from '@/components/form/CustomSelect.vue'
 import CustomInput from '@/components/form/CustomInput.vue'
 import SearchSelect from '@/components/form/SearchSelect.vue'
 import { required, minLength, between } from 'vuelidate/lib/validators'
+import axios from 'axios'
 
 export default {
   name: 'WelcomeScreen',
@@ -97,37 +98,9 @@ export default {
       industry: '',
       state: '',
       name: '',
-      isValid: false,
-      industries: [
-        // 'Energy',
-        // 'Events',
-        // 'Education',
-        'Finance',
-        // 'Fitness',
-        // 'Healthcare',
-        // 'Hospitality/Food Beverage',
-        // 'Manufacturing',
-        // 'Media & Advertising',
-        // 'Places Of Worship',
-        // 'Real Estate',
-        'Retail',
-        'Digital Menu Boards',
-        // 'Software & Services',
-        // 'Telecommunication',
-        // 'Other',
-      ],
-      Countries: [
-        { name: 'USA' },
-        { name: 'Russia' },
-        { name: 'Australia' },
-        // 'Other',
-      ],
-      States: [
-        { name: 'texas' },
-        { name: 'ohio' },
-        { name: 'california' },
-        // 'Other',
-      ],
+      industries: ['Finance', 'Digital Menu Boards'],
+      Countries: [],
+      States: [],
     }
   },
   components: {
@@ -137,15 +110,21 @@ export default {
   },
   computed: {},
   methods: {
-    checkValidation(isValid) {
-      if (isValid !== undefined) {
-        this.isValid = isValid
-      } else {
-        console.error('isValid argument is undefined')
-        this.isValid = false
-      }
-    },
     nextScreen() {
+      console.log(this.$refs)
+      if (this.$refs['validation'] && this.$refs['validation'].length) {
+        this.$refs['validation'].filter((el) => {
+          el.checkValidation()
+          if (!el.checkValidation()) {
+            console.log('checkValidationFalse')
+          } else {
+            console.log('checkValidationTrue')
+          }
+        })
+      } else {
+        this.$refs['validation'].checkValidation()
+        console.log('123')
+      }
       console.log('nextScreen')
       this.$emit('nextScreen')
     },
@@ -184,6 +163,32 @@ export default {
         }
       }
     },
+    getCountries() {
+      axios
+        .get(
+          `https://raw.githubusercontent.com/David-Haim/CountriesToCitiesJSON/master/countriesToCities.json`
+        )
+        .then((response) => {
+          this.Countries = response.data
+          this.Countries = Object.keys(response.data).map((key) => ({
+            name: key,
+          }))
+          console.log('Countries', this.Countries)
+        })
+    },
+    getUSStates() {
+      axios
+        .get(
+          `https://raw.githubusercontent.com/aruljohn/us-states/master/states.json`
+        )
+        .then((response) => {
+          this.States = response.data
+          console.log('States', this.States)
+          this.States = Object.keys(response.data).map((key) => ({
+            name: key,
+          }))
+        })
+    },
     getInfo(industry) {
       this.industry = industry
       for (let i = 0; i < this.industries.length; i++) {
@@ -197,6 +202,8 @@ export default {
     },
   },
   mounted() {
+    this.getCountries()
+    this.getUSStates()
     this.changeIndustry()
   },
 }

@@ -127,6 +127,7 @@ export default {
     box-shadow: 0px 0px 8px #0071e254;
     border: 1px solid #0071e2;
     border-top: 0;
+    overflow-x: hidden;
     .multiselect__option {
       padding: rem(15px);
       font-size: rem(17px);

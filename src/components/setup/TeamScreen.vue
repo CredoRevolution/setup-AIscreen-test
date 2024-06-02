@@ -1,10 +1,15 @@
 <template>
   <div class="main-screen main-screen_screens main-screen_team">
-    <img src="@/assets/img/logo.svg" alt="aiscreen" class="main-screen__logo" />
-    <div class="main-screen__progress">
-      <div class="progress"></div>
+    <div class="main-screen__exit">
+      <img
+        src="@/assets/img/exit.svg"
+        alt="exit"
+        class="main-screen__exit-img"
+        @click="closeScreen"
+      />
     </div>
-    <h2 class="main-screen__title">Smooth Setup in 60 seconds…</h2>
+    <img src="@/assets/img/logo.svg" alt="aiscreen" class="main-screen__logo" />
+    <h2 class="main-screen__title main-screen__title_team">Invite your team</h2>
     <p class="main-screen__text">
       Show your content on screen or in demo mode in 60 seconds. Get started
       quickly and easily.
@@ -85,6 +90,9 @@ export default {
     },
     nextScreen() {
       this.$emit('nextScreen')
+    },
+    closeScreen() {
+      this.$emit('closeScreen')
     },
   },
 }

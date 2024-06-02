@@ -59,11 +59,20 @@
 
 <script>
 import Template from '@/components/Template.vue'
+import layoutsData from '@/assets/layouts-preconfig.json'
+const layouts = layoutsData?.map((layout) => layout) || []
+console.log(layouts)
+import axios from 'axios'
 
 export default {
   name: 'DesignsScreen',
   components: {
     Template,
+  },
+  data() {
+    return {
+      layouts,
+    }
   },
   props: {
     industry: String,
@@ -78,6 +87,7 @@ export default {
   methods: {
     nextScreen() {
       this.checkValidation()
+      this.getTemplatesData()
       if (this.validation) {
         this.$emit('nextScreen')
       } else {
@@ -94,7 +104,20 @@ export default {
         }
       })
     },
+    getTemplatesData() {
+      const activeScreens = document.querySelectorAll('.screen.active')
+      const activeScreensNames = []
 
+      activeScreens.forEach((screen) => {
+        const screenName = screen.querySelector('.screen__text').textContent
+        activeScreensNames.push(screenName)
+      })
+
+      layouts[0].zones[0].content.push(...activeScreensNames)
+      layouts[1].zones[0].content.push(...activeScreensNames)
+
+      console.log(layouts)
+    },
     getActiveData(el) {
       console.log(el)
     },

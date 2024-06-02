@@ -108,57 +108,57 @@ export default {
     }
   },
   methods: {
-    checkValidation() {
-      const form = this.$el.querySelector('form')
-      const requiredFields = form.querySelectorAll('[required]')
-      const allFields = form.querySelectorAll(
-        'form .main-screen__form-item-warnings'
-      )
-      const switchBtn = this.$el.querySelectorAll(
-        '.main-screen__form-switch-btn'
-      )
-      const switchBtnWrapper = this.$el.querySelector(
-        '.main-screen__form-switch'
-      )
+    // checkValidation() {
+    //   const form = this.$el.querySelector('form')
+    //   const requiredFields = form.querySelectorAll('[required]')
+    //   const allFields = form.querySelectorAll(
+    //     'form .main-screen__form-item-warnings'
+    //   )
+    //   const switchBtn = this.$el.querySelectorAll(
+    //     '.main-screen__form-switch-btn'
+    //   )
+    //   const switchBtnWrapper = this.$el.querySelector(
+    //     '.main-screen__form-switch'
+    //   )
 
-      this.validation = true
+    //   this.validation = true
 
-      switchBtn.forEach((btn) => {
-        if (btn.classList.contains('passive')) {
-          this.validation = false
-          switchBtnWrapper.classList.add('warning')
-        }
-      })
-      if (this.job === 'Job function') {
-        this.validation = false
-        form
-          .querySelector('.main-screen__form-select_job')
-          .classList.add('warning') // Add a CSS class for styling
-      } else {
-        form
-          .querySelector('.main-screen__form-select_job')
-          .classList.remove('warning')
-      }
+    //   switchBtn.forEach((btn) => {
+    //     if (btn.classList.contains('passive')) {
+    //       this.validation = false
+    //       switchBtnWrapper.classList.add('warning')
+    //     }
+    //   })
+    //   if (this.job === 'Job function') {
+    //     this.validation = false
+    //     form
+    //       .querySelector('.main-screen__form-select_job')
+    //       .classList.add('warning') // Add a CSS class for styling
+    //   } else {
+    //     form
+    //       .querySelector('.main-screen__form-select_job')
+    //       .classList.remove('warning')
+    //   }
 
-      allFields.forEach((field) => {
-        field.addEventListener('click', () => {
-          field.classList.remove('warning')
-          field.parentNode.classList.remove('warning')
-        })
-      })
+    //   allFields.forEach((field) => {
+    //     field.addEventListener('click', () => {
+    //       field.classList.remove('warning')
+    //       field.parentNode.classList.remove('warning')
+    //     })
+    //   })
 
-      requiredFields.forEach((field) => {
-        if (!field.value) {
-          this.validation = false
-          field.parentNode.classList.add('warning') // Add a CSS class for styling
-        } else {
-          field.parentNode.classList.remove('warning') // Remove the CSS class if field is filled
-        }
-      })
-    },
+    //   requiredFields.forEach((field) => {
+    //     if (!field.value) {
+    //       this.validation = false
+    //       field.parentNode.classList.add('warning') // Add a CSS class for styling
+    //     } else {
+    //       field.parentNode.classList.remove('warning') // Remove the CSS class if field is filled
+    //     }
+    //   })
+    // },
     nextScreen() {
-      this.checkValidation()
-      if (this.validation) {
+      // this.checkValidation()
+      if (true) {
         this.$emit('nextScreen')
         console.log('nextScreen')
       } else {
