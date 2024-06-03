@@ -5,10 +5,7 @@
       <div class="progress"></div>
     </div>
     <h2 class="main-screen__title">Smooth Setup in 60 seconds…</h2>
-    <p class="main-screen__text">
-      Show your content on screen or in demo mode in 60 seconds. Get started
-      quickly and easily.
-    </p>
+    <p class="main-screen__text">Select 4 templates to see the magic!</p>
     <ul class="main-screen__list">
       <Template
         v-for="(template, index) in templates"

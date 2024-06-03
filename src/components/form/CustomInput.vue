@@ -129,4 +129,9 @@ export default {
     outline: none;
   }
 }
+@media (max-height: 900px) {
+  .main-screen__form-input {
+    padding: rem(12px);
+  }
+}
 </style>

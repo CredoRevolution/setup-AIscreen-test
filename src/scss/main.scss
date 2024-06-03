@@ -283,6 +283,7 @@ button {
   background: #fff;
   border-radius: rem(43px);
   margin: 0 auto;
+  height: auto;
   padding: rem(34px) rem(40px);
   .main-screen__progress {
     width: 95%;
@@ -331,9 +332,7 @@ button {
     row-gap: rem(17px);
     margin-bottom: rem(31px);
     &_templates {
-      .screen {
-        width: 50%;
-      }
+      margin-bottom: rem(31px);
     }
   }
   .main-screen__btn {
@@ -356,4 +355,28 @@ button {
 
 .multiselect {
   z-index: 10;
+}
+
+@media (max-height: 900px) {
+  .main-screen {
+    .main-screen__main {
+      .main-screen-main__form {
+        gap: rem(10px);
+      }
+      .main-screen-main__text {
+        margin-bottom: rem(40px);
+      }
+    }
+  }
+}
+
+@media (max-width: 1300px) {
+  .main-screen {
+    .main-screen-wrapper {
+      gap: rem(45px);
+      .main-screen__main {
+        width: 100%;
+      }
+    }
+  }
 }

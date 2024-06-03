@@ -4,23 +4,36 @@
     <div class="main-screen__progress">
       <div class="progress"></div>
     </div>
-    <h2 class="main-screen__title">Smooth Setup in 60 seconds…</h2>
+    <h2 class="main-screen__title">
+      Would you like to spit the screen into zones?
+    </h2>
     <p class="main-screen__text">
       Show your content on screen or in demo mode in 60 seconds. Get started
       quickly and easily.
     </p>
-    <ul class="main-screen__list main-screen__list_templates">
-      <Template
-        v-for="(template, index) in templates"
-        :key="index"
-        :text="template.name"
-        :img-src="require(`@/assets/img/Finance-template-${index + 1}.png`)"
-        @getActiveData="getActiveData"
-        ref="template"
-      />
+    <swiper
+      :modules="modules"
+      :loop="true"
+      :slides-per-view="2"
+      :space-between="50"
+      @swiper="onSwiper"
+      @slideChange="onSlideChange"
+      class="swiper-container main-screen__list_templates"
+    >
+      <SwiperSlide v-for="(template, index) in templates" :key="index">
+        <Template
+          :text="template.name"
+          :img-src="require(`@/assets/img/Finance-template-${index + 1}.png`)"
+          @getActiveData="getActiveData"
+          ref="template"
+          class="swiper-slide"
+        />
+      </SwiperSlide>
+
       <!-- ОБЯЗАТЕЛЬНО ЗАМЕНИТЬ НА ${INDUSTRY!!!!!!!!} -->
-      <!-- ОБЯЗАТЕЛЬНО ЗАМЕНИТЬ НА ${INDUSTRY!!!!!!!!} -->
-    </ul>
+      <swiperNavigation />
+    </swiper>
+
     <a href="#" class="main-screen__btn hover-btn" @click="nextScreen"
       >Finish</a
     >
@@ -30,11 +43,22 @@
 <script>
 import Template from '@/components/Template.vue'
 import layoutsData from '@/assets/layouts-preconfig.json'
+import swiperNavigation from '@/components/swiperNavigation.vue'
+// Import Swiper Vue.js components
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Navigation } from 'swiper/modules'
+
+// Import Swiper styles
+import 'swiper/scss'
+import 'swiper/scss/navigation'
 
 export default {
   name: 'ZonesScreen',
   components: {
     Template,
+    Swiper,
+    SwiperSlide,
+    swiperNavigation,
   },
   props: {
     industry: String,
@@ -42,7 +66,12 @@ export default {
   },
   data() {
     return {
-      templates: [{ name: 'Main' }, { name: 'Content + Weather Right + News' }],
+      templates: [
+        { name: 'Main' },
+        { name: 'Content + Weather Right + News' },
+        { name: 'Main' },
+        { name: 'Content + Weather Right + News' },
+      ],
       layoutsData,
     }
   },
@@ -78,8 +107,40 @@ export default {
       return false
     },
   },
+  setup() {
+    const onSwiper = (swiper) => {
+      console.log(swiper)
+    }
+
+    const onSlideChange = () => {
+      console.log('slide change')
+    }
+    return {
+      onSwiper,
+      onSlideChange,
+      modules: [Navigation],
+    }
+  },
   mounted() {
     console.log(this.layoutsData)
   },
 }
 </script>
+
+<style lang="scss" scoped>
+@function rem($px) {
+  @return ($px / 16px) + rem;
+}
+
+.swiper {
+  padding: 0 rem(30px);
+  width: 104%;
+  margin-left: -2%;
+}
+
+.swiper-slide {
+  .screen {
+    width: 100%;
+  }
+}
+</style>

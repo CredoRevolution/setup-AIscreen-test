@@ -112,6 +112,7 @@ export default {
   }
   .team-screen__select {
     max-width: rem(240px);
+    width: 100%;
   }
   &-date {
     font-weight: 700;

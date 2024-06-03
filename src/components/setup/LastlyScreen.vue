@@ -7,10 +7,9 @@
           alt="aiscreen"
           class="main-screen-main__logo"
         />
-        <h2 class="main-screen-main__title">And lastly...</h2>
+        <h2 class="main-screen-main__title">To sum it all up...</h2>
         <p class="main-screen-main__text">
-          Show your content on screen or in demo mode in 60 seconds. Get started
-          quickly and easily.
+          Digital Signage has never been that easy.
         </p>
         <form action="#" class="main-screen-main__form state-active">
           <div class="main-screen__form-item">

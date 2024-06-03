@@ -248,4 +248,24 @@ export default {
 .selectHide {
   display: none;
 }
+
+@media (max-height: 900px) {
+  .custom-select {
+    .selected {
+      padding: rem(12px);
+      &.open {
+        padding: rem(12px);
+      }
+      &::after {
+        width: rem(38px);
+        height: rem(38px);
+      }
+    }
+    &::after {
+      top: rem(4px);
+      width: rem(38px);
+      height: rem(38px);
+    }
+  }
+}
 </style>

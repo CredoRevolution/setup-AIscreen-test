@@ -244,4 +244,23 @@ export default {
     }
   }
 }
+
+@media (max-height: 900px) {
+  .multiselect {
+    .multiselect__tags {
+      padding: rem(12px);
+    }
+    .multiselect__select {
+      &::before {
+        width: rem(38px);
+        height: rem(38px);
+      }
+    }
+    &::after {
+      top: rem(4px);
+      width: rem(38px);
+      height: rem(38px);
+    }
+  }
+}
 </style>
