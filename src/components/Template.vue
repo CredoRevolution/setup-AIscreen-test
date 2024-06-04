@@ -1,6 +1,6 @@
 <template>
   <div class="screen" @click="toggleActive" ref="screen">
-    <img alt="img" class="sreen__img" :src="imgSrc" />
+    <img v-if="imageLoaded" alt="img" class="sreen__img" :src="imgSrc" />
     <p class="screen__text">{{ text }}</p>
   </div>
 </template>
@@ -13,7 +13,9 @@ export default {
     imgSrc: String,
   },
   data() {
-    return {}
+    return {
+      imageLoaded: false,
+    }
   },
   methods: {
     toggleActive() {
@@ -63,6 +65,13 @@ export default {
     sendActiveData($el) {
       this.$emit('getActiveData', $el)
     },
+  },
+  mounted() {
+    const img = new Image()
+    img.src = this.imgSrc
+    img.onload = () => {
+      this.imageLoaded = true
+    }
   },
 }
 </script>
