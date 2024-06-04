@@ -33,8 +33,18 @@
       <!-- ОБЯЗАТЕЛЬНО ЗАМЕНИТЬ НА ${INDUSTRY!!!!!!!!} -->
       <swiperNavigation />
     </swiper>
-
-    <a href="#" class="main-screen__btn hover-btn" @click="nextScreen"
+    <p v-if="showError && activeScreens < 1" class="error-message">
+      Please select 1 zone
+    </p>
+    <a
+      href="#"
+      class="main-screen__btn hover-btn"
+      @click="nextScreen"
+      ref="nextBtn"
+      :class="{
+        error: showError || activeScreens > 4,
+        grey: activeScreens < 1,
+      }"
       >Finish</a
     >
   </div>
@@ -73,6 +83,9 @@ export default {
         { name: 'Content + Weather Right + News' },
       ],
       layoutsData,
+      activeScreens: 0,
+      validation: false,
+      showError: false,
     }
   },
 
@@ -87,6 +100,19 @@ export default {
       }
     },
     getActiveData(el) {
+      this.showError = false
+      let activeScreens = 0
+      for (let i = 0; i < this.$refs.template.length; i++) {
+        if (this.$refs.template[i].isActive()) {
+          activeScreens++
+        }
+      }
+      if (activeScreens < 1) {
+        this.$refs.nextBtn.classList.add('grey')
+        this.showError = true
+      } else {
+        this.$refs.nextBtn.classList.remove('grey')
+      }
       console.log(el)
     },
     checkValidation() {
@@ -103,7 +129,7 @@ export default {
       if (activeScreens >= 1) {
         return true
       }
-      window.alert('Please select 1 zone')
+      this.showError = true
       return false
     },
   },

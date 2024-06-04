@@ -71,6 +71,13 @@ button {
     box-sizing: content-box;
     border: 2px solid #0071e2;
   }
+  &.grey {
+    background: #f5f5f8;
+    color: #14121f;
+    &::before {
+      border: 2px solid #f5f5f8;
+    }
+  }
 }
 
 .hover-btn:hover::before {
@@ -353,6 +360,14 @@ button {
     display: flex;
     margin-left: auto;
     width: max-content;
+    &.grey {
+      background: rgba(245, 245, 248, 1);
+      color: rgba(134, 134, 139, 1);
+      cursor: not-allowed;
+      &::before {
+        border: 2px solid rgba(245, 245, 248, 1);
+      }
+    }
   }
 }
 

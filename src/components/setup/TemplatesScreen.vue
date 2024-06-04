@@ -13,9 +13,21 @@
         :text="template.name"
         :img-src="require(`@/assets/img/${industry}-last-${index + 1}.png`)"
         @getActiveData="getActiveData"
+        ref="screen"
       />
     </ul>
-    <a href="#" class="main-screen__btn hover-btn" @click="nextScreen"
+    <p v-if="showError && !(activeScreens === 4)" class="error-message">
+      Please select 4 templates
+    </p>
+    <a
+      href="#"
+      class="main-screen__btn hover-btn"
+      @click="nextScreen"
+      ref="nextBtn"
+      :class="{
+        error: showError || activeScreens > 4,
+        grey: activeScreens < 4 || activeScreens > 4,
+      }"
       >Finish</a
     >
   </div>
@@ -44,27 +56,28 @@ export default {
         { name: 'Menu 2' },
         { name: 'Menu 3' },
       ],
+      activeScreens: 0,
+      validation: false,
+      showError: false,
     }
   },
   methods: {
     nextScreen() {
       this.checkValidation()
-      this.getTemplatesData()
       if (this.validation) {
+        this.getTemplatesData()
         this.$emit('nextScreen')
       } else {
-        window.alert('Please fill in all required fields')
+        this.showError = true
       }
     },
     checkValidation() {
-      const allScreens = document.querySelectorAll('.screen')
       this.validation = false
-      allScreens.forEach((screen) => {
-        if (screen.classList.contains('active')) {
-          this.validation = true
-          return
-        }
-      })
+      if (this.activeScreens === 4) {
+        this.validation = true
+        return true
+      }
+      return false
     },
     getTemplatesData() {
       const activeScreens = document.querySelectorAll('.screen.active')
@@ -76,14 +89,24 @@ export default {
       })
 
       this.$emit('getTemplatesData', activeScreensNames)
-
-      // layouts[0].zones[0].content.push(...activeScreensNames)
-      // layouts[1].zones[0].content.push(...activeScreensNames)
-
-      // console.log(layouts)
     },
     getActiveData(el) {
-      console.log(el)
+      let activeScreens = 0
+      for (let i = 0; i < this.$refs.screen.length; i++) {
+        if (this.$refs.screen[i].isActive()) {
+          activeScreens++
+        }
+      }
+      const isActiveScreensIncreased = activeScreens > this.activeScreens
+      this.activeScreens = activeScreens
+      if (this.activeScreens <= 4) {
+        this.$emit('moveProgressBar', isActiveScreensIncreased)
+      }
+      if (this.activeScreens > 4 || this.activeScreens < 4) {
+        this.$refs.nextBtn.classList.add('grey')
+      } else {
+        this.$refs.nextBtn.classList.remove('grey')
+      }
     },
   },
 }

@@ -31,9 +31,6 @@ export default {
       if (isActive) {
         this.deactivateCurrentScreen()
       } else {
-        if (allScreens.length === 4) {
-          return
-        }
         this.activateCurrentScreen()
       }
     },
@@ -45,6 +42,7 @@ export default {
     },
     deactivateCurrentScreen() {
       this.$el.classList.remove('active')
+      this.sendActiveData(this.$el)
     },
     getAllScreens() {
       return Array.from(document.querySelectorAll('.screen.active'))
@@ -59,8 +57,8 @@ export default {
       return this.$el.closest('.main-screen__list_templates') !== null
     },
     activateCurrentScreen() {
-      this.sendActiveData(this.$el)
       this.$el.classList.add('active')
+      this.sendActiveData(this.$el)
     },
     sendActiveData($el) {
       this.$emit('getActiveData', $el)

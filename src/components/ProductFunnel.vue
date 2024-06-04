@@ -15,6 +15,7 @@
       :industry="industry"
       @nextScreen="nextScreen"
       @getTemplatesData="getTemplatesData"
+      @moveProgressBar="moveProgressBar"
     />
     <ZonesScreen
       v-if="currentScreen === 3"
@@ -51,6 +52,7 @@ export default {
       currentScreen: 0,
       industry: '',
       templatesData: [],
+      progressBarPercent: 0,
     }
   },
   methods: {
@@ -84,16 +86,33 @@ export default {
           if (this.currentScreen === 2) {
             progress.style.width = '0'
             setTimeout(() => {
-              progress.style.transition = 'width 0.5s ease'
+              progress.style.transition = 'width 1.5s ease'
               progress.style.width = '15%'
             }, 200)
           }
           if (this.currentScreen === 3) {
-            progress.style.width = '15%'
+            progress.style.width = this.progressBarPercent + '%'
             setTimeout(() => {
-              progress.style.transition = 'width 0.5s ease'
+              progress.style.transition = 'width 1.5s ease'
               progress.style.width = '45%'
             }, 200)
+          }
+        }
+      })
+    },
+    moveProgressBar(isActiveScreensIncreased) {
+      this.$nextTick(() => {
+        let progress = document.querySelector(
+          '.main-screen__progress .progress'
+        )
+        if (progress) {
+          const currentWidth = parseInt(progress.style.width)
+          if (!isActiveScreensIncreased) {
+            progress.style.width = `${currentWidth - 1}%`
+            this.progressBarPercent = parseInt(progress.style.width)
+          } else {
+            progress.style.width = `${currentWidth + 1.5}%`
+            this.progressBarPercent = parseInt(progress.style.width)
           }
         }
       })
