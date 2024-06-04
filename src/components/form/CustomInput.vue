@@ -12,23 +12,31 @@
       v-model.trim="$v.name.$model"
       @click="resetValidation"
     />
-    <div class="error-message" v-if="showError && !$v.name.minLength">
+    <div class="error-message" v-if="showError && !$v.name.minLength && !phone">
       Name must have at least {{ $v.name.$params.minLength.min }} letters.
     </div>
-    <div class="error-message" v-if="showError && !$v.name.required">
+    <div class="error-message" v-if="showError && !$v.name.required && !phone">
       {{ defaultErrorText }}
+    </div>
+    <div class="error-message" v-if="showError && !$v.name.phoneCheck && phone">
+      Please enter a valid phone number
     </div>
   </div>
 </template>
 
 <script>
 import { required, minLength } from 'vuelidate/lib/validators'
+
 export default {
   name: 'CustomInput',
   props: {
     placeholderText: {
       type: String,
       required: true,
+    },
+    phone: {
+      type: Boolean,
+      required: false,
     },
     defaultErrorText: {
       type: String,
@@ -44,6 +52,14 @@ export default {
   },
   validations: {
     name: {
+      phoneCheck(value) {
+        if (!this.phone) {
+          return true
+        }
+        const regex =
+          /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/
+        return regex.test(value)
+      },
       required,
       minLength: minLength(5),
     },

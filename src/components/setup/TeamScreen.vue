@@ -21,7 +21,18 @@
         v-model="MemberData.email"
         @keyup.enter="inviteMember"
         placeholder="example@company.com"
+        @input="resetValidation"
+        :class="{ error: $v.MemberData.email.$error && showError }"
       />
+      <p v-if="showError && !$v.MemberData.email.email" class="error-message">
+        Please enter a valid email
+      </p>
+      <p
+        v-if="showError && !$v.MemberData.email.required"
+        class="error-message"
+      >
+        Please Fill In This Field
+      </p>
       <button
         class="team-screen__invite-btn hover-btn"
         @click.prevent="inviteMember"
@@ -45,6 +56,7 @@
 
 <script>
 import TeamMember from '@/components/table/TableItem.vue'
+import { required, email } from 'vuelidate/lib/validators'
 export default {
   name: 'TeamScreen',
   data() {
@@ -52,14 +64,30 @@ export default {
       MemberData: {
         email: '',
       },
+      showError: false,
       TeamMembers: [],
     }
   },
   components: {
     TeamMember,
   },
+  validations: {
+    MemberData: {
+      email: {
+        required,
+        email,
+      },
+    },
+  },
   methods: {
     inviteMember() {
+      this.$v.$touch()
+      if (this.$v.$invalid) {
+        this.showError = true
+        return false
+      }
+
+      this.showError = false
       if (this.MemberData.email) {
         const currentDate = new Date()
         const dateOptions = {
@@ -94,6 +122,13 @@ export default {
     closeScreen() {
       this.$emit('closeScreen')
     },
+    resetValidation() {
+      this.$v.$reset()
+      this.showError = false
+    },
+  },
+  mounted() {
+    this.resetValidation()
   },
 }
 </script>
@@ -109,7 +144,6 @@ export default {
     position: relative;
 
     &-input {
-      margin-bottom: rem(31px);
       width: 100%;
       border-radius: rem(13px);
       border: 1px solid #86868b80;
@@ -118,6 +152,10 @@ export default {
       font-size: rem(17px);
       line-height: rem(21px);
       color: #14121f;
+
+      &.error {
+        border: 1px solid red;
+      }
 
       &::placeholder {
         color: #86868b80;
@@ -158,6 +196,7 @@ export default {
     border-radius: rem(30px);
     height: rem(392px);
     margin-bottom: rem(32px);
+    margin-top: rem(31px);
     gap: rem(17px);
     padding: rem(17px);
     padding-bottom: 0;

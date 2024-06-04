@@ -11,7 +11,7 @@
         <p class="main-screen-main__text">
           Digital Signage has never been that easy.
         </p>
-        <form action="#" class="main-screen-main__form state-active">
+        <form action="#" class="main-screen-main__form">
           <div class="main-screen__form-item">
             <CustomInput
               :placeholderText="'Job Title'"
@@ -33,6 +33,7 @@
           <div class="main-screen__form-item">
             <CustomInput
               :placeholderText="'Phone number'"
+              :phone="true"
               ref="validation3"
               :defaultErrorText="'Please Fill In This Field'"
             />

@@ -165,8 +165,8 @@ export default {
   }
   .multiselect__content-wrapper {
     z-index: 11 !important;
-    border-bottom-left-radius: 13px;
-    border-bottom-right-radius: 13px;
+    border-bottom-left-radius: rem(13px);
+    border-bottom-right-radius: rem(13px);
     box-shadow: 0px 0px 8px #0071e254;
     border: 1px solid #0071e2;
     border-top: 0;
@@ -240,6 +240,28 @@ export default {
     .multiselect__select {
       &::before {
         transform: rotateX(180deg);
+      }
+    }
+    &.multiselect--above {
+      // border-top-left-radius: 0;
+      // border-top-right-radius: 0;
+      // border: 1px solid #0071e2;
+      // box-shadow: 0px 0px 8px #0071e254;
+      // border-top: 1px solid #86868b80;
+      .multiselect__tags {
+        border-bottom: 1px solid #0071e2;
+        border-top: 1px solid #86868b80;
+        border-radius: rem(13px);
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+      .multiselect__content-wrapper {
+        border-top-left-radius: rem(13px);
+        border-top-right-radius: rem(13px);
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+        border-bottom: 0;
+        border-top: 1px solid #0071e2;
       }
     }
   }

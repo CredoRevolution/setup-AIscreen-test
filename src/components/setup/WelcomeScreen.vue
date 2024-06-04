@@ -30,20 +30,13 @@
             />
           </div>
           <div class="main-screen__form-item">
-            <CustomInput
-              :placeholderText="'Input Text2'"
-              ref="validation2"
-              :defaultErrorText="'Please Fill In This Field'"
-            />
-          </div>
-          <div class="main-screen__form-item">
             <CustomSelect
               :options="industries"
               :default="'Industry'"
               v-model.trim="industry"
               class="main-screen__form-select_industry main-screen__form-item-warnings"
               @getInfo="getInfo"
-              ref="validation3"
+              ref="validation2"
               :defaultErrorText="'Select Industry'"
             />
           </div>
@@ -55,7 +48,7 @@
               required
               class="main-screen__form-item-warnings"
               v-model="selectedCountry"
-              ref="validation4"
+              ref="validation3"
               :default="'Select Country'"
               :defaultErrorText="'Select Country'"
             />
@@ -69,7 +62,7 @@
               required
               class="main-screen__form-item-warnings"
               v-model="state"
-              ref="validation5"
+              ref="validation4"
               :default="'Select State'"
               :defaultErrorText="'Select State'"
             />
@@ -136,7 +129,6 @@ export default {
         this.$refs.validation2,
         this.$refs.validation3,
         this.$refs.validation4,
-        this.$refs.validation5,
       ]
       validations.forEach((item) => {
         if (item) {

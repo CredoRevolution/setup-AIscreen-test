@@ -15,6 +15,7 @@
   background-size: cover;
   height: 100vh;
   font-family: Satoshi-variable, sans-serif;
+  overflow: hidden;
 }
 
 button {
@@ -87,6 +88,31 @@ button {
   justify-content: center;
 }
 
+.error-message {
+  color: #d42b2b;
+  font-size: rem(13px);
+  line-height: rem(16px);
+  margin-top: rem(5px);
+  position: relative;
+  margin-left: rem(18px);
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  &::before {
+    position: absolute;
+    content: url('@/assets/img/warning.svg');
+    font-size: rem(15px);
+    line-height: rem(18px);
+    font-weight: 500;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: rem(-18px);
+    color: #d42b2b;
+    bottom: -10%;
+  }
+}
+
 .main-screen {
   max-width: 95%;
   width: rem(1600px);
@@ -128,7 +154,7 @@ button {
       display: flex;
       flex-direction: column;
       gap: rem(15px);
-      padding-bottom: 60vw;
+      // padding-bottom: 60vw;
       margin-bottom: auto;
       .main-screen__form-text {
         font-family: Satoshi-variable, sans-serif;
@@ -161,30 +187,7 @@ button {
           color: #d42b2b !important;
         }
       }
-      .error-message {
-        color: #d42b2b;
-        font-size: rem(13px);
-        line-height: rem(16px);
-        margin-top: rem(5px);
-        position: relative;
-        margin-left: rem(18px);
-        display: flex;
-        align-items: center;
-        flex-direction: row;
-        &::before {
-          position: absolute;
-          content: url('@/assets/img/warning.svg');
-          font-size: rem(15px);
-          line-height: rem(18px);
-          font-weight: 500;
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          left: rem(-18px);
-          color: #d42b2b;
-          bottom: -10%;
-        }
-      }
+
       &.state-active {
         padding-bottom: rem(98px);
       }
@@ -365,6 +368,38 @@ button {
       }
       .main-screen-main__text {
         margin-bottom: rem(40px);
+      }
+      .main-screen-main__logo {
+        padding-top: rem(15px);
+      }
+    }
+    &.main-screen_team {
+      .team-screen__list {
+        max-height: rem(300px);
+      }
+    }
+  }
+  .main-screen_screens.main-screen .main-screen__title.main-screen__title_team {
+    margin-top: rem(20px);
+  }
+}
+
+@media (max-height: 780px) {
+  .main-screen {
+    .main-screen__main {
+      .main-screen-main__title {
+        line-height: rem(40px);
+        font-size: rem(32px);
+        margin-bottom: rem(12px);
+      }
+      .main-screen-main__text {
+        margin-bottom: rem(32px);
+      }
+    }
+    &.main-screen_team {
+      .team-screen__list {
+        max-height: rem(200px);
+        margin-bottom: rem(20px);
       }
     }
   }
