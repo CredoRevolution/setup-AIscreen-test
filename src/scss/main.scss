@@ -318,7 +318,6 @@ button {
     line-height: rem(48px);
     font-size: rem(40px);
     font-weight: 700;
-
     color: #14121f;
     margin-bottom: rem(17px);
     &.main-screen__title_team {
@@ -418,6 +417,24 @@ button {
       }
     }
   }
+
+  .main-screen_screens.main-screen {
+    .main-screen__text {
+      margin-bottom: rem(30px);
+    }
+    .main-screen__title {
+      line-height: rem(40px);
+      font-size: rem(32px);
+      margin-bottom: rem(12px);
+    }
+    .main-screen__list {
+      row-gap: rem(10px);
+      margin-bottom: rem(20px);
+      &_templates {
+        margin-bottom: rem(20px);
+      }
+    }
+  }
 }
 
 @media (max-width: 1300px) {
@@ -429,4 +446,69 @@ button {
       }
     }
   }
+}
+
+@media (max-width: 950px) {
+  .main-screen {
+    padding-left: rem(30px);
+    .main-screen-wrapper {
+      gap: rem(10px);
+    }
+    .main-screen__main {
+      .main-screen-main__logo {
+        max-width: rem(100px);
+        padding-top: rem(5px);
+      }
+      .main-screen-main__title {
+        margin-bottom: rem(10px);
+        line-height: rem(30px);
+      }
+
+      .main-screen-main__text {
+        margin-bottom: rem(25px);
+        font-size: rem(17px);
+        line-height: rem(21px);
+      }
+      .main-screen-main__form {
+        .main-screen__form-text {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+  .error-message {
+    margin-top: rem(2px);
+  }
+}
+
+@media (max-width: 768px) {
+  .main-screen__img {
+    display: none;
+  }
+  .main-screen_screens.main-screen {
+    padding: rem(20px);
+    .main-screen__title {
+      margin-bottom: rem(10px);
+      line-height: rem(30px);
+    }
+    .main-screen__list {
+    }
+  }
+  .hover-btn {
+    padding: rem(14px) rem(31px);
+  }
+
+  .main-screen {
+    .main-screen__main {
+      max-width: unset;
+      .main-screen-main__form {
+        .main-screen__form-btn {
+          padding: rem(14px) 0;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
 }

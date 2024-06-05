@@ -29,6 +29,12 @@
       @nextScreen="nextScreen"
       @closeScreen="closeScreen"
     />
+    <QrScreen
+      v-if="currentScreen === 5"
+      :industry="industry"
+      @nextScreen="nextScreen"
+      @closeScreen="closeScreen"
+    />
   </div>
 </template>
 
@@ -38,6 +44,7 @@ import WelcomeScreen from './setup/WelcomeScreen.vue'
 import LastlyScreen from './setup/LastlyScreen.vue'
 import ZonesScreen from './setup/ZonesScreen.vue'
 import TeamScreen from './setup/TeamScreen.vue'
+import QrScreen from './setup/QrScreen.vue'
 export default {
   name: 'ProductFunnel',
   components: {
@@ -46,6 +53,7 @@ export default {
     LastlyScreen,
     TemplatesScreen,
     TeamScreen,
+    QrScreen,
   },
   data() {
     return {

@@ -117,6 +117,10 @@ export default {
 @function rem($px) {
   @return ($px / 16px) + rem;
 }
+
+.custom-tabs_adaptation {
+  display: none;
+}
 .custom-select {
   position: relative;
   width: 100%;
@@ -265,6 +269,17 @@ export default {
       top: rem(4px);
       width: rem(38px);
       height: rem(38px);
+    }
+  }
+}
+@media (max-width: 768px) {
+  .custom-tabs_adaptation {
+    display: unset;
+    .custom-select {
+      .items {
+        max-height: 280%;
+        overflow-y: scroll;
+      }
     }
   }
 }

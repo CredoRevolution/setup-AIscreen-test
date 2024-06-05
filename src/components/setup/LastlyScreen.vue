@@ -41,7 +41,21 @@
           <p class="main-screen__form-text">
             How many screens do you intend to connect?
           </p>
-          <CustomTabs ref="validation4" :defaultErrorText="'Select Amount'" />
+          <CustomTabs
+            ref="validation4"
+            :defaultErrorText="'Select Amount'"
+            class="custom-tabs"
+            v-if="adaptationResolution > 768"
+          />
+          <CustomSelect
+            :options="['1-10', '11-50', '51-199', '200-499', '500+']"
+            :default="'Amount of screens'"
+            :defaultErrorText="'Select Amount'"
+            class="custom-tabs_adaptation"
+            v-model="amount"
+            ref="validation4"
+            v-else
+          />
           <button
             class="main-screen__form-btn hover-btn blue-btn"
             @click.prevent="nextScreen"
@@ -79,9 +93,14 @@ export default {
     return {
       job: 'Job function',
       validationCount: 0,
+      amount: 0,
+      adaptationResolution: 0,
     }
   },
   methods: {
+    onresize() {
+      this.adaptationResolution = window.innerWidth
+    },
     checkAllValidations() {
       this.validationCount = 0
       const validations = [
@@ -114,6 +133,9 @@ export default {
       type: String,
       default: 'plug',
     },
+  },
+  created() {
+    this.onresize()
   },
 }
 </script>

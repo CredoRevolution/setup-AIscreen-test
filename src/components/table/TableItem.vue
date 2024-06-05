@@ -81,6 +81,7 @@ export default {
   border-radius: rem(13px);
   background-color: #fff;
   justify-content: space-between;
+  gap: rem(15px);
   &-wrapper {
     display: flex;
     flex-direction: row;

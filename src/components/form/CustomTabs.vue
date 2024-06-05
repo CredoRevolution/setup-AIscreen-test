@@ -178,6 +178,7 @@ export default {
 @function rem($px) {
   @return ($px / 16px) + rem;
 }
+
 .main-screen__form-switch {
   display: flex;
   flex-direction: row;
@@ -240,6 +241,27 @@ export default {
       }
       border-left: 0;
     }
+  }
+}
+@media (max-width: 1050px) {
+  .main-screen__form-switch {
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    .main-screen__form-switch-btn {
+      padding: rem(12px) rem(10px);
+    }
+  }
+}
+@media (max-width: 800px) {
+  .main-screen__form-switch {
+    .main-screen__form-switch-btn {
+      padding: rem(8px) rem(5px);
+    }
+  }
+}
+@media (max-width: 768px) {
+  .custom-tabs {
+    display: none;
   }
 }
 </style>

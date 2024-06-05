@@ -113,4 +113,10 @@ export default {
     color: #86868b;
   }
 }
+@media (max-height: 780px) {
+  .screen__text {
+    font-size: rem(14px);
+    margin-top: rem(3px);
+  }
+}
 </style>
