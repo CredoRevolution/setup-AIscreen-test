@@ -82,6 +82,7 @@
             :src="require(`@/assets/img/${industry}.png`)"
             alt="img"
             class="backgorund__img"
+            ref="bigImg"
           />
         </div>
         <img
@@ -89,6 +90,7 @@
           :src="require(`@/assets/img/${industry}-small.png`)"
           alt="img"
           class="main-screen-main__small-img"
+          ref="smallImg"
         />
       </div>
     </div>
@@ -157,8 +159,8 @@ export default {
       const selectElement = this.$el.querySelector(
         '.main-screen__form-select_industry'
       )
-      const img = this.$el.querySelector('.main-screen-main__small-img')
-      const bigImg = this.$el.querySelector('.backgorund__img')
+      const img = this.$refs.smallImg
+      const bigImg = this.$refs.bigImg
       console.log('current industry', this.industry)
 
       if (this.industry) {
