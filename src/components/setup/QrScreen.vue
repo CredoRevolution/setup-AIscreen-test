@@ -128,7 +128,7 @@ export default {
       width: 100%;
     }
   }
-  .main-screen-main__form_qr {
+  .main-screen-main__form.main-screen-main__form_qr {
     position: relative;
     margin-bottom: 0;
     .main-screen__form-item {
