@@ -93,14 +93,19 @@ export default {
     },
     getActiveData(el) {
       let activeScreens = 0
+      let additionalCheck = false
       for (let i = 0; i < this.$refs.screen.length; i++) {
         if (this.$refs.screen[i].isActive()) {
           activeScreens++
         }
       }
+
       const isActiveScreensIncreased = activeScreens > this.activeScreens
+      if (this.activeScreens === 5) {
+        additionalCheck = true
+      }
       this.activeScreens = activeScreens
-      if (this.activeScreens <= 4) {
+      if (this.activeScreens <= 4 && !additionalCheck) {
         this.$emit('moveProgressBar', isActiveScreensIncreased)
       }
       if (this.activeScreens > 4 || this.activeScreens < 4) {

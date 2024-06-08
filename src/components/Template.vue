@@ -109,7 +109,6 @@ export default {
     &.background {
       &::after {
         content: '';
-        border-radius: rem(12px);
         position: absolute;
         top: -2%;
         left: 0;

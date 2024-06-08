@@ -72,7 +72,9 @@
             class="backgorund__img"
           />
         </div>
-        <img :src="require(`@/assets/img/${industry}-small.png`)" alt="img" />
+        <div class="img-wrapper">
+          <img :src="require(`@/assets/img/${industry}-small.png`)" alt="img" />
+        </div>
       </div>
     </div>
   </div>

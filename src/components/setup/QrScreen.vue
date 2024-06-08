@@ -113,6 +113,9 @@ export default {
       width: 52%;
       height: 85%;
       top: 60%;
+      left: 50%;
+      position: absolute;
+      transform: translate(-50%, -50%);
     }
     .main-screen-main__qr-img-text {
       position: absolute;
