@@ -94,15 +94,15 @@ export default {
           if (this.currentScreen === 2) {
             progress.style.width = '0'
             setTimeout(() => {
-              progress.style.transition = 'width 1.5s ease'
-              progress.style.width = '15%'
+              progress.style.transition = 'width 0.5s ease'
+              progress.style.width = '45%'
             }, 200)
           }
           if (this.currentScreen === 3) {
             progress.style.width = this.progressBarPercent + '%'
             setTimeout(() => {
-              progress.style.transition = 'width 1.5s ease'
-              progress.style.width = '45%'
+              progress.style.transition = 'width 0.5s ease'
+              progress.style.width = '90%'
             }, 200)
           }
         }
@@ -116,10 +116,10 @@ export default {
         if (progress) {
           const currentWidth = parseInt(progress.style.width)
           if (!isActiveScreensIncreased) {
-            progress.style.width = `${currentWidth - 1}%`
+            progress.style.width = `${currentWidth - 10}%`
             this.progressBarPercent = parseInt(progress.style.width)
           } else {
-            progress.style.width = `${currentWidth + 1.5}%`
+            progress.style.width = `${currentWidth + 10.5}%`
             this.progressBarPercent = parseInt(progress.style.width)
           }
         }

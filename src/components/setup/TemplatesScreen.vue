@@ -107,6 +107,33 @@ export default {
       } else {
         this.$refs.nextBtn.classList.remove('grey')
       }
+
+      if (this.activeScreens > 4) {
+        this.$refs.screen.forEach((screen) => {
+          if (screen.isActive()) {
+            screen.$el.style.transition = '0.5s ease'
+            screen.$el.classList.add('error-blink')
+            setTimeout(() => {
+              screen.$el.classList.remove('error-blink')
+            }, 200)
+            setTimeout(() => {
+              screen.$el.classList.add('error-blink')
+            }, 600)
+            setTimeout(() => {
+              screen.$el.classList.remove('error-blink')
+            }, 900)
+            setTimeout(() => {
+              screen.$el.classList.add('error-blink')
+            }, 1200)
+            setTimeout(() => {
+              screen.$el.classList.remove('error-blink')
+            }, 1500)
+            setTimeout(() => {
+              screen.$el.style.transition = 'none'
+            }, 2000)
+          }
+        })
+      }
     },
   },
 }

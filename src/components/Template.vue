@@ -103,6 +103,10 @@ export default {
       color: #14121f;
     }
   }
+  &.error-blink {
+    border: 2px solid red;
+    transition: border 0.5s ease;
+  }
   &__text {
     font-size: rem(17px);
     line-height: rem(21px);
