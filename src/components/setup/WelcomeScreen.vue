@@ -85,13 +85,15 @@
             ref="bigImg"
           />
         </div>
-        <img
-          v-if="industry && require(`@/assets/img/${industry}-small.png`)"
-          :src="require(`@/assets/img/${industry}-small.png`)"
-          alt="img"
-          class="main-screen-main__small-img"
-          ref="smallImg"
-        />
+        <div class="img-wrapper">
+          <img
+            v-if="industry && require(`@/assets/img/${industry}-small.png`)"
+            :src="require(`@/assets/img/${industry}-small.png`)"
+            alt="img"
+            class="main-screen-main__small-img background"
+            ref="smallImg"
+          />
+        </div>
       </div>
     </div>
   </div>

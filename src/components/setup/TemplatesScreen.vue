@@ -14,6 +14,7 @@
         :img-src="require(`@/assets/img/${industry}-last-${index + 1}.png`)"
         @getActiveData="getActiveData"
         ref="screen"
+        :background="false"
       />
     </ul>
     <p v-if="showError && !(activeScreens === 4)" class="error-message">

@@ -1,6 +1,8 @@
 <template>
   <div class="screen" @click="toggleActive" ref="screen">
-    <img v-if="imageLoaded" alt="img" class="sreen__img" :src="imgSrc" />
+    <div :class="background ? 'img-wrapper background' : 'img-wrapper'">
+      <img v-if="imageLoaded" alt="img" class="screen__img" :src="imgSrc" />
+    </div>
     <p class="screen__text">{{ text }}</p>
   </div>
 </template>
@@ -11,6 +13,7 @@ export default {
   props: {
     text: String,
     imgSrc: String,
+    background: Boolean,
   },
   data() {
     return {
@@ -91,9 +94,30 @@ export default {
   background-color: #fff;
   border: 2px solid transparent;
 
-  img {
-    border-radius: rem(12px);
+  .img-wrapper {
     width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .screen__img {
+      border-radius: rem(12px);
+      width: 98%;
+      position: relative;
+      z-index: 1;
+    }
+    &.background {
+      &::after {
+        content: '';
+        border-radius: rem(12px);
+        position: absolute;
+        top: -2%;
+        left: 0;
+        width: 100%;
+        height: 104%;
+        background-color: #000000;
+      }
+    }
   }
 
   &.active {

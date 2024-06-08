@@ -27,6 +27,7 @@
           @getActiveData="getActiveData"
           ref="template"
           class="swiper-slide"
+          :background="true"
         />
       </SwiperSlide>
 
