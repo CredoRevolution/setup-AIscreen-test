@@ -115,6 +115,7 @@ export default {
         width: 100%;
         height: 104%;
         background-color: #000000;
+        border-radius: rem(10px);
       }
     }
   }

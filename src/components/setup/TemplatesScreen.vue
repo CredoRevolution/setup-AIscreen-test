@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import Template from '@/components/Template.vue'
+import Template from '@/components/global/Template.vue'
 
 export default {
   name: 'DesignsScreen',

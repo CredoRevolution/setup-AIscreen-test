@@ -5,7 +5,7 @@
       @nextScreen="nextScreen"
       @changeIndustry="changeIndustry"
     />
-    <LastlyScreen
+    <JobScreen
       v-if="currentScreen === 1"
       @nextScreen="nextScreen"
       :industry="industry"
@@ -41,7 +41,7 @@
 <script>
 import TemplatesScreen from './setup/TemplatesScreen.vue'
 import WelcomeScreen from './setup/WelcomeScreen.vue'
-import LastlyScreen from './setup/LastlyScreen.vue'
+import JobScreen from './setup/JobScreen.vue'
 import ZonesScreen from './setup/ZonesScreen.vue'
 import TeamScreen from './setup/TeamScreen.vue'
 import QrScreen from './setup/QrScreen.vue'
@@ -50,7 +50,7 @@ export default {
   components: {
     ZonesScreen,
     WelcomeScreen,
-    LastlyScreen,
+    JobScreen,
     TemplatesScreen,
     TeamScreen,
     QrScreen,

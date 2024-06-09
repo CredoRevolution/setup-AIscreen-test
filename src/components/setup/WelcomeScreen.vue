@@ -29,7 +29,7 @@
               :defaultErrorText="'Please Fill In This Field'"
             />
           </div>
-          <div class="main-screen__form-item">
+          <!-- <div class="main-screen__form-item">
             <CustomSelect
               :options="industries"
               :default="'Industry'"
@@ -38,6 +38,20 @@
               @getInfo="getInfo"
               ref="validation2"
               :defaultErrorText="'Select Industry'"
+            />
+          </div> -->
+          <div class="main-screen__form-item">
+            <SearchSelect
+              :optionsCount="industries"
+              required
+              class="main-screen__form-item-warnings"
+              v-model="industry"
+              ref="validation2"
+              :defaultText="'Industry'"
+              :defaultErrorText="'Select Industry'"
+              :industry="true"
+              :search="false"
+              @getInfo="getInfo"
             />
           </div>
 
@@ -49,7 +63,7 @@
               class="main-screen__form-item-warnings"
               v-model="selectedCountry"
               ref="validation3"
-              :default="'Select Country'"
+              :defaultText="'Select Country'"
               :defaultErrorText="'Select Country'"
             />
           </div>
@@ -63,7 +77,7 @@
               class="main-screen__form-item-warnings"
               v-model="state"
               ref="validation4"
-              :default="'Select State'"
+              :defaultText="'Select State'"
               :defaultErrorText="'Select State'"
             />
           </div>
@@ -100,7 +114,6 @@
 </template>
 
 <script>
-import CustomSelect from '@/components/form/CustomSelect.vue'
 import CustomInput from '@/components/form/CustomInput.vue'
 import SearchSelect from '@/components/form/SearchSelect.vue'
 import axios from 'axios'
@@ -113,14 +126,17 @@ export default {
       industry: '',
       state: '',
       name: '',
-      industries: ['Finance', 'Digital Menu Boards', 'Retail'],
+      industries: [
+        { name: 'Finance' },
+        { name: 'Digital Menu Boards' },
+        { name: 'Retail' },
+      ],
       Countries: [],
       States: [],
       validationCount: 0,
     }
   },
   components: {
-    CustomSelect,
     CustomInput,
     SearchSelect,
   },
@@ -158,13 +174,9 @@ export default {
       if (this.checkAllValidations()) this.$emit('nextScreen')
     },
     changeIndustry() {
-      const selectElement = this.$el.querySelector(
-        '.main-screen__form-select_industry'
-      )
       const img = this.$refs.smallImg
       const bigImg = this.$refs.bigImg
       console.log('current industry', this.industry)
-
       if (this.industry) {
         if (img && bigImg) {
           bigImg.style.transition = 'all 0.2s ease-out'
@@ -219,7 +231,7 @@ export default {
     getInfo(industry) {
       this.industry = industry
       for (let i = 0; i < this.industries.length; i++) {
-        if (this.industries[i] === industry) {
+        if (this.industries[i].name === industry) {
           this.changeIndustry()
         }
       }

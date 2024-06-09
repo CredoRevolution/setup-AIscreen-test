@@ -15,10 +15,11 @@
         </p>
       </div>
     </div>
-    <CustomSelect
+    <SearchSelect
       class="team-screen__select"
-      :options="['Admin', 'User']"
-      :default="'User'"
+      :optionsCount="options"
+      :search="false"
+      :defaultText="'Select role'"
     />
     <div class="team-screen__member-date">
       {{ MemberData.date ? MemberData.date : '01.01.2020' }}
@@ -42,11 +43,16 @@
 </template>
 
 <script>
-import CustomSelect from '@/components/form/CustomSelect.vue'
+import SearchSelect from '../form/SearchSelect.vue'
 export default {
   name: 'TeamMember',
+  data() {
+    return {
+      options: [{ name: 'Admin' }, { name: 'User' }],
+    }
+  },
   components: {
-    CustomSelect,
+    SearchSelect,
   },
   props: {
     MemberData: {

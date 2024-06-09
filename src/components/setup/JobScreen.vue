@@ -20,13 +20,22 @@
             />
           </div>
           <div class="main-screen__form-item">
-            <CustomSelect
+            <!-- <CustomSelect
               :options="['1', '2', '3']"
               :default="'Job function'"
               v-model="job"
               class="main-screen__form-select_job main-screen__form-item-warnings"
               ref="validation2"
               :defaultErrorText="'Select Job function'"
+            /> -->
+            <SearchSelect
+              :optionsCount="jobFunctions"
+              required
+              class="main-screen__form-item-warnings"
+              ref="validation2"
+              :defaultText="'Job function'"
+              :defaultErrorText="'Select Job function'"
+              :search="false"
             />
           </div>
 
@@ -81,15 +90,15 @@
 </template>
 
 <script>
-import CustomSelect from '@/components/form/CustomSelect.vue'
 import CustomInput from '@/components/form/CustomInput.vue'
 import CustomTabs from '@/components/form/CustomTabs.vue'
+import SearchSelect from '../form/SearchSelect.vue'
 export default {
   name: 'LastlyScreen',
   components: {
-    CustomSelect,
     CustomInput,
     CustomTabs,
+    SearchSelect,
   },
   data() {
     return {
@@ -97,6 +106,26 @@ export default {
       validationCount: 0,
       amount: 0,
       adaptationResolution: 0,
+      jobFunctions: [
+        {
+          name: 'Accounting',
+        },
+        {
+          name: 'Advertising',
+        },
+        {
+          name: 'Education',
+        },
+        {
+          name: 'Engineering',
+        },
+        {
+          name: 'Finance',
+        },
+        {
+          name: 'Healthcare',
+        },
+      ],
     }
   },
   methods: {

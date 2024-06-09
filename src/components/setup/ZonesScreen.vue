@@ -13,9 +13,11 @@
     </p>
     <swiper
       :modules="modules"
-      :loop="true"
+      :loop="false"
       :slides-per-view="2"
-      :space-between="50"
+      :space-between="25"
+      @reachEnd="handleReachedEnd"
+      @reachBeginning="handleReachedBeginning"
       @swiper="onSwiper"
       @slideChange="onSlideChange"
       class="swiper-container main-screen__list_templates"
@@ -32,7 +34,10 @@
       </SwiperSlide>
 
       <!-- ОБЯЗАТЕЛЬНО ЗАМЕНИТЬ НА ${INDUSTRY!!!!!!!!} -->
-      <swiperNavigation />
+      <swiperNavigation
+        :reachedEnd="reachedEnd"
+        :reachedBeginning="reachedBeginning"
+      />
     </swiper>
     <p v-if="showError && activeScreens < 1" class="error-message">
       Please select 1 zone
@@ -52,9 +57,9 @@
 </template>
 
 <script>
-import Template from '@/components/Template.vue'
+import Template from '@/components/global/Template.vue'
 import layoutsData from '@/assets/layouts-preconfig.json'
-import swiperNavigation from '@/components/swiperNavigation.vue'
+import swiperNavigation from '@/components/global/swiperNavigation.vue'
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Navigation } from 'swiper/modules'
@@ -87,6 +92,8 @@ export default {
       activeScreens: 0,
       validation: false,
       showError: false,
+      reachedEnd: false,
+      reachedBeginning: true,
     }
   },
 
@@ -132,6 +139,14 @@ export default {
       }
       this.showError = true
       return false
+    },
+    handleReachedEnd() {
+      this.reachedEnd = true
+      console.log(this.reachedEnd)
+    },
+    handleReachedBeginning() {
+      this.reachBeginning = true
+      console.log(this.reachBeginning)
     },
   },
   setup() {
