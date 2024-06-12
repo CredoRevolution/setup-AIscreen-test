@@ -16,12 +16,14 @@
       @nextScreen="nextScreen"
       @getTemplatesData="getTemplatesData"
       @moveProgressBar="moveProgressBar"
+      @progressBar="progressBar"
     />
     <ZonesScreen
       v-if="currentScreen === 3"
       :industry="industry"
       @nextScreen="nextScreen"
       :templatesData="templatesData"
+      @progressBar="progressBar"
     />
     <TeamScreen
       v-if="currentScreen === 4"
@@ -85,11 +87,8 @@ export default {
       this.industry = industry
       console.log(this.industry)
     },
-    progressBar() {
+    progressBar(progress) {
       this.$nextTick(() => {
-        let progress = document.querySelector(
-          '.main-screen__progress .progress'
-        )
         if (progress) {
           if (this.currentScreen === 2) {
             progress.style.width = '0'
@@ -108,11 +107,8 @@ export default {
         }
       })
     },
-    moveProgressBar(isActiveScreensIncreased) {
+    moveProgressBar(isActiveScreensIncreased, progress) {
       this.$nextTick(() => {
-        let progress = document.querySelector(
-          '.main-screen__progress .progress'
-        )
         if (progress) {
           const currentWidth = parseInt(progress.style.width)
           if (!isActiveScreensIncreased) {

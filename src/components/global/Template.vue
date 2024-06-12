@@ -1,5 +1,9 @@
 <template>
-  <div class="screen" @click="toggleActive" ref="screen">
+  <div
+    :class="active ? 'screen active' : 'screen'"
+    @click="toggleActive"
+    ref="screen"
+  >
     <div :class="background ? 'img-wrapper background' : 'img-wrapper'">
       <img v-if="imageLoaded" alt="img" class="screen__img" :src="imgSrc" />
     </div>
@@ -14,57 +18,50 @@ export default {
     text: String,
     imgSrc: String,
     background: Boolean,
+    zonesScreen: {
+      type: Boolean,
+      default: false,
+      required: false,
+    },
   },
   data() {
     return {
       imageLoaded: false,
+      active: false,
     }
   },
   methods: {
     toggleActive() {
-      const allScreens = this.getAllScreens()
-      const isActive = this.isActive()
-      const isTemplatesList = this.isTemplatesList()
-
-      if (isTemplatesList) {
+      if (this.isTemplatesList()) {
         this.deactivateAllScreens()
         this.activateCurrentScreen()
         return
       }
-      if (isActive) {
+      if (this.isActive()) {
         this.deactivateCurrentScreen()
       } else {
         this.activateCurrentScreen()
       }
     },
     deactivateAllScreens() {
-      const screens = this.getAllScreens()
-      screens.forEach((screen) => {
-        screen.classList.remove('active')
-      })
+      this.$emit('deactivateAllScreens')
     },
     deactivateCurrentScreen() {
-      this.$el.classList.remove('active')
-      this.sendActiveData(this.$el)
-    },
-    getAllScreens() {
-      return Array.from(document.querySelectorAll('.screen.active'))
+      this.active = false
+      this.sendActiveData()
     },
     isActive() {
-      if (this.$el.classList.contains('active')) {
-        return true
-      }
-      return false
+      return this.active
     },
     isTemplatesList() {
-      return this.$el.closest('.main-screen__list_templates') !== null
+      return this.zonesScreen
     },
     activateCurrentScreen() {
-      this.$el.classList.add('active')
-      this.sendActiveData(this.$el)
+      this.active = true
+      this.sendActiveData(this.$refs.screen)
     },
-    sendActiveData($el) {
-      this.$emit('getActiveData', $el)
+    sendActiveData() {
+      this.$emit('getActiveData', this.$refs.screen)
     },
   },
   mounted() {

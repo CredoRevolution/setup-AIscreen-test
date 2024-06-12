@@ -2,7 +2,7 @@
   <div class="main-screen main-screen_screens">
     <img src="@/assets/img/logo.svg" alt="aiscreen" class="main-screen__logo" />
     <div class="main-screen__progress">
-      <div class="progress"></div>
+      <div class="progress" ref="progress"></div>
     </div>
     <h2 class="main-screen__title">
       Would you like to spit the screen into zones?
@@ -16,10 +16,7 @@
       :loop="false"
       :slides-per-view="2"
       :space-between="25"
-      @reachEnd="handleReachedEnd"
-      @reachBeginning="handleReachedBeginning"
-      @swiper="onSwiper"
-      @slideChange="onSlideChange"
+      @slideChange="handleSlideChange"
       class="swiper-container main-screen__list_templates"
     >
       <SwiperSlide v-for="(template, index) in templates" :key="index">
@@ -30,6 +27,8 @@
           ref="template"
           class="swiper-slide"
           :background="true"
+          @deactivateAllScreens="deactivateAllScreens"
+          :zonesScreen="true"
         />
       </SwiperSlide>
 
@@ -123,6 +122,11 @@ export default {
       }
       console.log(el)
     },
+    deactivateAllScreens() {
+      for (let i = 0; i < this.$refs.template.length; i++) {
+        this.$refs.template[i].deactivateCurrentScreen()
+      }
+    },
     checkValidation() {
       let activeScreens = 0
       for (let i = 0; i < this.$refs.template.length; i++) {
@@ -140,31 +144,21 @@ export default {
       this.showError = true
       return false
     },
-    handleReachedEnd() {
-      this.reachedEnd = true
+    handleSlideChange(swiper) {
+      this.reachedEnd = swiper.isEnd
+      this.reachedBeginning = swiper.isBeginning
       console.log(this.reachedEnd)
-    },
-    handleReachedBeginning() {
-      this.reachBeginning = true
-      console.log(this.reachBeginning)
     },
   },
   setup() {
-    const onSwiper = (swiper) => {
-      console.log(swiper)
-    }
-
-    const onSlideChange = () => {
-      console.log('slide change')
-    }
     return {
-      onSwiper,
-      onSlideChange,
       modules: [Navigation],
     }
   },
   mounted() {
     console.log(this.layoutsData)
+
+    this.$emit('progressBar', this.$refs.progress)
   },
 }
 </script>

@@ -2,7 +2,7 @@
   <div class="main-screen main-screen_screens">
     <img src="@/assets/img/logo.svg" alt="aiscreen" class="main-screen__logo" />
     <div class="main-screen__progress">
-      <div class="progress"></div>
+      <div class="progress" ref="progress"></div>
     </div>
     <h2 class="main-screen__title">Smooth Setup in 60 seconds…</h2>
     <p class="main-screen__text">Select 4 templates to see the magic!</p>
@@ -106,7 +106,11 @@ export default {
       }
       this.activeScreens = activeScreens
       if (this.activeScreens <= 4 && !additionalCheck) {
-        this.$emit('moveProgressBar', isActiveScreensIncreased)
+        this.$emit(
+          'moveProgressBar',
+          isActiveScreensIncreased,
+          this.$refs.progress
+        )
       }
       if (this.activeScreens > 4 || this.activeScreens < 4) {
         this.$refs.nextBtn.classList.add('grey')
@@ -141,6 +145,10 @@ export default {
         })
       }
     },
+  },
+
+  mounted() {
+    this.$emit('progressBar', this.$refs.progress)
   },
 }
 </script>

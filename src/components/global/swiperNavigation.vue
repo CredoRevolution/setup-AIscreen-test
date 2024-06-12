@@ -46,7 +46,7 @@ export default {
   position: absolute;
   width: rem(37px);
   height: rem(37px);
-  background: rgba(210, 210, 216, 0.2);
+  background: rgba(210, 210, 216, 0.7);
   border-radius: 50%;
   opacity: 0.8;
   top: 50%;
@@ -67,6 +67,13 @@ export default {
     left: rem(0px);
     img {
       transform: rotate(180deg);
+    }
+  }
+  &.disabled {
+    background: rgba(210, 210, 216, 0.2);
+    &:hover {
+      opacity: 0.5;
+      cursor: default;
     }
   }
   &:hover {
