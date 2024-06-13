@@ -57,11 +57,13 @@
           class="main-screen-main__small-img main-screen-main__small-img_qr"
           ref="smallImg"
         />
-        <img
-          :src="require(`@/assets/img/qr.png`)"
-          alt="img"
+        <qrcode-vue
+          :value="qrLink"
+          :size="200"
+          level="H"
+          render-as="svg"
           class="main-screen-main__small-img main-screen-main__qr-img"
-        />
+        ></qrcode-vue>
         <p class="main-screen-main__qr-img-text">
           Try to scan this QR-code with your phone now!
         </p>
@@ -72,13 +74,17 @@
 
 <script>
 import CustomInput from '@/components/form/CustomInput.vue'
+import qrcode from 'qrcode.vue'
 export default {
   name: 'QrScreen',
   data() {
-    return {}
+    return {
+      qrLink: 'https://github.com/scopewu/qrcode.vue',
+    }
   },
   components: {
     CustomInput,
+    qrcodeVue: qrcode,
   },
   methods: {
     nextScreen() {
@@ -108,6 +114,10 @@ export default {
       transform: translate(-50%, -50%);
       width: 35%;
       height: 40%;
+      svg {
+        width: 100% !important;
+        height: 100% !important;
+      }
     }
     .main-screen-main__small-img_qr {
       width: 52%;
