@@ -1,17 +1,18 @@
 <template>
   <div id="productFunnel" class="product-funnel">
+    <GreetingsScreen v-if="currentScreen === 0" @nextScreen="nextScreen" />
     <WelcomeScreen
-      v-if="currentScreen === 0"
+      v-if="currentScreen === 1"
       @nextScreen="nextScreen"
       @changeIndustry="changeIndustry"
     />
     <JobScreen
-      v-if="currentScreen === 1"
+      v-if="currentScreen === 2"
       @nextScreen="nextScreen"
       :industry="industry"
     />
     <TemplatesScreen
-      v-if="currentScreen === 2"
+      v-if="currentScreen === 3"
       :industry="industry"
       @nextScreen="nextScreen"
       @getTemplatesData="getTemplatesData"
@@ -19,20 +20,20 @@
       @progressBar="progressBar"
     />
     <ZonesScreen
-      v-if="currentScreen === 3"
+      v-if="currentScreen === 4"
       :industry="industry"
       @nextScreen="nextScreen"
       :templatesData="templatesData"
       @progressBar="progressBar"
     />
     <TeamScreen
-      v-if="currentScreen === 4"
+      v-if="currentScreen === 5"
       :industry="industry"
       @nextScreen="nextScreen"
       @closeScreen="closeScreen"
     />
     <QrScreen
-      v-if="currentScreen === 5"
+      v-if="currentScreen === 6"
       :industry="industry"
       @nextScreen="nextScreen"
       @closeScreen="closeScreen"
@@ -41,6 +42,7 @@
 </template>
 
 <script>
+import GreetingsScreen from './setup/GreetingsScreen.vue'
 import TemplatesScreen from './setup/TemplatesScreen.vue'
 import WelcomeScreen from './setup/WelcomeScreen.vue'
 import JobScreen from './setup/JobScreen.vue'
@@ -56,6 +58,7 @@ export default {
     TemplatesScreen,
     TeamScreen,
     QrScreen,
+    GreetingsScreen,
   },
   data() {
     return {
@@ -90,14 +93,14 @@ export default {
     progressBar(progress) {
       this.$nextTick(() => {
         if (progress) {
-          if (this.currentScreen === 2) {
+          if (this.currentScreen === 3) {
             progress.style.width = '0'
             setTimeout(() => {
               progress.style.transition = 'width 0.5s ease'
               progress.style.width = '45%'
             }, 200)
           }
-          if (this.currentScreen === 3) {
+          if (this.currentScreen === 4) {
             progress.style.width = this.progressBarPercent + '%'
             setTimeout(() => {
               progress.style.transition = 'width 0.5s ease'
