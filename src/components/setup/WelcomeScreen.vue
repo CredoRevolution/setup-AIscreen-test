@@ -24,9 +24,10 @@
         >
           <div class="main-screen__form-item">
             <CustomInput
-              :placeholderText="'Input Text'"
+              :placeholderText="'Name of your company'"
               ref="validation1"
-              :defaultErrorText="'Please Fill In This Field'"
+              :defaultErrorText="'This field is required'"
+              :input-name="'Company'"
             />
           </div>
           <!-- <div class="main-screen__form-item">
@@ -48,7 +49,7 @@
               v-model="industry"
               ref="validation2"
               :defaultText="'Industry'"
-              :defaultErrorText="'Select Industry'"
+              :defaultErrorText="'Select industry'"
               :industry="true"
               :search="false"
               @getInfo="getInfo"
@@ -57,14 +58,14 @@
 
           <div class="main-screen__form-item">
             <SearchSelect
-              :optionsCount="Countries"
               @USAState="USAState"
               required
               class="main-screen__form-item-warnings"
               v-model="selectedCountry"
               ref="validation3"
+              :optionsCount="Countries"
               :defaultText="'Select Country'"
-              :defaultErrorText="'Select Country'"
+              :defaultErrorText="'Select country'"
             />
           </div>
           <div
@@ -72,13 +73,13 @@
             v-if="selectedCountry === 'United States'"
           >
             <SearchSelect
-              :optionsCount="States"
               required
               class="main-screen__form-item-warnings"
               v-model="state"
               ref="validation4"
+              :optionsCount="States"
               :defaultText="'Select State'"
-              :defaultErrorText="'Select State'"
+              :defaultErrorText="'Select state'"
             />
           </div>
           <button
@@ -179,14 +180,22 @@ export default {
       console.log('current industry', this.industry)
       if (this.industry) {
         if (img && bigImg) {
-          bigImg.style.transition = 'all 0.2s ease-out'
-          bigImg.style.opacity = 0
+          setTimeout(() => {
+            img.style.transition = 'none 0.2s ease-out'
+            bigImg.style.transition = 'none 0.2s ease-out'
+            img.style.transform = 'translateX(-150%)'
+            bigImg.style.transform = 'translateX(-150%)'
+            img.style.opacity = '1'
+            bigImg.style.opacity = '1'
+          }, 300)
           img.style.transition = 'all 0.2s ease-out'
-          img.style.opacity = 0
-          console.log('change industry completed')
+          bigImg.style.transition = 'all 0.2s ease-out'
+          img.style.opacity = '0'
+          bigImg.style.opacity = '0'
+          bigImg.style.transform = 'translateX(200%)'
+          img.style.transform = 'translateX(200%)'
         }
       }
-
       setTimeout(() => {
         this.$emit('changeIndustry', this.industry)
       }, 300)
@@ -194,13 +203,13 @@ export default {
       if (this.industry) {
         if (img && bigImg) {
           setTimeout(() => {
-            bigImg.style.opacity = 1
             bigImg.style.transition = 'all 0.2s ease-out'
+            bigImg.style.transform = 'translateX(0)'
             setTimeout(() => {
-              img.style.opacity = 1
+              img.style.transform = 'translateX(0)'
               img.style.transition = 'all 0.2s ease-out'
-            }, 300)
-          }, 300)
+            }, 200)
+          }, 400)
         }
       }
     },

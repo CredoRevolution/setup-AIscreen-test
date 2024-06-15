@@ -15,7 +15,7 @@
       :modules="modules"
       :loop="false"
       :slides-per-view="2"
-      :space-between="25"
+      :space-between="17"
       @slideChange="handleSlideChange"
       class="swiper-container main-screen__list_templates"
     >
@@ -31,27 +31,35 @@
           :zonesScreen="true"
         />
       </SwiperSlide>
-
-      <!-- ОБЯЗАТЕЛЬНО ЗАМЕНИТЬ НА ${INDUSTRY!!!!!!!!} -->
       <swiperNavigation
         :reachedEnd="reachedEnd"
         :reachedBeginning="reachedBeginning"
       />
+      <!-- ОБЯЗАТЕЛЬНО ЗАМЕНИТЬ НА ${INDUSTRY!!!!!!!!} -->
     </swiper>
+
     <p v-if="showError && activeScreens < 1" class="error-message">
       Please select 1 zone
     </p>
-    <a
-      href="#"
-      class="main-screen__btn hover-btn"
-      @click="nextScreen"
-      ref="nextBtn"
-      :class="{
-        error: showError || activeScreens > 4,
-        grey: activeScreens < 1,
-      }"
-      >Finish</a
-    >
+    <div class="main-screen__btn-wrapper">
+      <a
+        href="#"
+        class="main-screen__btn hover-btn blue-btn"
+        @click="prevScreen"
+        ref="prevtBtn"
+        >Prev</a
+      ><a
+        href="#"
+        class="main-screen__btn hover-btn blue-btn"
+        @click="nextScreen"
+        ref="nextBtn"
+        :class="{
+          error: showError || activeScreens > 4,
+          grey: activeScreens < 1,
+        }"
+        >Finish</a
+      >
+    </div>
   </div>
 </template>
 
@@ -105,6 +113,9 @@ export default {
       if (this.checkValidation()) {
         this.$emit('nextScreen')
       }
+    },
+    prevScreen() {
+      this.$emit('prevScreen')
     },
     getActiveData(el) {
       this.showError = false
@@ -169,9 +180,29 @@ export default {
 }
 
 .swiper {
-  padding: 0 rem(30px);
-  width: 104%;
-  margin-left: -2%;
+  overflow: unset;
+  width: 98%;
+  margin: 0 auto;
+  .swiper-slide {
+    opacity: 0;
+    transition: all 0.3s ease;
+    &.swiper-slide-active {
+      opacity: 1 !important;
+      transition: all 0.3s ease;
+      .swiper-slide {
+        opacity: 1 !important;
+        transition: all 0.3s ease;
+      }
+    }
+    &.swiper-slide-next {
+      opacity: 1 !important;
+      transition: all 0.3s ease;
+      .swiper-slide {
+        opacity: 1 !important;
+        transition: all 0.3s ease;
+      }
+    }
+  }
 }
 
 .swiper-slide {

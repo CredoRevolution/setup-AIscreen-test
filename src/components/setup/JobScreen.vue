@@ -16,7 +16,8 @@
             <CustomInput
               :placeholderText="'Job Title'"
               ref="validation1"
-              :defaultErrorText="'Please Fill In This Field'"
+              :defaultErrorText="'This field is required'"
+              :input-name="'Job'"
             />
           </div>
           <div class="main-screen__form-item">
@@ -34,7 +35,7 @@
               class="main-screen__form-item-warnings"
               ref="validation2"
               :defaultText="'Job function'"
-              :defaultErrorText="'Select Job function'"
+              :defaultErrorText="'Select job function'"
               :search="false"
             />
           </div>
@@ -44,7 +45,8 @@
               :placeholderText="'Phone number'"
               :phone="true"
               ref="validation3"
-              :defaultErrorText="'Please Fill In This Field'"
+              :defaultErrorText="'This field is required'"
+              :input-name="'Phone'"
             />
           </div>
           <p class="main-screen__form-text">
@@ -52,14 +54,14 @@
           </p>
           <CustomTabs
             ref="validation4"
-            :defaultErrorText="'Select Amount'"
+            :defaultErrorText="'Select amount'"
             class="custom-tabs"
             v-if="adaptationResolution > 768"
           />
           <CustomSelect
             :options="['1-10', '11-50', '51-199', '200-499', '500+']"
             :default="'Amount of screens'"
-            :defaultErrorText="'Select Amount'"
+            :defaultErrorText="'Select amount'"
             class="custom-tabs_adaptation"
             v-model="amount"
             ref="validation4"
@@ -108,22 +110,31 @@ export default {
       adaptationResolution: 0,
       jobFunctions: [
         {
-          name: 'Accounting',
+          name: 'Data & Analytics',
         },
         {
-          name: 'Advertising',
-        },
-        {
-          name: 'Education',
-        },
-        {
-          name: 'Engineering',
+          name: 'Execute Board',
         },
         {
           name: 'Finance',
         },
         {
-          name: 'Healthcare',
+          name: 'HR',
+        },
+        {
+          name: 'Internal Comms',
+        },
+        {
+          name: 'IT',
+        },
+        {
+          name: 'Marketing',
+        },
+        {
+          name: 'Operations',
+        },
+        {
+          name: 'Other',
         },
       ],
     }

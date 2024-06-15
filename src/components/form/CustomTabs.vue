@@ -187,7 +187,7 @@ export default {
   border-radius: rem(999px);
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   position: relative;
   &-slider {
     position: absolute;

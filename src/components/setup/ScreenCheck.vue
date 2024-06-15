@@ -23,7 +23,7 @@
             Launch your screen-free demo
           </button>
           <button
-            class="main-screen__form-btn main-screen__form-btn_additional hover-btn"
+            class="main-screen__form-btn main-screen__form-btn_additional"
             @click.prevent="nextScreen"
           >
             Continue with my own screen

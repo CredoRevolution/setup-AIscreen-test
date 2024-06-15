@@ -34,7 +34,7 @@
         Please Fill In This Field
       </p>
       <button
-        class="team-screen__invite-btn hover-btn"
+        class="team-screen__invite-btn hover-btn blue-btn"
         @click.prevent="inviteMember"
       >
         Invite
@@ -48,9 +48,19 @@
         @deleteMember="deleteMember(index)"
       />
     </ul>
-    <a href="#" class="main-screen__btn hover-btn" @click="nextScreen"
-      >Finish</a
-    >
+    <div class="main-screen__btn-wrapper">
+      <a
+        href="#"
+        class="main-screen__btn hover-btn blue-btn"
+        @click="prevScreen"
+        >Prev</a
+      ><a
+        href="#"
+        class="main-screen__btn hover-btn blue-btn"
+        @click="nextScreen"
+        >Finish</a
+      >
+    </div>
   </div>
 </template>
 
@@ -118,6 +128,9 @@ export default {
     },
     nextScreen() {
       this.$emit('nextScreen')
+    },
+    prevScreen() {
+      this.$emit('prevScreen')
     },
     closeScreen() {
       this.$emit('closeScreen')

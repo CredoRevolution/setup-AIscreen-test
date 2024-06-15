@@ -22,11 +22,15 @@
             <CustomInput
               :placeholderText="'Link to copy'"
               ref="validation1"
-              :defaultErrorText="'Please Fill In This Field'"
+              :defaultErrorText="'Please enter a link'"
               class="main-screen__input_qr"
+              :input-name="'QR'"
             />
           </div>
-          <button class="main-screen__qr-btn hover-btn" @click.prevent="copy">
+          <button
+            class="main-screen__qr-btn hover-btn blue-btn"
+            @click.prevent="copy"
+          >
             Copy
           </button>
           <button

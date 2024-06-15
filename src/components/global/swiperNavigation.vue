@@ -49,7 +49,7 @@ export default {
   background: rgba(210, 210, 216, 0.7);
   border-radius: 50%;
   opacity: 0.8;
-  top: 50%;
+  top: 45%;
   transform: translateY(-50%);
   z-index: 100;
   display: flex;
@@ -61,10 +61,10 @@ export default {
     width: rem(7px);
   }
   &.next-slide-btn {
-    right: rem(0px);
+    right: rem(-42px);
   }
   &.prev-slide-btn {
-    left: rem(0px);
+    left: rem(-42px);
     img {
       transform: rotate(180deg);
     }

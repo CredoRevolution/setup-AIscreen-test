@@ -7,33 +7,48 @@
       {{ defaultText }}</label
     >
     <multiselect
-      name="select"
+      v-if="!otherVariant"
       v-model="value"
       :options="optionsCount"
       :custom-label="selectCountry"
       :value="value"
-      placeholder=""
       :allowEmpty="false"
       :searchable="search"
+      placeholder=""
       label="name"
+      name="select"
+      ref="multiselect"
       track-by="name"
       @select="checkState"
-      @open="active = true"
+      @open="handleOpen"
       @close="checkLabel"
       :class="[
         { error: $v.value && $v.value.$error },
         { showValue: showValue },
+        {
+          valid:
+            !$v.value.$error && $v.value.$model && value.name !== defaultText,
+        },
       ]"
-    ></multiselect>
+    >
+      <span slot="noResult">{{ defaultErrorText }}</span>
+    </multiselect>
     <p v-if="showError && !$v.value.mustBeSelected" class="error-message">
       {{ defaultErrorText }}
     </p>
+    <CustomInput
+      v-if="otherVariant"
+      v-model="value.name"
+      :placeholder-text="defaultText"
+      ref="input"
+    />
   </div>
 </template>
 
 <script>
 import Multiselect from 'vue-multiselect'
 import { required } from 'vuelidate/lib/validators'
+import CustomInput from './CustomInput.vue'
 
 const mustBeSelected = (value, vm) => value.name !== vm.defaultText
 
@@ -41,6 +56,7 @@ export default {
   name: 'SearchSelect',
   components: {
     Multiselect,
+    CustomInput,
   },
   data() {
     return {
@@ -48,6 +64,7 @@ export default {
       showError: false,
       active: false,
       showValue: false,
+      otherVariant: false,
     }
   },
   props: {
@@ -107,8 +124,58 @@ export default {
     selectCountry({ name }) {
       return `${name}`
     },
+    handleOpen() {
+      this.active = true
+      if (this.search) {
+        const searchQuery = this.$el.querySelector('.multiselect__input')
+        if (searchQuery) {
+          searchQuery.placeholder = this.value.name
+        }
+      }
+      this.$nextTick(() => {
+        const list = this.$el.querySelector('.multiselect__content')
+        if (list) {
+          const listItems = Array.from(list.children)
+          const selectedIndex = listItems.findIndex(
+            (item) => item.textContent.trim() === this.value.name
+          )
+          list.scrollTop = 1000
+          list.style.overflowY = 'auto'
+          list.style.maxHeight = '300px'
+          if (selectedIndex !== -1) {
+            console.log('есть совпадение', selectedIndex)
+            const listItemSelected = listItems[selectedIndex]
+            const listItemSelectedTop =
+              listItemSelected.offsetTop - list.offsetTop
+            list.scrollTop = listItemSelectedTop
+            console.log(list.scrollTop, listItemSelectedTop)
+          }
+        }
+      })
+    },
+    handleOtherVariant() {
+      this.otherVariant = true
+
+      this.$nextTick(() => {
+        const input = this.$refs.input.$el
+        const inputField = input.querySelector('input')
+        inputField.focus()
+        inputField.addEventListener('blur', () => {
+          if (inputField.value === '') {
+            this.otherVariant = false
+            this.otherVariant = false
+            this.showValue = false
+            this.checkLabel()
+          }
+        })
+      })
+    },
     checkState() {
+      if (this.value.name === 'Other') {
+        this.handleOtherVariant()
+      }
       if (this.value.name) {
+        console.log(this.value.name)
         this.$emit('USAState', this.value.name)
       }
       if (this.industry) {
@@ -131,6 +198,7 @@ export default {
 
 .select-wrapper {
   position: relative;
+  cursor: pointer;
   label {
     position: absolute;
     transition: all 0.3s ease;
@@ -172,6 +240,13 @@ export default {
     &.error {
       .multiselect__tags {
         border: 1px solid red;
+      }
+    }
+    &.valid {
+      .multiselect__tags {
+        border: 1px solid #248d04;
+        box-shadow: 0px 0px 8px #248d04;
+        transition: all 0.3s ease;
       }
     }
     &.showValue {
@@ -244,6 +319,7 @@ export default {
       border: 1px solid #0071e2;
       border-top: 0;
       overflow-x: hidden;
+      overflow-y: hidden;
       .multiselect__option {
         padding: rem(15px);
         font-size: rem(17px);

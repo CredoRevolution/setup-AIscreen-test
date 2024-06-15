@@ -5,7 +5,18 @@
       <div class="progress" ref="progress"></div>
     </div>
     <h2 class="main-screen__title">Smooth Setup in 60 seconds…</h2>
-    <p class="main-screen__text">Select 4 templates to see the magic!</p>
+    <p class="main-screen__text">
+      Select
+      <span
+        :class="[
+          activeScreens === 4 ? 'valid' : '',
+          activeScreens > 4 ? 'error' : '',
+          '',
+        ]"
+        >4 templates</span
+      >
+      to see the magic!
+    </p>
     <ul class="main-screen__list">
       <Template
         v-for="(template, index) in templates"
@@ -20,17 +31,26 @@
     <p v-if="showError && !(activeScreens === 4)" class="error-message">
       Please select 4 templates
     </p>
-    <a
-      href="#"
-      class="main-screen__btn hover-btn"
-      @click="nextScreen"
-      ref="nextBtn"
-      :class="{
-        error: showError || activeScreens > 4,
-        grey: activeScreens < 4 || activeScreens > 4,
-      }"
-      >Finish</a
-    >
+    <div class="main-screen__btn-wrapper">
+      <a
+        href="#"
+        class="main-screen__btn hover-btn blue-btn"
+        @click="prevScreen"
+        ref="prevBtn"
+        >Prev</a
+      >
+      <a
+        href="#"
+        class="main-screen__btn hover-btn blue-btn"
+        @click="nextScreen"
+        ref="nextBtn"
+        :class="{
+          error: showError || activeScreens > 4,
+          grey: activeScreens < 4 || activeScreens > 4,
+        }"
+        >Next</a
+      >
+    </div>
   </div>
 </template>
 
@@ -71,6 +91,9 @@ export default {
       } else {
         this.showError = true
       }
+    },
+    prevScreen() {
+      this.$emit('prevScreen')
     },
     checkValidation() {
       this.validation = false

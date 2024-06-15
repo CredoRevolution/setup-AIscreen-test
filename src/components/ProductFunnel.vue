@@ -1,20 +1,21 @@
 <template>
   <div id="productFunnel" class="product-funnel">
-    <GreetingsScreen v-if="currentScreen === 0" @nextScreen="nextScreen" />
     <WelcomeScreen
-      v-if="currentScreen === 1"
+      v-if="currentScreen === 0"
       @nextScreen="nextScreen"
       @changeIndustry="changeIndustry"
     />
     <JobScreen
-      v-if="currentScreen === 2"
+      v-if="currentScreen === 1"
       @nextScreen="nextScreen"
       :industry="industry"
     />
+    <ScreenCheck v-if="currentScreen === 2" @nextScreen="nextScreen" />
     <TemplatesScreen
       v-if="currentScreen === 3"
       :industry="industry"
       @nextScreen="nextScreen"
+      @prevScreen="prevScreen"
       @getTemplatesData="getTemplatesData"
       @moveProgressBar="moveProgressBar"
       @progressBar="progressBar"
@@ -22,6 +23,7 @@
     <ZonesScreen
       v-if="currentScreen === 4"
       :industry="industry"
+      @prevScreen="prevScreen"
       @nextScreen="nextScreen"
       :templatesData="templatesData"
       @progressBar="progressBar"
@@ -29,12 +31,14 @@
     <TeamScreen
       v-if="currentScreen === 5"
       :industry="industry"
+      @prevScreen="prevScreen"
       @nextScreen="nextScreen"
       @closeScreen="closeScreen"
     />
     <QrScreen
       v-if="currentScreen === 6"
       :industry="industry"
+      @prevScreen="prevScreen"
       @nextScreen="nextScreen"
       @closeScreen="closeScreen"
     />
@@ -42,7 +46,7 @@
 </template>
 
 <script>
-import GreetingsScreen from './setup/GreetingsScreen.vue'
+import ScreenCheck from './setup/ScreenCheck.vue'
 import TemplatesScreen from './setup/TemplatesScreen.vue'
 import WelcomeScreen from './setup/WelcomeScreen.vue'
 import JobScreen from './setup/JobScreen.vue'
@@ -58,7 +62,7 @@ export default {
     TemplatesScreen,
     TeamScreen,
     QrScreen,
-    GreetingsScreen,
+    ScreenCheck,
   },
   data() {
     return {

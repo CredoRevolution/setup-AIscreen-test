@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="active ? 'screen active' : 'screen'"
+    :class="['screen', { active: active }, { 'zones-screen': zonesScreen }]"
     @click="toggleActive"
     ref="screen"
   >
@@ -90,6 +90,15 @@ export default {
   padding: rem(8px) rem(8px) rem(10px) rem(8px);
   background-color: #fff;
   border: 2px solid transparent;
+  &.zones-screen {
+    margin-right: rem(20px);
+    .screen__text {
+      margin-top: rem(24px);
+      font-size: rem(24px);
+      line-height: rem(28px);
+      font-weight: 700;
+    }
+  }
 
   .img-wrapper {
     width: 100%;
@@ -104,16 +113,8 @@ export default {
       z-index: 1;
     }
     &.background {
-      &::after {
-        content: '';
-        position: absolute;
-        top: -2%;
-        left: 0;
-        width: 100%;
-        height: 104%;
-        background-color: #000000;
-        border-radius: rem(10px);
-      }
+      border: rem(5px) solid #14121f;
+      border-radius: rem(10px);
     }
   }
 

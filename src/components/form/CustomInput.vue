@@ -4,18 +4,20 @@
       placeholderText
     }}</label>
     <input
-      name="text-input"
+      :name="inputName"
       type="text"
       :class="[
         'main-screen__form-input',
         'main-screen__form-item-warnings',
         $v.name.$error ? 'error' : '',
+        !$v.name.$error && $v.name.$model ? 'valid' : '',
       ]"
       required
       v-model.trim="$v.name.$model"
       @click="resetValidation"
       @focusin="active = true"
       @focusout="focus"
+      @input="checkValidation"
       ref="input"
     />
     <div class="error-message" v-if="showError && !$v.name.minLength && !phone">
@@ -47,6 +49,10 @@ export default {
     defaultErrorText: {
       type: String,
       required: false,
+    },
+    inputName: {
+      type: String,
+      required: true,
     },
   },
   data() {
@@ -147,6 +153,11 @@ export default {
     &.error {
       border: 1px solid red;
     }
+    &.valid {
+      border: 1px solid #248d04;
+      box-shadow: 0px 0px 8px #248d04;
+      transition: all 0.3s ease;
+    }
     &::placeholder {
       color: #86868b;
       font-weight: 500;
@@ -157,7 +168,7 @@ export default {
       border: 1px solid #0071e2 !important;
       color: #14121f;
       outline: none;
-      box-shadow: 0px 0px 8px #0071e254; /* Добавьте нужный вам box-shadow стиль */
+      box-shadow: 0px 0px 8px #0071e254;
       transition: all 0.3s ease;
       &::after {
         content: '';
