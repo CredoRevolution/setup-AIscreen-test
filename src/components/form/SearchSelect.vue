@@ -141,7 +141,6 @@ export default {
           )
           list.style.overflowY = 'auto'
           list.style.maxHeight = '200px'
-          list.scrollTop = 1000
 
           if (selectedIndex !== -1) {
             console.log('есть совпадение', selectedIndex)

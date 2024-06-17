@@ -7,14 +7,7 @@
     <h2 class="main-screen__title">Smooth Setup in 60 seconds…</h2>
     <p class="main-screen__text">
       Select
-      <span
-        :class="[
-          activeScreens === 4 ? 'valid' : '',
-          activeScreens > 4 ? 'error' : '',
-          '',
-        ]"
-        >4 templates</span
-      >
+      <span :class="[activeScreens > 4 ? 'error' : '', '']">4 templates</span>
       to see the magic!
     </p>
     <ul class="main-screen__list" v-if="currentPageWidth > 768">
@@ -40,7 +33,7 @@
       :space-between="12"
       :centered-slides="true"
       @slideChange="handleSlideChange"
-      class="swiper-container main-screen__list_templates"
+      class="swiper-container main-screen__list_templates main-screen__list_templates--mobile"
     >
       <SwiperSlide v-for="(template, index) in templates" :key="index">
         <Template
@@ -55,10 +48,6 @@
           class="swiper-slide"
         />
       </SwiperSlide>
-      <!-- <swiperNavigation
-        :reachedEnd="reachedEnd"
-        :reachedBeginning="reachedBeginning"
-      /> -->
     </swiper>
     <p v-if="showError && !(activeScreens === 4)" class="error-message">
       Please select 4 templates
@@ -124,6 +113,23 @@ export default {
       reachedBeginning: true,
     }
   },
+  async mounted() {
+    await Promise.all(
+      this.templates.map((template) => {
+        return new Promise((resolve) => {
+          const img = new Image()
+          img.src = require(`@/assets/img/industries/industries-last/${
+            this.industry
+          }-last-${this.templates.indexOf(template) + 1}.png`)
+          img.onload = () => {
+            resolve()
+          }
+        })
+      })
+    )
+    this.onresize()
+    this.$emit('progressBar', this.$refs.progress)
+  },
   methods: {
     nextScreen() {
       this.checkValidation()
@@ -188,31 +194,20 @@ export default {
       } else {
         this.$refs.nextBtn.classList.remove('grey')
       }
-
+      this.$refs.screen.forEach((screen) => {
+        if (screen.isActive()) {
+          screen.$el.style.transition = '0.2s ease'
+          screen.$el.classList.remove('error-blink')
+        }
+      })
       if (this.activeScreens > 4) {
         this.$refs.screen.forEach((screen) => {
-          if (screen.isActive()) {
-            screen.$el.style.transition = '0.5s ease'
-            screen.$el.classList.add('error-blink')
-            setTimeout(() => {
-              screen.$el.classList.remove('error-blink')
-            }, 200)
-            setTimeout(() => {
+          this.$nextTick(() => {
+            if (screen.isActive()) {
+              screen.$el.style.transition = '0.2s ease'
               screen.$el.classList.add('error-blink')
-            }, 600)
-            setTimeout(() => {
-              screen.$el.classList.remove('error-blink')
-            }, 900)
-            setTimeout(() => {
-              screen.$el.classList.add('error-blink')
-            }, 1200)
-            setTimeout(() => {
-              screen.$el.classList.remove('error-blink')
-            }, 1500)
-            setTimeout(() => {
-              screen.$el.style.transition = 'none'
-            }, 2000)
-          }
+            }
+          })
         })
       }
     },
@@ -226,11 +221,6 @@ export default {
     return {
       modules: [Navigation],
     }
-  },
-
-  mounted() {
-    this.onresize()
-    this.$emit('progressBar', this.$refs.progress)
   },
 }
 </script>

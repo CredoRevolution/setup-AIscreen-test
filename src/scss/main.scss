@@ -155,6 +155,16 @@ button {
       }
     }
   }
+  &.main-screen__list_templates--mobile {
+    .swiper-slide {
+      opacity: 1 !important;
+      transition: all 0.3s ease;
+      .swiper-slide {
+        opacity: 1 !important;
+        transition: all 0.3s ease;
+      }
+    }
+  }
 }
 
 .swiper-slide {
@@ -633,7 +643,6 @@ button {
         }
       }
       .main-screen__img {
-        position: relative;
         border-radius: 0;
         height: rem(300px);
         .backgorund {
