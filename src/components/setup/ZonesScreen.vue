@@ -178,36 +178,4 @@ export default {
 @function rem($px) {
   @return ($px / 16px) + rem;
 }
-
-.swiper {
-  overflow: unset;
-  width: 98%;
-  margin: 0 auto;
-  .swiper-slide {
-    opacity: 0;
-    transition: all 0.3s ease;
-    &.swiper-slide-active {
-      opacity: 1 !important;
-      transition: all 0.3s ease;
-      .swiper-slide {
-        opacity: 1 !important;
-        transition: all 0.3s ease;
-      }
-    }
-    &.swiper-slide-next {
-      opacity: 1 !important;
-      transition: all 0.3s ease;
-      .swiper-slide {
-        opacity: 1 !important;
-        transition: all 0.3s ease;
-      }
-    }
-  }
-}
-
-.swiper-slide {
-  .screen {
-    width: 100%;
-  }
-}
 </style>

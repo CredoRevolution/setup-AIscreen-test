@@ -17,7 +17,7 @@
       >
       to see the magic!
     </p>
-    <ul class="main-screen__list">
+    <ul class="main-screen__list" v-if="currentPageWidth > 768">
       <Template
         v-for="(template, index) in templates"
         :key="index"
@@ -28,6 +28,30 @@
         :background="false"
       />
     </ul>
+    <swiper
+      v-else
+      :modules="modules"
+      :loop="false"
+      :slides-per-view="1.2"
+      :space-between="12"
+      :centered-slides="true"
+      @slideChange="handleSlideChange"
+      class="swiper-container main-screen__list_templates"
+    >
+      <SwiperSlide v-for="(template, index) in templates" :key="index">
+        <Template
+          :text="template.name"
+          :img-src="require(`@/assets/img/${industry}-last-${index + 1}.png`)"
+          @getActiveData="getActiveData"
+          ref="screen"
+          class="swiper-slide"
+        />
+      </SwiperSlide>
+      <!-- <swiperNavigation
+        :reachedEnd="reachedEnd"
+        :reachedBeginning="reachedBeginning"
+      /> -->
+    </swiper>
     <p v-if="showError && !(activeScreens === 4)" class="error-message">
       Please select 4 templates
     </p>
@@ -56,11 +80,18 @@
 
 <script>
 import Template from '@/components/global/Template.vue'
+import swiperNavigation from '@/components/global/swiperNavigation.vue'
+// Import Swiper Vue.js components
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Navigation } from 'swiper/modules'
 
 export default {
   name: 'DesignsScreen',
   components: {
     Template,
+    Swiper,
+    SwiperSlide,
+    swiperNavigation,
   },
   props: {
     industry: String,
@@ -80,6 +111,9 @@ export default {
       activeScreens: 0,
       validation: false,
       showError: false,
+      currentPageWidth: 0,
+      reachedEnd: false,
+      reachedBeginning: true,
     }
   },
   methods: {
@@ -91,6 +125,9 @@ export default {
       } else {
         this.showError = true
       }
+    },
+    onresize() {
+      this.currentPageWidth = window.innerWidth
     },
     prevScreen() {
       this.$emit('prevScreen')
@@ -104,13 +141,16 @@ export default {
       return false
     },
     getTemplatesData() {
-      const activeScreens = document.querySelectorAll('.screen.active')
+      const activeScreens = this.$refs.screen.filter((el) => el.isActive())
       const activeScreensNames = []
 
       activeScreens.forEach((screen) => {
-        const screenName = screen.querySelector('.screen__text').textContent
+        const screenName = screen.text
+
         activeScreensNames.push(screenName)
       })
+
+      console.log(activeScreensNames)
 
       this.$emit('getTemplatesData', activeScreensNames)
     },
@@ -168,9 +208,20 @@ export default {
         })
       }
     },
+    handleSlideChange(swiper) {
+      this.reachedEnd = swiper.isEnd
+      this.reachedBeginning = swiper.isBeginning
+      console.log(this.reachedEnd)
+    },
+  },
+  setup() {
+    return {
+      modules: [Navigation],
+    }
   },
 
   mounted() {
+    window.addEventListener('resize', this.onresize)
     this.$emit('progressBar', this.$refs.progress)
   },
 }

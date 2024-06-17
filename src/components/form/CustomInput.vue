@@ -199,8 +199,24 @@ export default {
 
 @media (max-height: 900px) {
   .input-wrapper {
+    label {
+      top: rem(12px);
+      left: rem(12px);
+    }
     .main-screen__form-input {
-      padding: rem(12px);
+      padding: rem(17px) rem(12px) rem(6px) rem(12px);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .input-wrapper {
+    label {
+      top: rem(15px);
+      left: rem(15px);
+    }
+    .main-screen__form-input {
+      padding: rem(23px) rem(15px) rem(8px) rem(15px);
     }
   }
 }

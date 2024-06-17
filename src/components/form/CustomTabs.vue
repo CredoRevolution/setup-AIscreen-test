@@ -260,8 +260,10 @@ export default {
   }
 }
 @media (max-width: 768px) {
-  .custom-tabs {
-    display: none;
+  .main-screen__form-switch {
+    .main-screen__form-switch-btn {
+      padding: rem(12px) rem(10px);
+    }
   }
 }
 </style>

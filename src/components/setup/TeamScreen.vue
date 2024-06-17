@@ -48,19 +48,9 @@
         @deleteMember="deleteMember(index)"
       />
     </ul>
-    <div class="main-screen__btn-wrapper">
-      <a
-        href="#"
-        class="main-screen__btn hover-btn blue-btn"
-        @click="prevScreen"
-        >Prev</a
-      ><a
-        href="#"
-        class="main-screen__btn hover-btn blue-btn"
-        @click="nextScreen"
-        >Finish</a
-      >
-    </div>
+    <a href="#" class="main-screen__btn hover-btn blue-btn" @click="nextScreen"
+      >Finish</a
+    >
   </div>
 </template>
 

@@ -181,15 +181,15 @@ export default {
       if (this.industry) {
         if (img && bigImg) {
           setTimeout(() => {
-            img.style.transition = 'none 0.2s ease-out'
-            bigImg.style.transition = 'none 0.2s ease-out'
-            img.style.transform = 'translateX(-150%)'
-            bigImg.style.transform = 'translateX(-150%)'
+            img.style.transition = 'none 0.3s ease-out'
+            bigImg.style.transition = 'none 0.3s ease-out'
+            img.style.transform = 'translateX(-200%)'
+            bigImg.style.transform = 'translateX(-200%)'
             img.style.opacity = '1'
             bigImg.style.opacity = '1'
-          }, 300)
-          img.style.transition = 'all 0.2s ease-out'
-          bigImg.style.transition = 'all 0.2s ease-out'
+          }, 200)
+          img.style.transition = 'all 0.5s ease-out'
+          bigImg.style.transition = 'all 0.5s ease-out'
           img.style.opacity = '0'
           bigImg.style.opacity = '0'
           bigImg.style.transform = 'translateX(200%)'
@@ -198,18 +198,18 @@ export default {
       }
       setTimeout(() => {
         this.$emit('changeIndustry', this.industry)
-      }, 300)
+      }, 200)
 
       if (this.industry) {
         if (img && bigImg) {
           setTimeout(() => {
-            bigImg.style.transition = 'all 0.2s ease-out'
+            bigImg.style.transition = 'all 0.4s ease-out'
             bigImg.style.transform = 'translateX(0)'
             setTimeout(() => {
               img.style.transform = 'translateX(0)'
-              img.style.transition = 'all 0.2s ease-out'
+              img.style.transition = 'all 0.4s ease-out'
             }, 200)
-          }, 400)
+          }, 300)
         }
       }
     },

@@ -419,9 +419,13 @@ export default {
 
 @media (max-height: 900px) {
   .select-wrapper {
+    label {
+      top: rem(12px);
+      left: rem(12px);
+    }
     .multiselect {
       .multiselect__tags {
-        padding: rem(12px);
+        padding: rem(17px) rem(12px) rem(6px) rem(12px);
       }
       .multiselect__select {
         &::before {
@@ -433,6 +437,34 @@ export default {
         top: rem(4px);
         width: rem(38px);
         height: rem(38px);
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .select-wrapper {
+    label {
+      top: rem(15px);
+      left: rem(15px);
+    }
+    .multiselect {
+      .multiselect__tags {
+        padding: rem(23px) rem(15px) rem(8px) rem(15px);
+      }
+      .multiselect__select {
+        &::before {
+          top: rem(6px);
+          right: rem(6px);
+          width: rem(40px);
+          height: rem(40px);
+        }
+      }
+      &::after {
+        top: rem(6px);
+        right: rem(6px);
+        width: rem(40px);
+        height: rem(40px);
       }
     }
   }

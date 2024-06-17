@@ -56,16 +56,6 @@
             ref="validation4"
             :defaultErrorText="'Select amount'"
             class="custom-tabs"
-            v-if="adaptationResolution > 768"
-          />
-          <CustomSelect
-            :options="['1-10', '11-50', '51-199', '200-499', '500+']"
-            :default="'Amount of screens'"
-            :defaultErrorText="'Select amount'"
-            class="custom-tabs_adaptation"
-            v-model="amount"
-            ref="validation4"
-            v-else
           />
           <button
             class="main-screen__form-btn hover-btn blue-btn"
