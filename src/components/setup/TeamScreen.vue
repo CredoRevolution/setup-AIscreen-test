@@ -1,5 +1,13 @@
 <template>
   <div class="main-screen main-screen_screens main-screen_team">
+    <div class="logo-adaptation">
+      <img
+        v-if="require(`@/assets/img/logo.svg`)"
+        :src="require(`@/assets/img/logo.svg`)"
+        alt="aiscreen"
+        class="main-screen-main__logo"
+      />
+    </div>
     <div class="main-screen__exit">
       <img
         src="@/assets/img/exit.svg"

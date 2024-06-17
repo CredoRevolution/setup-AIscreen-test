@@ -145,4 +145,17 @@ export default {
     margin-top: rem(3px);
   }
 }
+
+@media (max-width: 768px) {
+  .screen {
+    justify-content: flex-start;
+    &.zones-screen {
+      .screen__text {
+        font-size: rem(17px);
+        line-height: rem(21px);
+        margin-top: rem(8px);
+      }
+    }
+  }
+}
 </style>

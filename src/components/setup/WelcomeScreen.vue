@@ -1,5 +1,13 @@
 <template>
   <div class="main-screen">
+    <div class="logo-adaptation">
+      <img
+        v-if="require(`@/assets/img/logo.svg`)"
+        :src="require(`@/assets/img/logo.svg`)"
+        alt="aiscreen"
+        class="main-screen-main__logo"
+      />
+    </div>
     <div class="main-screen-wrapper">
       <div class="main-screen__main">
         <img
@@ -80,14 +88,14 @@
         </form>
       </div>
 
-      <div class="main-screen__img">
+      <div class="main-screen__img" v-if="industry">
         <div
           class="main-screen__img main-screen__img_changing"
           ref="changingImg"
         >
           <div class="backgorund">
             <img
-              v-if="industry"
+              v-show="industry"
               :src="require(`@/assets/img/industries/${industry}.png`)"
               alt="img"
               class="backgorund__img"
@@ -96,7 +104,7 @@
           </div>
           <div class="img-wrapper">
             <img
-              v-if="industry"
+              v-show="industry"
               :src="require(`@/assets/img/industries/${industry}-small.png`)"
               alt="img"
               class="main-screen-main__small-img background"
@@ -106,7 +114,7 @@
         </div>
         <div class="backgorund">
           <img
-            v-if="industryPrev || industry"
+            v-show="industryPrev || industry"
             :src="
               require(`@/assets/img/industries/${industryPrev || industry}.png`)
             "
@@ -117,7 +125,7 @@
         </div>
         <div class="img-wrapper">
           <img
-            v-if="industryPrev || industry"
+            v-show="industryPrev || industry"
             :src="
               require(`@/assets/img/industries/${
                 industryPrev || industry
@@ -149,23 +157,22 @@ export default {
       state: '',
       name: '',
       industries: [
-        { name: 'Education' },
-        { name: 'Energy' },
-        { name: 'Events' },
-
+        // { name: 'Education' },
+        // { name: 'Energy' },
+        // { name: 'Events' },
         { name: 'Finance' },
-        { name: 'Fitness' },
-        { name: 'Healthcare' },
-        { name: 'Hospitality/Food Beverage' },
-        { name: 'Manufacturing' },
-        { name: 'Media & Advertising' },
-        { name: 'Places Of Worship' },
-        { name: 'Real Estate' },
+        // { name: 'Fitness' },
+        // { name: 'Healthcare' },
+        // { name: 'Hospitality/Food Beverage' },
+        // { name: 'Manufacturing' },
+        // { name: 'Media & Advertising' },
+        // { name: 'Places Of Worship' },
+        // { name: 'Real Estate' },
         { name: 'Retail' },
-        { name: 'Software & Services' },
-        { name: 'Telecommunications' },
+        // { name: 'Software & Services' },
+        // { name: 'Telecommunications' },
         { name: 'Digital Menu Boards' },
-        { name: 'Other' },
+        // { name: 'Other' },
       ],
       Countries: [],
       States: [],
@@ -271,6 +278,41 @@ export default {
     this.getCountries()
     this.getUSStates()
     this.changeIndustry()
+
+    const images = [
+      // require('@/assets/img/industries/Education.png'),
+      // require('@/assets/img/industries/Education-small.png'),
+      // require('@/assets/img/industries/Energy.png'),
+      // require('@/assets/img/industries/Energy-small.png'),
+      // require('@/assets/img/industries/Events.png'),
+      // require('@/assets/img/industries/Events-small.png'),
+      require('@/assets/img/industries/Finance.png'),
+      require('@/assets/img/industries/Finance-small.png'),
+      // require('@/assets/img/industries/Fitness.png'),
+      // require('@/assets/img/industries/Fitness-small.png'),
+      // require('@/assets/img/industries/Healthcare.png'),
+      // require('@/assets/img/industries/Healthcare-small.png'),
+      // require('@/assets/img/industries/Hospitality/Food Beverage.png'),
+      // require('@/assets/img/industries/Hospitality/Food Beverage-small.png'),
+      // require('@/assets/img/industries/Manufacturing.png'),
+      // require('@/assets/img/industries/Manufacturing-small.png'),
+      // require('@/assets/img/industries/Media & Advertising.png'),
+      // require('@/assets/img/industries/Media & Advertising-small.png'),
+      // require('@/assets/img/industries/Places Of Worship.png'),
+      // require('@/assets/img/industries/Places Of Worship-small.png'),
+      // require('@/assets/img/industries/Real Estate.png'),
+      // require('@/assets/img/industries/Real Estate-small.png'),
+      require('@/assets/img/industries/Retail.png'),
+      require('@/assets/img/industries/Retail-small.png'),
+      // require('@/assets/img/industries/Software & Services.png'),
+      // require('@/assets/img/industries/Software & Services-small.png'),
+      // require('@/assets/img/industries/Telecommunications.png'),
+      // require('@/assets/img/industries/Telecommunications-small.png'),
+      require('@/assets/img/industries/Digital Menu Boards.png'),
+      require('@/assets/img/industries/Digital Menu Boards-small.png'),
+      // require('@/assets/img/industries/Other.png'),
+      // require('@/assets/img/industries/Other-small.png'),
+    ]
   },
 }
 </script>

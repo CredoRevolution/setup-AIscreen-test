@@ -1,5 +1,13 @@
 <template>
   <div class="main-screen main-screen_screens">
+    <div class="logo-adaptation">
+      <img
+        v-if="require(`@/assets/img/logo.svg`)"
+        :src="require(`@/assets/img/logo.svg`)"
+        alt="aiscreen"
+        class="main-screen-main__logo"
+      />
+    </div>
     <img src="@/assets/img/logo.svg" alt="aiscreen" class="main-screen__logo" />
     <div class="main-screen__progress">
       <div class="progress" ref="progress"></div>
@@ -12,10 +20,20 @@
       quickly and easily.
     </p>
     <swiper
+      v-if="templates"
       :modules="modules"
       :loop="false"
-      :slides-per-view="2"
-      :space-between="17"
+      :slides-per-view="1"
+      :space-between="50"
+      :centeredSlides="true"
+      :breakpoints="{
+        768: {
+          slidesPerView: 2,
+          centeredSlides: false,
+          spaceBetween: 17,
+          loop: false,
+        },
+      }"
       @slideChange="handleSlideChange"
       class="swiper-container main-screen__list_templates"
     >
@@ -36,6 +54,7 @@
         />
       </SwiperSlide>
       <swiperNavigation
+        v-if="currentPageWidth > 768"
         :reachedEnd="reachedEnd"
         :reachedBeginning="reachedBeginning"
       />
@@ -170,9 +189,13 @@ export default {
       modules: [Navigation],
     }
   },
+  computed: {
+    currentPageWidth() {
+      return window.innerWidth
+    },
+  },
   mounted() {
     console.log(this.layoutsData)
-
     this.$emit('progressBar', this.$refs.progress)
   },
 }

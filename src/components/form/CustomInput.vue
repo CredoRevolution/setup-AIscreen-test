@@ -154,8 +154,8 @@ export default {
       border: 1px solid red;
     }
     &.valid {
-      border: 1px solid #248d04;
-      box-shadow: 0px 0px 8px #248d04;
+      border: 1px solid #0071e2;
+      box-shadow: 0px 0px 8px #0071e2;
       transition: all 0.3s ease;
     }
     &::placeholder {
