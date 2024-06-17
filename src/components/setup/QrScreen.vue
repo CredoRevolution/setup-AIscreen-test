@@ -49,7 +49,7 @@
       <div class="main-screen__img">
         <div class="backgorund">
           <img
-            :src="require(`@/assets/img/Finance.png`)"
+            :src="require(`@/assets/img/industries/Finance.png`)"
             alt="img"
             class="backgorund__img"
             ref="bigImg"

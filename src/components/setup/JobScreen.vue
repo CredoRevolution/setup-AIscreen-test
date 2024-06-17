@@ -68,13 +68,16 @@
       <div class="main-screen__img">
         <div class="backgorund">
           <img
-            :src="require(`@/assets/img/${industry}.png`)"
+            :src="require(`@/assets/img/industries/${industry}.png`)"
             alt="img"
             class="backgorund__img"
           />
         </div>
         <div class="img-wrapper">
-          <img :src="require(`@/assets/img/${industry}-small.png`)" alt="img" />
+          <img
+            :src="require(`@/assets/img/industries/${industry}-small.png`)"
+            alt="img"
+          />
         </div>
       </div>
     </div>

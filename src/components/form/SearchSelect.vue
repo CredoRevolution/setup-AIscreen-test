@@ -139,9 +139,10 @@ export default {
           const selectedIndex = listItems.findIndex(
             (item) => item.textContent.trim() === this.value.name
           )
-          list.scrollTop = 1000
           list.style.overflowY = 'auto'
-          list.style.maxHeight = '300px'
+          list.style.maxHeight = '200px'
+          list.scrollTop = 1000
+
           if (selectedIndex !== -1) {
             console.log('есть совпадение', selectedIndex)
             const listItemSelected = listItems[selectedIndex]
@@ -425,7 +426,7 @@ export default {
     }
     .multiselect {
       .multiselect__tags {
-        padding: rem(17px) rem(12px) rem(6px) rem(12px);
+        padding: rem(17px) rem(12px) rem(6px) rem(14px);
       }
       .multiselect__select {
         &::before {

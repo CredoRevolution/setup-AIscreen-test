@@ -22,7 +22,11 @@
       <SwiperSlide v-for="(template, index) in templates" :key="index">
         <Template
           :text="template.name"
-          :img-src="require(`@/assets/img/Finance-template-${index + 1}.png`)"
+          :img-src="
+            require(`@/assets/img/industries/templates/Finance-template-${
+              index + 1
+            }.png`)
+          "
           @getActiveData="getActiveData"
           ref="template"
           class="swiper-slide"
@@ -44,10 +48,10 @@
     <div class="main-screen__btn-wrapper">
       <a
         href="#"
-        class="main-screen__btn hover-btn blue-btn"
+        class="main-screen__btn prev-btn"
         @click="prevScreen"
         ref="prevtBtn"
-        >Prev</a
+        >Previous step</a
       ><a
         href="#"
         class="main-screen__btn hover-btn blue-btn"

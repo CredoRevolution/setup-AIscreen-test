@@ -30,17 +30,6 @@
               :input-name="'Company'"
             />
           </div>
-          <!-- <div class="main-screen__form-item">
-            <CustomSelect
-              :options="industries"
-              :default="'Industry'"
-              v-model.trim="industry"
-              class="main-screen__form-select_industry main-screen__form-item-warnings"
-              @getInfo="getInfo"
-              ref="validation2"
-              :defaultErrorText="'Select Industry'"
-            />
-          </div> -->
           <div class="main-screen__form-item">
             <SearchSelect
               :optionsCount="industries"
@@ -90,11 +79,37 @@
           </button>
         </form>
       </div>
+
       <div class="main-screen__img">
+        <div
+          class="main-screen__img main-screen__img_changing"
+          ref="changingImg"
+        >
+          <div class="backgorund">
+            <img
+              v-if="industry"
+              :src="require(`@/assets/img/industries/${industry}.png`)"
+              alt="img"
+              class="backgorund__img"
+              ref="bigImg"
+            />
+          </div>
+          <div class="img-wrapper">
+            <img
+              v-if="industry"
+              :src="require(`@/assets/img/industries/${industry}-small.png`)"
+              alt="img"
+              class="main-screen-main__small-img background"
+              ref="smallImg"
+            />
+          </div>
+        </div>
         <div class="backgorund">
           <img
-            v-if="industry && require(`@/assets/img/${industry}.png`)"
-            :src="require(`@/assets/img/${industry}.png`)"
+            v-if="industryPrev || industry"
+            :src="
+              require(`@/assets/img/industries/${industryPrev || industry}.png`)
+            "
             alt="img"
             class="backgorund__img"
             ref="bigImg"
@@ -102,8 +117,12 @@
         </div>
         <div class="img-wrapper">
           <img
-            v-if="industry && require(`@/assets/img/${industry}-small.png`)"
-            :src="require(`@/assets/img/${industry}-small.png`)"
+            v-if="industryPrev || industry"
+            :src="
+              require(`@/assets/img/industries/${
+                industryPrev || industry
+              }-small.png`)
+            "
             alt="img"
             class="main-screen-main__small-img background"
             ref="smallImg"
@@ -125,12 +144,28 @@ export default {
     return {
       selectedCountry: '',
       industry: '',
+      industryPrev: '',
+      industryPrevPrev: '',
       state: '',
       name: '',
       industries: [
+        { name: 'Education' },
+        { name: 'Energy' },
+        { name: 'Events' },
+
         { name: 'Finance' },
-        { name: 'Digital Menu Boards' },
+        { name: 'Fitness' },
+        { name: 'Healthcare' },
+        { name: 'Hospitality/Food Beverage' },
+        { name: 'Manufacturing' },
+        { name: 'Media & Advertising' },
+        { name: 'Places Of Worship' },
+        { name: 'Real Estate' },
         { name: 'Retail' },
+        { name: 'Software & Services' },
+        { name: 'Telecommunications' },
+        { name: 'Digital Menu Boards' },
+        { name: 'Other' },
       ],
       Countries: [],
       States: [],
@@ -178,40 +213,21 @@ export default {
       const img = this.$refs.smallImg
       const bigImg = this.$refs.bigImg
       console.log('current industry', this.industry)
-      if (this.industry) {
-        if (img && bigImg) {
-          setTimeout(() => {
-            img.style.transition = 'none 0.3s ease-out'
-            bigImg.style.transition = 'none 0.3s ease-out'
-            img.style.transform = 'translateX(-200%)'
-            bigImg.style.transform = 'translateX(-200%)'
-            img.style.opacity = '1'
-            bigImg.style.opacity = '1'
-          }, 200)
-          img.style.transition = 'all 0.5s ease-out'
-          bigImg.style.transition = 'all 0.5s ease-out'
-          img.style.opacity = '0'
-          bigImg.style.opacity = '0'
-          bigImg.style.transform = 'translateX(200%)'
-          img.style.transform = 'translateX(200%)'
-        }
+      if (this.industryPrev) {
+        setTimeout(() => {
+          this.industryPrevPrev = this.industryPrev
+          this.industryPrev = this.industry
+          this.$refs.changingImg.style.transition = 'none'
+          this.$refs.changingImg.style.zIndex = '0'
+          this.$refs.changingImg.style.left = '-100%'
+        }, 300)
+        this.$refs.changingImg.style.zIndex = '10'
+        this.$refs.changingImg.style.transition = 'all 0.3s ease'
+        this.$refs.changingImg.style.left = '0'
       }
       setTimeout(() => {
         this.$emit('changeIndustry', this.industry)
       }, 200)
-
-      if (this.industry) {
-        if (img && bigImg) {
-          setTimeout(() => {
-            bigImg.style.transition = 'all 0.4s ease-out'
-            bigImg.style.transform = 'translateX(0)'
-            setTimeout(() => {
-              img.style.transform = 'translateX(0)'
-              img.style.transition = 'all 0.4s ease-out'
-            }, 200)
-          }, 300)
-        }
-      }
     },
     getCountries() {
       axios
@@ -238,7 +254,9 @@ export default {
         })
     },
     getInfo(industry) {
+      this.industryPrev = this.industry
       this.industry = industry
+
       for (let i = 0; i < this.industries.length; i++) {
         if (this.industries[i].name === industry) {
           this.changeIndustry()

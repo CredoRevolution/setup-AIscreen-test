@@ -204,7 +204,7 @@ export default {
       left: rem(12px);
     }
     .main-screen__form-input {
-      padding: rem(17px) rem(12px) rem(6px) rem(12px);
+      padding: rem(17px) rem(12px) rem(6px) rem(14px);
     }
   }
 }

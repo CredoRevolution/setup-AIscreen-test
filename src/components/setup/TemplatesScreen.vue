@@ -22,7 +22,11 @@
         v-for="(template, index) in templates"
         :key="index"
         :text="template.name"
-        :img-src="require(`@/assets/img/${industry}-last-${index + 1}.png`)"
+        :img-src="
+          require(`@/assets/img/industries/industries-last/${industry}-last-${
+            index + 1
+          }.png`)
+        "
         @getActiveData="getActiveData"
         ref="screen"
         :background="false"
@@ -41,7 +45,11 @@
       <SwiperSlide v-for="(template, index) in templates" :key="index">
         <Template
           :text="template.name"
-          :img-src="require(`@/assets/img/${industry}-last-${index + 1}.png`)"
+          :img-src="
+            require(`@/assets/img/industries/industries-last/${industry}-last-${
+              index + 1
+            }.png`)
+          "
           @getActiveData="getActiveData"
           ref="screen"
           class="swiper-slide"
@@ -58,10 +66,10 @@
     <div class="main-screen__btn-wrapper">
       <a
         href="#"
-        class="main-screen__btn hover-btn blue-btn"
+        class="main-screen__btn prev-btn"
         @click="prevScreen"
         ref="prevBtn"
-        >Prev</a
+        >Previous step</a
       >
       <a
         href="#"
@@ -221,7 +229,7 @@ export default {
   },
 
   mounted() {
-    window.addEventListener('resize', this.onresize)
+    this.onresize()
     this.$emit('progressBar', this.$refs.progress)
   },
 }
