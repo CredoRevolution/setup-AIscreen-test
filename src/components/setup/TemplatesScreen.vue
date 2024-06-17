@@ -48,6 +48,10 @@
           class="swiper-slide"
         />
       </SwiperSlide>
+      <!-- <swiperNavigation
+        :reachedEnd="reachedEnd"
+        :reachedBeginning="reachedBeginning"
+      /> -->
     </swiper>
     <p v-if="showError && !(activeScreens === 4)" class="error-message">
       Please select 4 templates
@@ -112,23 +116,6 @@ export default {
       reachedEnd: false,
       reachedBeginning: true,
     }
-  },
-  async mounted() {
-    await Promise.all(
-      this.templates.map((template) => {
-        return new Promise((resolve) => {
-          const img = new Image()
-          img.src = require(`@/assets/img/industries/industries-last/${
-            this.industry
-          }-last-${this.templates.indexOf(template) + 1}.png`)
-          img.onload = () => {
-            resolve()
-          }
-        })
-      })
-    )
-    this.onresize()
-    this.$emit('progressBar', this.$refs.progress)
   },
   methods: {
     nextScreen() {
@@ -221,6 +208,11 @@ export default {
     return {
       modules: [Navigation],
     }
+  },
+
+  mounted() {
+    this.onresize()
+    this.$emit('progressBar', this.$refs.progress)
   },
 }
 </script>
