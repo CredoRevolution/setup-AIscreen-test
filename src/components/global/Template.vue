@@ -10,7 +10,7 @@
         v-else
         alt="loading"
         class="screen__img"
-        src="@/assets/img/loading.gif"
+        src="@/assets/img/loading.svg"
       />
     </div>
     <p class="screen__text">{{ text }}</p>

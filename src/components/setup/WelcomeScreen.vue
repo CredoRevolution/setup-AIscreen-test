@@ -274,46 +274,34 @@ export default {
       this.selectedCountry = value
     },
   },
-  mounted() {
-    this.getCountries()
-    this.getUSStates()
-    this.changeIndustry()
-
+  created() {
     const images = [
-      require('@/assets/img/loading.gif'),
+      require('@/assets/img/loading.svg'),
       require('@/assets/img/industries/Education.png'),
       require('@/assets/img/industries/Education-small.png'),
-      // require('@/assets/img/industries/Energy.png'),
-      // require('@/assets/img/industries/Energy-small.png'),
-      // require('@/assets/img/industries/Events.png'),
-      // require('@/assets/img/industries/Events-small.png'),
       require('@/assets/img/industries/Finance.png'),
       require('@/assets/img/industries/Finance-small.png'),
       require('@/assets/img/industries/Fitness.png'),
       require('@/assets/img/industries/Fitness-small.png'),
       require('@/assets/img/industries/Healthcare.png'),
       require('@/assets/img/industries/Healthcare-small.png'),
-      // require('@/assets/img/industries/Hospitality/Food Beverage.png'),
-      // require('@/assets/img/industries/Hospitality/Food Beverage-small.png'),
       require('@/assets/img/industries/Manufacturing.png'),
       require('@/assets/img/industries/Manufacturing-small.png'),
-      // require('@/assets/img/industries/Media & Advertising.png'),
-      // require('@/assets/img/industries/Media & Advertising-small.png'),
-      // require('@/assets/img/industries/Places Of Worship.png'),
-      // require('@/assets/img/industries/Places Of Worship-small.png'),
-      // require('@/assets/img/industries/Real Estate.png'),
-      // require('@/assets/img/industries/Real Estate-small.png'),
       require('@/assets/img/industries/Retail.png'),
       require('@/assets/img/industries/Retail-small.png'),
-      // require('@/assets/img/industries/Software & Services.png'),
-      // require('@/assets/img/industries/Software & Services-small.png'),
-      // require('@/assets/img/industries/Telecommunications.png'),
-      // require('@/assets/img/industries/Telecommunications-small.png'),
       require('@/assets/img/industries/Digital Menu Boards.png'),
       require('@/assets/img/industries/Digital Menu Boards-small.png'),
-      // require('@/assets/img/industries/Other.png'),
-      // require('@/assets/img/industries/Other-small.png'),
     ]
+
+    images.forEach((img) => {
+      const image = new Image()
+      image.src = img
+    })
+  },
+  mounted() {
+    this.getCountries()
+    this.getUSStates()
+    this.changeIndustry()
   },
 }
 </script>
