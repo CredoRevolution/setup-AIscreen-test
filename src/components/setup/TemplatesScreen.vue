@@ -23,14 +23,11 @@
         v-for="(template, index) in templates"
         :key="index"
         :text="template.name"
-        :img-src="
-          require(`@/assets/img/industries/industries-last/${industry}-last-${
-            index + 1
-          }.png`)
-        "
+        :background="false"
+        :img-src="template.preview_image"
+        :data="template"
         @getActiveData="getActiveData"
         ref="screen"
-        :background="false"
       />
     </ul>
     <swiper
@@ -46,11 +43,8 @@
       <SwiperSlide v-for="(template, index) in templates" :key="index">
         <Template
           :text="template.name"
-          :img-src="
-            require(`@/assets/img/industries/industries-last/${industry}-last-${
-              index + 1
-            }.png`)
-          "
+          :img-src="template.preview_image"
+          :data="template"
           @getActiveData="getActiveData"
           ref="screen"
           class="swiper-slide"
@@ -90,9 +84,11 @@
 <script>
 import Template from '@/components/global/Template.vue'
 import swiperNavigation from '@/components/global/swiperNavigation.vue'
+import templatesInfo from '@/assets/templatesInfo.json'
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Navigation } from 'swiper/modules'
+import { data } from 'qrcode.vue'
 
 export default {
   name: 'DesignsScreen',
@@ -107,16 +103,7 @@ export default {
   },
   data() {
     return {
-      templates: [
-        { name: 'Coffee 1' },
-        { name: 'Coffee 2' },
-        { name: 'Coffee 3' },
-        { name: 'Coffee 3' },
-        { name: 'Menu' },
-        { name: 'Menu' },
-        { name: 'Menu 2' },
-        { name: 'Menu 3' },
-      ],
+      templates: templatesInfo[this.industry],
       activeScreens: 0,
       validation: false,
       showError: false,
@@ -150,18 +137,16 @@ export default {
       return false
     },
     getTemplatesData() {
-      const activeScreens = this.$refs.screen.filter((el) => el.isActive())
-      const activeScreensNames = []
-
-      activeScreens.forEach((screen) => {
-        const screenName = screen.text
-
-        activeScreensNames.push(screenName)
+      const activeScreensData = []
+      this.$refs.screen.forEach((screen) => {
+        if (screen.isActive()) {
+          activeScreensData.push({
+            data: screen.data,
+          })
+        }
       })
-
-      console.log(activeScreensNames)
-
-      this.$emit('getTemplatesData', activeScreensNames)
+      console.log(activeScreensData)
+      this.$emit('getTemplatesData', activeScreensData)
     },
     getActiveData(el) {
       let activeScreens = 0

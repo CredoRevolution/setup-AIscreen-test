@@ -12,7 +12,7 @@
     />
     <ScreenCheck v-if="currentScreen === 2" @nextScreen="nextScreen" />
     <TemplatesScreen
-      v-show="currentScreen === 3"
+      v-if="currentScreen === 3"
       :industry="industry"
       @nextScreen="nextScreen"
       @prevScreen="prevScreen"
@@ -21,7 +21,7 @@
       @progressBar="progressBar"
     />
     <ZonesScreen
-      v-show="currentScreen === 4"
+      v-if="currentScreen === 4"
       :industry="industry"
       @prevScreen="prevScreen"
       @nextScreen="nextScreen"

@@ -6,12 +6,20 @@
   >
     <div :class="background ? 'img-wrapper background' : 'img-wrapper'">
       <img v-if="imageLoaded" alt="img" class="screen__img" :src="imgSrc" />
+      <img
+        v-else
+        alt="loading"
+        class="screen__img"
+        src="@/assets/img/loading.gif"
+      />
     </div>
     <p class="screen__text">{{ text }}</p>
   </div>
 </template>
 
 <script>
+import { data } from 'qrcode.vue'
+
 export default {
   name: 'Screen',
   props: {
@@ -22,6 +30,11 @@ export default {
       type: Boolean,
       default: false,
       required: false,
+    },
+    data: {
+      type: Object,
+      required: false,
+      default: () => ({}),
     },
   },
   data() {
@@ -69,6 +82,9 @@ export default {
     img.src = this.imgSrc
     img.onload = () => {
       this.imageLoaded = true
+    }
+    img.onerror = () => {
+      this.imageLoaded = false
     }
   },
 }
