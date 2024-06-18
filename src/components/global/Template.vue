@@ -82,6 +82,7 @@ export default {
     img.src = this.imgSrc
     img.onload = () => {
       this.imageLoaded = true
+      console.log(this.imageLoaded)
     }
     img.onerror = () => {
       this.imageLoaded = false

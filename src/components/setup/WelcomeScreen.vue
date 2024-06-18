@@ -280,6 +280,7 @@ export default {
     this.changeIndustry()
 
     const images = [
+      require('@/assets/img/loading.gif'),
       require('@/assets/img/industries/Education.png'),
       require('@/assets/img/industries/Education-small.png'),
       // require('@/assets/img/industries/Energy.png'),
@@ -312,7 +313,6 @@ export default {
       require('@/assets/img/industries/Digital Menu Boards-small.png'),
       // require('@/assets/img/industries/Other.png'),
       // require('@/assets/img/industries/Other-small.png'),
-      require('@/assets/img/loading.jpg'),
     ]
   },
 }
