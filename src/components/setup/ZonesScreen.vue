@@ -39,6 +39,8 @@
     >
       <SwiperSlide v-for="(template, index) in templates" :key="index">
         <Template
+          :background="true"
+          :zonesScreen="true"
           :text="template.name"
           :img-src="
             require(`@/assets/img/industries/templates/Finance-template-${
@@ -48,9 +50,7 @@
           @getActiveData="getActiveData"
           ref="template"
           class="swiper-slide"
-          :background="true"
           @deactivateAllScreens="deactivateAllScreens"
-          :zonesScreen="true"
         />
       </SwiperSlide>
       <swiperNavigation

@@ -9,7 +9,7 @@
       <img
         v-else
         alt="loading"
-        class="screen__img"
+        class="screen__img loading"
         src="@/assets/img/loading.svg"
       />
     </div>

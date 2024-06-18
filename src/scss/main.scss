@@ -28,6 +28,10 @@ button {
   }
 }
 
+.loading {
+  aspect-ratio: 16 / 9;
+}
+
 .blue-btn {
   &:hover {
     background: #3598fb !important;
