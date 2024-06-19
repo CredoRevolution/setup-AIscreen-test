@@ -306,6 +306,20 @@ button {
           margin-top: 0;
         }
       }
+      .prev-btn {
+        color: rgba(134, 134, 139, 1);
+        font-size: rem(18px);
+        line-height: rem(22px);
+        font-weight: 500;
+        transition: opacity 0.3s ease;
+        background: none;
+        text-decoration: none;
+        margin: 0 auto;
+        &:hover {
+          opacity: 0.8;
+          transition: opacity 0.3s ease;
+        }
+      }
       .main-screen__form-item {
         position: relative;
         border: 1px solid transparent;
@@ -476,6 +490,7 @@ button {
       margin-bottom: rem(31px);
     }
   }
+
   .main-screen__btn {
     font-weight: 700;
     font-size: rem(24px);
@@ -641,6 +656,21 @@ button {
     max-width: unset;
     height: 100%;
     border-radius: 0;
+    &.main-screen_qr {
+      .main-screen__img {
+        display: none;
+      }
+      .logo-adaptation {
+        display: block;
+        padding-top: rem(12px);
+        margin-bottom: auto;
+        margin-left: rem(24px);
+      }
+      .main-screen-wrapper {
+        min-height: 90vh;
+        justify-content: center;
+      }
+    }
 
     .main-screen-wrapper {
       flex-direction: column-reverse;
@@ -706,18 +736,18 @@ button {
     justify-content: center;
     .logo-adaptation {
       margin-left: 0;
-      margin-bottom: 0;
-      position: absolute;
-      top: rem(12px);
+      padding-top: 0;
+      margin-bottom: rem(32px);
     }
     .main-screen__logo {
       display: none;
     }
     .main-screen__progress {
-      display: none;
+      margin-top: 0;
+      margin-bottom: auto;
     }
     .main-screen__title {
-      margin-top: rem(33px);
+      margin-top: 0;
       font-size: rem(26px);
       line-height: rem(31px);
       margin-bottom: rem(13px);
@@ -726,6 +756,10 @@ button {
       font-size: rem(17px);
       line-height: rem(21px);
       margin-bottom: rem(31px);
+    }
+    .main-screen__btn-wrapper {
+      margin-bottom: auto;
+      display: flex;
     }
     .main-screen__list {
       flex-direction: column;
@@ -746,6 +780,12 @@ button {
     line-height: rem(21px);
     top: 86%;
   }
+  .swiper {
+    .swiper-slide {
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+  }
 }
 
 @media (max-width: 576px) {
@@ -756,6 +796,17 @@ button {
           width: 75%;
         }
       }
+    }
+  }
+  .main-screen_screens.main-screen .main-screen__btn-wrapper {
+    flex-direction: column-reverse;
+    gap: rem(17px);
+    width: 100%;
+    align-items: center;
+    .main-screen__btn {
+      margin-left: 0;
+      width: 85%;
+      justify-content: center;
     }
   }
 }

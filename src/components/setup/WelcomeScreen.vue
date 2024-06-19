@@ -291,6 +291,7 @@ export default {
       require('@/assets/img/industries/Retail-small.png'),
       require('@/assets/img/industries/Digital Menu Boards.png'),
       require('@/assets/img/industries/Digital Menu Boards-small.png'),
+      // require('@/assets/img/industries/Digital Menu Boards.mp4'),
     ]
 
     images.forEach((img) => {

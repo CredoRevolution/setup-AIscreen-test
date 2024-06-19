@@ -20,11 +20,11 @@
       quickly and easily.
     </p>
     <swiper
-      v-if="templates"
+      v-if="templatesData.length"
       :modules="modules"
       :loop="false"
-      :slides-per-view="1"
-      :space-between="50"
+      :slides-per-view="1.1"
+      :space-between="10"
       :centeredSlides="true"
       :breakpoints="{
         768: {
@@ -37,11 +37,11 @@
       @slideChange="handleSlideChange"
       class="swiper-container main-screen__list_templates"
     >
-      <SwiperSlide v-for="(template, index) in templates" :key="index">
+      <SwiperSlide v-for="(layout, index) in layoutsData" :key="layout.id">
         <Template
           :background="true"
           :zonesScreen="true"
-          :text="template.name"
+          :text="layout.name"
           :img-src="
             require(`@/assets/img/industries/templates/Finance-template-${
               index + 1
@@ -112,12 +112,6 @@ export default {
   },
   data() {
     return {
-      templates: [
-        { name: 'Main' },
-        { name: 'Content + Weather Right + News' },
-        { name: 'Main' },
-        { name: 'Content + Weather Right + News' },
-      ],
       layoutsData,
       activeScreens: 0,
       validation: false,
@@ -130,7 +124,7 @@ export default {
   methods: {
     pushTemplatesData(i) {
       this.layoutsData[i].zones[0].content.push(this.templatesData)
-      console.log(this.layoutsData)
+      console.log('layoutsData', this.layoutsData)
     },
     nextScreen() {
       if (this.checkValidation()) {
@@ -181,7 +175,6 @@ export default {
     handleSlideChange(swiper) {
       this.reachedEnd = swiper.isEnd
       this.reachedBeginning = swiper.isBeginning
-      console.log(this.reachedEnd)
     },
   },
   setup() {
@@ -195,7 +188,7 @@ export default {
     },
   },
   mounted() {
-    console.log(this.layoutsData)
+    console.log('layoutsData', this.layoutsData)
     this.$emit('progressBar', this.$refs.progress)
   },
 }

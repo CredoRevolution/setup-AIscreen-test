@@ -71,6 +71,13 @@
           >
             Next step
           </button>
+          <a
+            href="#"
+            class="main-screen__btn prev-btn"
+            @click.prevent="prevScreen"
+            ref="prevBtn"
+            >Previous step</a
+          >
         </form>
       </div>
       <div class="main-screen__img">
@@ -143,6 +150,9 @@ export default {
   methods: {
     onresize() {
       this.adaptationResolution = window.innerWidth
+    },
+    prevScreen() {
+      this.$emit('prevScreen')
     },
     checkAllValidations() {
       this.validationCount = 0

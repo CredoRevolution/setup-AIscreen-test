@@ -9,6 +9,7 @@
       v-show="currentScreen === 1"
       @nextScreen="nextScreen"
       :industry="industry"
+      @prevScreen="prevScreen"
     />
     <ScreenCheck v-if="currentScreen === 2" @nextScreen="nextScreen" />
     <TemplatesScreen
