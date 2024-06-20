@@ -14,15 +14,14 @@
       ]"
       required
       v-model.trim="$v.name.$model"
-      @click="resetValidation"
       @focusin="active = true"
       @focusout="focus"
       @input="checkValidation"
       ref="input"
     />
-    <div class="error-message" v-if="showError && !$v.name.minLength && !phone">
+    <!-- <div class="error-message" v-if="showError && !$v.name.minLength && !phone">
       Name must have at least {{ $v.name.$params.minLength.min }} letters.
-    </div>
+    </div> -->
     <div class="error-message" v-if="showError && !$v.name.required && !phone">
       {{ defaultErrorText }}
     </div>
@@ -74,7 +73,7 @@ export default {
         return regex.test(value)
       },
       required,
-      minLength: minLength(5),
+      // minLength: minLength(5),
     },
   },
   mounted() {
@@ -155,7 +154,6 @@ export default {
     }
     &.valid {
       border: 1px solid #0071e2;
-      box-shadow: 0px 0px 8px #0071e2;
       transition: all 0.3s ease;
     }
     &::placeholder {
@@ -200,11 +198,11 @@ export default {
 @media (max-height: 900px) {
   .input-wrapper {
     label {
-      top: rem(12px);
+      top: rem(10px);
       left: rem(12px);
     }
     .main-screen__form-input {
-      padding: rem(17px) rem(12px) rem(6px) rem(14px);
+      padding: rem(19px) rem(12px) rem(4px) rem(14px);
     }
   }
 }

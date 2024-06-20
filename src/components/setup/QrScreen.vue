@@ -205,13 +205,21 @@ export default {
 @media (max-height: 900px) {
   .main-screen_qr .main-screen-main__form_qr .main-screen__qr-btn {
     top: rem(6px);
-    padding: rem(8px) rem(17px);
+    padding: rem(7px) rem(17px) !important;
   }
 }
 
 @media (max-height: 800px) {
   .main-screen_qr .main-screen__img .main-screen-main__qr-img-text {
     top: 87%;
+  }
+}
+
+@media (max-width: 756px) {
+  .main-screen_qr
+    .main-screen-main__form.main-screen-main__form_qr
+    .main-screen__qr-btn {
+    padding: rem(10px) rem(23px) !important;
   }
 }
 </style>

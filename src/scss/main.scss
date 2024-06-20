@@ -423,6 +423,10 @@ button {
   }
 }
 
+.main-screen_zones.main-screen {
+  overflow-y: hidden;
+}
+
 .main-screen_screens.main-screen {
   max-width: 90%;
   background: #fff;
@@ -550,6 +554,20 @@ button {
     .main-screen__btn {
       margin-left: 0;
     }
+  }
+}
+
+.main-screen.main-screen_check {
+  .main-screen-main__title {
+    font-size: rem(40px);
+    line-height: rem(48px);
+    margin-bottom: rem(17px);
+  }
+  .main-screen-main__text {
+    font-size: rem(17px);
+    line-height: rem(21px);
+    font-weight: 700;
+    margin-bottom: rem(55px);
   }
 }
 
@@ -711,7 +729,7 @@ button {
       }
       .main-screen__img {
         border-radius: 0;
-        height: rem(300px);
+        height: rem(250px);
         .backgorund {
           border-radius: 0;
           width: 104%;
@@ -808,5 +826,12 @@ button {
       width: 85%;
       justify-content: center;
     }
+  }
+  .hover-btn {
+    font-weight: 700;
+    font-size: rem(19px) !important;
+    line-height: rem(23px) !important;
+    padding-top: rem(14px) !important;
+    padding-bottom: rem(14px) !important;
   }
 }

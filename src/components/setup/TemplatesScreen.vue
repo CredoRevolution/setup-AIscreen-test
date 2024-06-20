@@ -34,8 +34,8 @@
       v-else
       :modules="modules"
       :loop="false"
-      :slides-per-view="1.2"
-      :space-between="12"
+      :slides-per-view="1.05"
+      :space-between="0"
       :centered-slides="true"
       @slideChange="handleSlideChange"
       class="swiper-container main-screen__list_templates main-screen__list_templates--mobile"

@@ -115,6 +115,9 @@ export default {
       line-height: rem(28px);
       font-weight: 700;
     }
+    &::after {
+      content: unset !important;
+    }
   }
 
   .img-wrapper {
@@ -138,8 +141,16 @@ export default {
   &.active {
     background-color: #f5f5f8;
     border: 2px solid #0071e2;
+    position: relative;
     .screen__text {
       color: #14121f;
+    }
+    &::after {
+      content: url(@/assets/img/radio.svg);
+      position: absolute;
+      top: rem(24px);
+      right: rem(24px);
+      z-index: 2;
     }
   }
   &.error-blink {

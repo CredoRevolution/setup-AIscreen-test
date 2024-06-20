@@ -1,5 +1,5 @@
 <template>
-  <div class="main-screen">
+  <div class="main-screen main-screen_check">
     <div class="logo-adaptation">
       <img
         v-if="require(`@/assets/img/logo.svg`)"

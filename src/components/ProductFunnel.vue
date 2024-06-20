@@ -20,23 +20,25 @@
       @getTemplatesData="getTemplatesData"
       @moveProgressBar="moveProgressBar"
       @progressBar="progressBar"
+      ref="templates"
     />
     <ZonesScreen
       v-if="currentScreen === 4"
       :industry="industry"
+      :templatesData="templatesData"
+      :templatesWindowHeight="$refs.templates.$el.clientHeight"
       @prevScreen="prevScreen"
       @nextScreen="nextScreen"
-      :templatesData="templatesData"
       @progressBar="progressBar"
     />
-    <TeamScreen
+    <QrScreen
       v-if="currentScreen === 5"
       :industry="industry"
       @prevScreen="prevScreen"
       @nextScreen="nextScreen"
       @closeScreen="closeScreen"
     />
-    <QrScreen
+    <TeamScreen
       v-if="currentScreen === 6"
       :industry="industry"
       @prevScreen="prevScreen"
@@ -71,13 +73,13 @@ export default {
       industry: '',
       templatesData: [],
       progressBarPercent: 0,
+      templatesWindowHeight: 0,
     }
   },
   methods: {
     nextScreen() {
       this.currentScreen++
       console.log(this.currentScreen)
-
       this.progressBar()
     },
     prevScreen() {
@@ -102,7 +104,7 @@ export default {
             progress.style.width = '0'
             setTimeout(() => {
               progress.style.transition = 'width 0.5s ease'
-              progress.style.width = '45%'
+              progress.style.width = '25%'
             }, 200)
           }
           if (this.currentScreen === 4) {
@@ -120,10 +122,10 @@ export default {
         if (progress) {
           const currentWidth = parseInt(progress.style.width)
           if (!isActiveScreensIncreased) {
-            progress.style.width = `${currentWidth - 10}%`
+            progress.style.width = `${currentWidth - 15}%`
             this.progressBarPercent = parseInt(progress.style.width)
           } else {
-            progress.style.width = `${currentWidth + 10.5}%`
+            progress.style.width = `${currentWidth + 15.5}%`
             this.progressBarPercent = parseInt(progress.style.width)
           }
         }

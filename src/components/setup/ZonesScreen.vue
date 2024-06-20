@@ -1,5 +1,8 @@
 <template>
-  <div class="main-screen main-screen_screens">
+  <div
+    class="main-screen main-screen_screens main-screen_zones"
+    :style="`height: ${templatesWindowHeight}px;`"
+  >
     <div class="logo-adaptation">
       <img
         v-if="require(`@/assets/img/logo.svg`)"
@@ -109,6 +112,7 @@ export default {
   props: {
     industry: String,
     templatesData: Array,
+    templatesWindowHeight: Number,
   },
   data() {
     return {
