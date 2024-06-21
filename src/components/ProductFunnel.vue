@@ -111,7 +111,7 @@ export default {
             progress.style.width = this.progressBarPercent + '%'
             setTimeout(() => {
               progress.style.transition = 'width 0.5s ease'
-              progress.style.width = '90%'
+              progress.style.width = '85%'
             }, 200)
           }
         }
