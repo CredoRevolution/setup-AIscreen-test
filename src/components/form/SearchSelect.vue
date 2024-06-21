@@ -1,8 +1,5 @@
 <template>
-  <div
-    @click="resetValidation"
-    :class="['select-wrapper', active ? 'active' : '']"
-  >
+  <div :class="['select-wrapper', active ? 'active' : '']">
     <label class="main-screen__form-label" for="select">
       {{ defaultText }}</label
     >
