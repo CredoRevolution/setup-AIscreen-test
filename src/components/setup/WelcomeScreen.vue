@@ -129,7 +129,6 @@
                 alt="img"
                 class="backgorund__img"
                 ref="bigImg"
-                controls="false"
                 @click.prevent
               >
                 <source
@@ -147,7 +146,6 @@
                 alt="img"
                 class="backgorund__img"
                 ref="bigImg"
-                controls="false"
                 @click.prevent
               >
                 <source
