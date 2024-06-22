@@ -93,11 +93,11 @@
             autoplay
             muted
             loop
+            controls="false"
             alt="img"
             class="backgorund__img"
             ref="bigImg"
             @click.prevent
-            controls="false"
           >
             <source
               :src="require(`@/assets/img/${industry}/bg.mp4`)"
@@ -110,11 +110,11 @@
             autoplay
             muted
             loop
+            controls="false"
             alt="img"
             class="backgorund__img"
             ref="bigImg"
             @click.prevent
-            controls="false"
           >
             <source
               :src="require(`@/assets/img/${industry}/bg.mp4`)"
