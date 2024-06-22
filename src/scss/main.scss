@@ -847,5 +847,7 @@ button {
     width: auto !important;
     height: 100% !important;
     pointer-events: none !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
   }
 }
