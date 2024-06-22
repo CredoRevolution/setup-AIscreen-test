@@ -486,7 +486,7 @@ button {
   .main-screen__list {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     flex-wrap: wrap;
     row-gap: rem(17px);
     margin-bottom: rem(31px);

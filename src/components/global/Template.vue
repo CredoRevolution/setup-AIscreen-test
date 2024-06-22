@@ -5,12 +5,7 @@
     ref="screen"
   >
     <div :class="background ? 'img-wrapper background' : 'img-wrapper'">
-      <img
-        v-if="imageLoaded"
-        alt="img"
-        class="screen__img"
-        :src="require(`@/assets/img/${imgSrc}`)"
-      />
+      <img v-if="imageLoaded" alt="img" class="screen__img" :src="imgSrc" />
       <img
         v-else
         alt="loading"
@@ -111,6 +106,7 @@ export default {
   border-radius: rem(20px);
   padding: rem(8px) rem(8px) rem(10px) rem(8px);
   background-color: #fff;
+  transition: all 0.3s ease;
   border: 2px solid transparent;
   &.zones-screen {
     margin-right: rem(20px);
@@ -156,6 +152,13 @@ export default {
       top: rem(24px);
       right: rem(24px);
       z-index: 2;
+    }
+  }
+  &:hover {
+    transition: all 0.3s ease;
+    background-color: #f5f5f8;
+    .screen__text {
+      color: #14121f;
     }
   }
   &.error-blink {

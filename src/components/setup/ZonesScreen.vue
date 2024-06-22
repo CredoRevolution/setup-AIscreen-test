@@ -88,7 +88,7 @@
 
 <script>
 import Template from '@/components/global/Template.vue'
-import layoutsData from '@/assets/layouts-preconfig.json'
+import layoutsDataOriginal from '@/assets/layouts-preconfig.json'
 import swiperNavigation from '@/components/global/swiperNavigation.vue'
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from 'swiper/vue'
@@ -113,7 +113,7 @@ export default {
   },
   data() {
     return {
-      layoutsData,
+      layoutsData: JSON.parse(JSON.stringify(layoutsDataOriginal)),
       activeScreens: 0,
       validation: false,
       showError: false,
@@ -189,6 +189,7 @@ export default {
     },
   },
   mounted() {
+    console.log('layoutsDataOriginal', layoutsDataOriginal)
     console.log('layoutsData', this.layoutsData)
     this.$emit('progressBar', this.$refs.progress)
   },

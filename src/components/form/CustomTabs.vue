@@ -266,4 +266,10 @@ export default {
     }
   }
 }
+
+@media (max-width: 420px) {
+  .main-screen__form-switch-btn {
+    padding: rem(10px) rem(7px) !important;
+  }
+}
 </style>

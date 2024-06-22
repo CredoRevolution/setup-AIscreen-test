@@ -24,7 +24,11 @@
         :key="index"
         :text="template.name"
         :background="false"
-        :img-src="template.preview_image"
+        :imgSrc="
+          template.preview_image
+            ? require(`@/assets/img/${template.preview_image}`)
+            : null
+        "
         :data="template"
         @getActiveData="getActiveData"
         ref="screen"
@@ -43,7 +47,7 @@
       <SwiperSlide v-for="(template, index) in templates" :key="index">
         <Template
           :text="template.name"
-          :img-src="template.preview_image"
+          :imgSrc="require(`@/assets/img/${template.preview_image}`)"
           :data="template"
           @getActiveData="getActiveData"
           ref="screen"
@@ -110,6 +114,7 @@ export default {
       currentPageWidth: 0,
       reachedEnd: false,
       reachedBeginning: true,
+      activeScreensData: [],
     }
   },
   methods: {
@@ -137,16 +142,16 @@ export default {
       return false
     },
     getTemplatesData() {
-      const activeScreensData = []
+      this.activeScreensData = []
       this.$refs.screen.forEach((screen) => {
         if (screen.isActive()) {
-          activeScreensData.push({
+          this.activeScreensData.push({
             data: screen.data,
           })
         }
       })
-      console.log(activeScreensData)
-      this.$emit('getTemplatesData', activeScreensData)
+      console.log(this.activeScreensData)
+      this.$emit('getTemplatesData', this.activeScreensData)
     },
     getActiveData(el) {
       let activeScreens = 0
@@ -204,6 +209,7 @@ export default {
   },
 
   mounted() {
+    this.activeScreensData = []
     this.onresize()
     this.$emit('progressBar', this.$refs.progress)
   },
