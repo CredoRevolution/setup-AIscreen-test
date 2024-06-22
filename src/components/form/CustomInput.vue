@@ -12,7 +12,7 @@
         $v.name.$error ? 'error' : '',
         !$v.name.$error && $v.name.$model ? 'valid' : '',
       ]"
-      required
+      :required="required"
       v-model.trim="$v.name.$model"
       @focusin="active = true"
       @focusout="focus"
@@ -53,6 +53,11 @@ export default {
       type: String,
       required: true,
     },
+    required: {
+      type: Boolean,
+      default: true,
+      required: false,
+    },
   },
   data() {
     return {
@@ -79,6 +84,11 @@ export default {
   mounted() {
     this.resetValidation()
   },
+  watch: {
+    name() {
+      this.active = true
+    },
+  },
 
   methods: {
     checkValidation() {
@@ -89,6 +99,13 @@ export default {
         } else {
           this.isValid = false
           this.showError = true
+
+          setTimeout(() => {
+            const errorElement = document.querySelector('.error')
+            if (errorElement) {
+              errorElement.scrollIntoView({ behavior: 'smooth' })
+            }
+          }, 0)
         }
       }
       return this.isValid

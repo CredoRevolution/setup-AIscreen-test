@@ -40,7 +40,7 @@
           </div>
           <div class="main-screen__form-item">
             <SearchSelect
-              :optionsCount="industries"
+              :optionsCount="industries.slice(1)"
               required
               class="main-screen__form-item-warnings"
               v-model="industry"
@@ -89,59 +89,90 @@
       </div>
 
       <div class="main-screen__img" v-if="industry">
-        <div
-          class="main-screen__img main-screen__img_changing"
-          ref="changingImg"
+        <swiper
+          class="swiper-main"
+          @swiper="onSwiper"
+          :modules="[Navigation]"
+          :slides-per-view="1"
+          :loop="true"
+          :direction="'horizontal'"
+          :space-between="0"
+          :speed="500"
+          :allow-touch-move="false"
+          ref="swiper"
         >
-          <div class="backgorund">
-            <img
-              v-show="industry"
-              :src="require(`@/assets/img/industries/${industry}.png`)"
-              alt="img"
-              class="backgorund__img"
-              ref="bigImg"
-            />
-          </div>
-          <div class="img-wrapper">
-            <img
-              v-show="industry"
-              :src="require(`@/assets/img/industries/${industry}-small.png`)"
-              alt="img"
-              class="main-screen-main__small-img background"
-              ref="smallImg"
-            />
-          </div>
-        </div>
-        <div class="backgorund">
-          <img
-            v-show="industryPrev || industry"
-            :src="
-              require(`@/assets/img/industries/${industryPrev || industry}.png`)
-            "
-            alt="img"
-            class="backgorund__img"
-            ref="bigImg"
-          />
-        </div>
-        <div class="img-wrapper">
-          <img
-            v-show="industryPrev || industry"
-            :src="
-              require(`@/assets/img/industries/${
-                industryPrev || industry
-              }-small.png`)
-            "
-            alt="img"
-            class="main-screen-main__small-img background"
-            ref="smallImg"
-          />
-        </div>
+          <SwiperSlide
+            v-for="(currentIndustry, index) in industries"
+            :key="index"
+          >
+            <div class="backgorund">
+              <img
+                v-if="
+                  currentIndustry.name !== 'Digital Menu Boards' &&
+                  currentIndustry.name !== 'Retail'
+                "
+                :src="
+                  industryPrev || industry
+                    ? require(`@/assets/img/${currentIndustry.name}/bg.png`)
+                    : null
+                "
+                alt="img"
+                class="backgorund__img"
+                ref="bigImg"
+              />
+              <video
+                v-else-if="currentIndustry.name === 'Digital Menu Boards'"
+                autoplay
+                muted
+                loop
+                alt="img"
+                class="backgorund__img"
+                ref="bigImg"
+              >
+                <source
+                  :src="require(`@/assets/img/${currentIndustry.name}/bg.mp4`)"
+                  type="video/mp4"
+                  alt="img"
+                />
+              </video>
+              <video
+                v-else-if="currentIndustry.name === 'Retail'"
+                autoplay
+                muted
+                loop
+                alt="img"
+                class="backgorund__img"
+                ref="bigImg"
+              >
+                <source
+                  :src="require(`@/assets/img/${currentIndustry.name}/bg.mp4`)"
+                  type="video/mp4"
+                  alt="img"
+                />
+              </video>
+            </div>
+            <div class="img-wrapper">
+              <img
+                :src="
+                  industry
+                    ? require(`@/assets/img/${currentIndustry.name}/main.png`)
+                    : null
+                "
+                alt="img"
+                class="main-screen-main__small-img background"
+                ref="smallImg"
+              />
+            </div>
+          </SwiperSlide>
+        </swiper>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Navigation } from 'swiper/modules'
 import CustomInput from '@/components/form/CustomInput.vue'
 import SearchSelect from '@/components/form/SearchSelect.vue'
 import axios from 'axios'
@@ -157,21 +188,24 @@ export default {
       state: '',
       name: '',
       industries: [
+        { name: 'Industry' },
+        { name: 'Corporate' },
         { name: 'Education' },
-        // { name: 'Energy' },
-        // { name: 'Events' },
-        { name: 'Finance' },
         { name: 'Fitness' },
         { name: 'Healthcare' },
-        // { name: 'Hospitality/Food Beverage' },
         { name: 'Manufacturing' },
+        { name: 'Retail' },
+        { name: 'Digital Menu Boards' },
+
+        // { name: 'Energy' },
+        // { name: 'Events' },
+        // { name: 'Finance' },
+        // { name: 'Hospitality/Food Beverage' },
         // { name: 'Media & Advertising' },
         // { name: 'Places Of Worship' },
         // { name: 'Real Estate' },
-        { name: 'Retail' },
         // { name: 'Software & Services' },
         // { name: 'Telecommunications' },
-        { name: 'Digital Menu Boards' },
         // { name: 'Other' },
       ],
       Countries: [],
@@ -182,9 +216,24 @@ export default {
   components: {
     CustomInput,
     SearchSelect,
+    Swiper,
+    SwiperSlide,
+  },
+  setup() {
+    return {
+      Navigation,
+    }
   },
   computed: {},
   methods: {
+    onSwiper(swiper) {
+      this.swiper = swiper
+    },
+    handleSlideTo() {
+      this.swiper.slideTo(
+        this.industries.findIndex((item) => item.name === this.industry)
+      )
+    },
     checkAllValidations() {
       this.validationCount = 0
       const validations = [
@@ -217,24 +266,8 @@ export default {
       if (this.checkAllValidations()) this.$emit('nextScreen')
     },
     changeIndustry() {
-      const img = this.$refs.smallImg
-      const bigImg = this.$refs.bigImg
-      console.log('current industry', this.industry)
-      if (this.industryPrev) {
-        setTimeout(() => {
-          this.industryPrevPrev = this.industryPrev
-          this.industryPrev = this.industry
-          this.$refs.changingImg.style.transition = 'none'
-          this.$refs.changingImg.style.zIndex = '0'
-          this.$refs.changingImg.style.left = '-100%'
-        }, 300)
-        this.$refs.changingImg.style.zIndex = '10'
-        this.$refs.changingImg.style.transition = 'all 0.3s ease'
-        this.$refs.changingImg.style.left = '0'
-      }
-      setTimeout(() => {
-        this.$emit('changeIndustry', this.industry)
-      }, 200)
+      this.$emit('changeIndustry', this.industry)
+      this.handleSlideTo()
     },
     getCountries() {
       axios
@@ -274,23 +307,25 @@ export default {
       this.selectedCountry = value
     },
   },
+
   created() {
     const images = [
       require('@/assets/img/loading.svg'),
-      require('@/assets/img/industries/Education.png'),
-      require('@/assets/img/industries/Education-small.png'),
-      require('@/assets/img/industries/Finance.png'),
-      require('@/assets/img/industries/Finance-small.png'),
-      require('@/assets/img/industries/Fitness.png'),
-      require('@/assets/img/industries/Fitness-small.png'),
-      require('@/assets/img/industries/Healthcare.png'),
-      require('@/assets/img/industries/Healthcare-small.png'),
-      require('@/assets/img/industries/Manufacturing.png'),
-      require('@/assets/img/industries/Manufacturing-small.png'),
-      require('@/assets/img/industries/Retail.png'),
-      require('@/assets/img/industries/Retail-small.png'),
-      require('@/assets/img/industries/Digital Menu Boards.png'),
-      require('@/assets/img/industries/Digital Menu Boards-small.png'),
+      require('@/assets/img/Corporate/main.png'),
+      require('@/assets/img/Corporate/bg.png'),
+      require('@/assets/img/Education/main.png'),
+      require('@/assets/img/Education/bg.png'),
+      require('@/assets/img/Digital Menu Boards/main.png'),
+      require('@/assets/img/Retail/main.png'),
+      require('@/assets/img/Retail/bg.mp4'),
+      require('@/assets/img/Healthcare/main.png'),
+      require('@/assets/img/Healthcare/bg.png'),
+      require('@/assets/img/Fitness/main.png'),
+      require('@/assets/img/Fitness/bg.png'),
+      require('@/assets/img/Manufacturing/main.png'),
+      require('@/assets/img/Manufacturing/bg.png'),
+      // require('@/assets/img/industries/Digital Menu Boards.png'),
+      // require('@/assets/img/industries/Digital Menu Boards-small.png'),
       // require('@/assets/img/industries/Digital Menu Boards.mp4'),
     ]
 
@@ -307,4 +342,29 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@function rem($px) {
+  @return ($px / 16px) + rem;
+}
+.swiper.swiper-main {
+  .swiper-slide * > div {
+    border-radius: 0;
+  }
+  width: 100%;
+  height: 100%;
+  .swiper-slide {
+    height: unset;
+    opacity: 1;
+    .backgorund {
+      left: 0 !important;
+      border-radius: rem(17px);
+      overflow: hidden;
+      video {
+        width: auto;
+        height: 100%;
+        pointer-events: none;
+      }
+    }
+  }
+}
+</style>

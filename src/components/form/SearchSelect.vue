@@ -100,6 +100,12 @@ export default {
           return true
         }
         this.showError = true
+        setTimeout(() => {
+          const errorElement = document.querySelector('.error')
+          if (errorElement) {
+            errorElement.scrollIntoView({ behavior: 'smooth' })
+          }
+        }, 0)
         return false
       }
     },

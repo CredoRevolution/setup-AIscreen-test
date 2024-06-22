@@ -47,6 +47,13 @@
           >
             Finish
           </button>
+          <a
+            href="#"
+            class="main-screen__btn prev-btn"
+            @click="prevScreen"
+            ref="prevBtn"
+            >Previous step</a
+          >
         </form>
         <p class="main-screen-main__paragraph">
           Rorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
@@ -101,6 +108,9 @@ export default {
   methods: {
     nextScreen() {
       this.$emit('nextScreen')
+    },
+    prevScreen() {
+      this.$emit('prevScreen')
     },
     copy() {
       console.log('something copying in future')

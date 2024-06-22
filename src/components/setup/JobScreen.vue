@@ -83,16 +83,44 @@
       <div class="main-screen__img">
         <div class="backgorund">
           <img
-            :src="require(`@/assets/img/industries/${industry}.png`)"
+            v-if="industry !== 'Digital Menu Boards' && industry !== 'Retail'"
+            :src="require(`@/assets/img/${industry}/bg.png`)"
             alt="img"
             class="backgorund__img"
           />
+          <video
+            v-else-if="industry === 'Digital Menu Boards'"
+            autoplay
+            muted
+            loop
+            alt="img"
+            class="backgorund__img"
+            ref="bigImg"
+          >
+            <source
+              :src="require(`@/assets/img/${industry}/bg.mp4`)"
+              type="video/mp4"
+              alt="img"
+            />
+          </video>
+          <video
+            v-else-if="industry === 'Retail'"
+            autoplay
+            muted
+            loop
+            alt="img"
+            class="backgorund__img"
+            ref="bigImg"
+          >
+            <source
+              :src="require(`@/assets/img/${industry}/bg.mp4`)"
+              type="video/mp4"
+              alt="img"
+            />
+          </video>
         </div>
         <div class="img-wrapper">
-          <img
-            :src="require(`@/assets/img/industries/${industry}-small.png`)"
-            alt="img"
-          />
+          <img :src="require(`@/assets/img/${industry}/main.png`)" alt="img" />
         </div>
       </div>
     </div>
@@ -147,6 +175,7 @@ export default {
       ],
     }
   },
+
   methods: {
     onresize() {
       this.adaptationResolution = window.innerWidth

@@ -19,7 +19,7 @@
       class="team-screen__select"
       :optionsCount="options"
       :search="false"
-      :defaultText="'Select role'"
+      :defaultText="'Occupation'"
     />
     <div class="team-screen__member-date">
       {{ MemberData.date ? MemberData.date : '01.01.2020' }}
@@ -48,7 +48,7 @@ export default {
   name: 'TeamMember',
   data() {
     return {
-      options: [{ name: 'Admin' }, { name: 'User' }],
+      options: [{ name: 'Admin' }, { name: 'User' }, { name: 'Observer' }],
     }
   },
   components: {
@@ -150,6 +150,7 @@ export default {
           display: block;
           right: 0;
           top: rem(45px);
+          z-index: 5;
         }
         .team-screen__member-actions-menu-item {
           font-weight: 500;
@@ -163,6 +164,44 @@ export default {
           }
         }
       }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .team-screen__member {
+    padding: rem(10px) rem(17px) rem(8px) rem(17px);
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    .team-screen__member-actions {
+      position: absolute;
+      top: rem(8px);
+      right: rem(1px);
+    }
+    .team-screen__member-wrapper {
+      width: 100%;
+      .team-screen__member-wrapper_horizontal {
+        gap: 0;
+        width: 65%;
+        .team-screen__member-name {
+          font-size: rem(19px);
+          line-height: rem(23px);
+          font-weight: 700;
+        }
+        .team-screen__member-email {
+          font-size: rem(17px);
+          line-height: rem(21px);
+          font-weight: 500;
+          text-wrap: no-wrap;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+    .team-screen__select {
+      max-width: 100%;
     }
   }
 }

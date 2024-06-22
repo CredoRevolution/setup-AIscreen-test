@@ -5,7 +5,12 @@
     ref="screen"
   >
     <div :class="background ? 'img-wrapper background' : 'img-wrapper'">
-      <img v-if="imageLoaded" alt="img" class="screen__img" :src="imgSrc" />
+      <img
+        v-if="imageLoaded"
+        alt="img"
+        class="screen__img"
+        :src="require(`@/assets/img/${imgSrc}`)"
+      />
       <img
         v-else
         alt="loading"

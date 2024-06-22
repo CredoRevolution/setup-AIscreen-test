@@ -26,7 +26,6 @@
       v-if="currentScreen === 4"
       :industry="industry"
       :templatesData="templatesData"
-      :templatesWindowHeight="$refs.templates.$el.clientHeight"
       @prevScreen="prevScreen"
       @nextScreen="nextScreen"
       @progressBar="progressBar"

@@ -668,12 +668,11 @@ button {
     padding-top: rem(12px);
     margin-bottom: rem(33px);
     margin-left: rem(24px);
-    height: 5%;
   }
   .main-screen {
     padding: 0;
     max-width: unset;
-    height: 100vh;
+    height: 100%;
     border-radius: 0;
     &.main-screen_qr {
       .main-screen__img {
@@ -694,9 +693,7 @@ button {
     .main-screen-wrapper {
       flex-direction: column-reverse;
       gap: rem(30px);
-      height: 80%;
       .main-screen__main {
-        overflow: scroll;
         .main-screen-main__title {
           font-size: rem(28px);
           line-height: rem(33px);
@@ -712,53 +709,13 @@ button {
         }
         .main-screen-main__form {
           gap: rem(17px);
-          padding-bottom: 20px;
-          position: relative;
-          &::after {
-            content: '';
-            width: 100%;
-            height: rem(150px);
-            background: linear-gradient(
-              to top,
-              white,
-              rgba(255, 255, 255, 1) 1%,
-              rgb(255, 255, 255) 50%,
-              rgb(255, 255, 255) 80%,
-              rgba(255, 255, 255, 0) 99%
-            );
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            z-index: 10;
-          }
           .main-screen__form-btn {
-            position: fixed;
-            bottom: 0;
-            right: 50%;
-            transform: translateX(50%);
-            width: 90%;
-            margin-bottom: rem(55px);
-            z-index: 12;
             &_additional {
               font-size: rem(19px);
               line-height: rem(23px);
               padding-top: rem(14px);
               padding-bottom: rem(14px);
             }
-            &::after {
-              content: '';
-              width: 100%;
-              height: 200%;
-              background-color: #fff;
-            }
-          }
-          .prev-btn {
-            position: fixed;
-            bottom: 0;
-            right: 50%;
-            transform: translateX(50%);
-            margin-bottom: rem(25px);
-            z-index: 12;
           }
         }
       }
@@ -772,7 +729,7 @@ button {
       }
       .main-screen__img {
         border-radius: 0;
-        height: unset;
+        height: rem(250px);
         .backgorund {
           border-radius: 0;
           width: 104%;
@@ -841,31 +798,15 @@ button {
     line-height: rem(21px);
     top: 86%;
   }
+
   .swiper {
     .swiper-slide {
       opacity: 1;
       transition: opacity 0.3s ease;
     }
   }
-  .main-screen.main-screen_check {
-    height: 100vh;
-    .main-screen-wrapper {
-      height: 90% !important;
-    }
-    .main-screen__main {
-      overflow: unset !important;
-    }
-    .main-screen-main__form {
-      &::after {
-        display: none !important;
-      }
-    }
-    button {
-      position: unset !important;
-      transform: unset !important;
-      width: 100% !important;
-      margin-bottom: unset !important;
-    }
+  .swiper.swiper-main .swiper-slide .backgorund {
+    border-radius: 0 !important;
   }
 }
 
@@ -874,13 +815,10 @@ button {
     .main-screen-wrapper {
       .main-screen__img {
         .img-wrapper {
-          width: 70%;
+          width: 75%;
         }
       }
     }
-  }
-  .multiselect__content {
-    max-height: 150px !important;
   }
   .main-screen_screens.main-screen .main-screen__btn-wrapper {
     flex-direction: column-reverse;
@@ -899,5 +837,15 @@ button {
     line-height: rem(23px) !important;
     padding-top: rem(14px) !important;
     padding-bottom: rem(14px) !important;
+  }
+}
+
+.backgorund {
+  border-radius: rem(17px) !important;
+  overflow: hidden !important;
+  video {
+    width: auto !important;
+    height: 100% !important;
+    pointer-events: none !important;
   }
 }

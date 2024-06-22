@@ -41,7 +41,7 @@
       <div class="main-screen__img">
         <div class="backgorund">
           <img
-            :src="require(`@/assets/img/industries/Industry.png`)"
+            :src="require(`@/assets/img/Industry/bg.png`)"
             alt="img"
             class="backgorund__img"
             ref="bigImg"
@@ -49,7 +49,7 @@
         </div>
         <div class="img-wrapper">
           <img
-            :src="require(`@/assets/img/industries/Industry-small.png`)"
+            :src="require(`@/assets/img/Industry/main.png`)"
             alt="img"
             class="main-screen-main__small-img background"
             ref="smallImg"
