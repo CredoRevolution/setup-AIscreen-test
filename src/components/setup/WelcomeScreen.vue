@@ -125,7 +125,6 @@
                 autoplay
                 muted
                 loop
-                preload
                 alt="img"
                 class="backgorund__img"
                 ref="bigImg"
@@ -141,7 +140,6 @@
                 autoplay
                 muted
                 loop
-                preload
                 alt="img"
                 class="backgorund__img"
                 ref="bigImg"
