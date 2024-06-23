@@ -93,7 +93,6 @@
             autoplay
             muted
             loop
-            controls
             alt="img"
             class="backgorund__img"
             ref="bigImg"
@@ -110,7 +109,6 @@
             autoplay
             muted
             loop
-            controls="false"
             alt="img"
             class="backgorund__img"
             ref="bigImg"

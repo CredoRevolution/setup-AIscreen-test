@@ -123,7 +123,6 @@
               <video
                 v-else-if="currentIndustry.name === 'Digital Menu Boards'"
                 autoplay
-                controls
                 muted
                 loop
                 preload
@@ -141,7 +140,6 @@
               <video
                 v-else-if="currentIndustry.name === 'Retail'"
                 autoplay
-                controls
                 muted
                 loop
                 preload
