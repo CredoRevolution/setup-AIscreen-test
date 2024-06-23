@@ -128,6 +128,13 @@ export default {
       return `${name}`
     },
     handleOpen() {
+      const selectElement = this.$refs.multiselect.$el
+      const selectBoundingRect = selectElement.getBoundingClientRect()
+      const scrollX = window.scrollX || window.pageXOffset
+      const scrollY = window.scrollY || window.pageYOffset
+      const left = (window.innerWidth - selectBoundingRect.width) / 2 + scrollX
+      const top = (window.innerHeight - selectBoundingRect.height) / 2 + scrollY
+      window.scrollTo({ left, top, behavior: 'smooth' })
       this.active = true
       if (this.search) {
         const searchQuery = this.$el.querySelector('.multiselect__input')

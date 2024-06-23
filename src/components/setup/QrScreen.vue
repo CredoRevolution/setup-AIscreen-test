@@ -36,16 +36,10 @@
             />
           </div>
           <button
-            class="main-screen__qr-btn hover-btn blue-btn"
-            @click.prevent="copy"
-          >
-            Copy
-          </button>
-          <button
             class="main-screen__form-btn hover-btn blue-btn"
-            @click.prevent="nextScreen"
+            @click.prevent="openQr"
           >
-            Finish
+            Open
           </button>
           <a
             href="#"
@@ -106,7 +100,8 @@ export default {
     qrcodeVue: qrcode,
   },
   methods: {
-    nextScreen() {
+    openQr() {
+      window.open('https://www.google.com', '_blank')
       this.$emit('nextScreen')
     },
     prevScreen() {
