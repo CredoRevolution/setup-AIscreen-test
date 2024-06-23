@@ -128,6 +128,7 @@
                 alt="img"
                 class="backgorund__img"
                 ref="bigImg"
+                playsinline
               >
                 <source
                   :src="require(`@/assets/img/${currentIndustry.name}/bg.mp4`)"
@@ -138,6 +139,7 @@
               <video
                 v-else-if="currentIndustry.name === 'Retail'"
                 autoplay
+                playsinline
                 muted
                 loop
                 alt="img"

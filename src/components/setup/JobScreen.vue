@@ -95,6 +95,7 @@
             loop
             alt="img"
             class="backgorund__img"
+            playsinline
             ref="bigImg"
           >
             <source
@@ -106,6 +107,7 @@
           <video
             v-else-if="industry === 'Retail'"
             autoplay
+            playsinline
             muted
             loop
             alt="img"
