@@ -129,7 +129,6 @@
                 alt="img"
                 class="backgorund__img"
                 ref="bigImg"
-                @click.prevent
               >
                 <source
                   :src="require(`@/assets/img/${currentIndustry.name}/bg.mp4`)"
@@ -146,7 +145,6 @@
                 alt="img"
                 class="backgorund__img"
                 ref="bigImg"
-                @click.prevent
               >
                 <source
                   :src="require(`@/assets/img/${currentIndustry.name}/bg.mp4`)"
