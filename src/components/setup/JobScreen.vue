@@ -203,7 +203,6 @@ export default {
           this.validationCount++
         }
       })
-      console.log(this.validationCount, 'validations of', validations.length)
       if (this.validationCount === validations.length) {
         return true
       }

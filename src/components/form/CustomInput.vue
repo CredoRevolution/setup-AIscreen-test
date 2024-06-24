@@ -116,7 +116,6 @@ export default {
       this.showError = false
     },
     focus() {
-      console.log('called')
       if (this.name === '') {
         this.active = false
       } else {

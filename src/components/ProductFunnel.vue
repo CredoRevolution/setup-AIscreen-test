@@ -78,23 +78,20 @@ export default {
   methods: {
     nextScreen() {
       this.currentScreen++
-      console.log(this.currentScreen)
+
       this.progressBar()
     },
     prevScreen() {
       this.currentScreen--
-      console.log(this.currentScreen)
     },
     closeScreen() {
       this.currentScreen = 999
     },
     getTemplatesData(templatesData) {
       this.templatesData = templatesData
-      console.log(this.templatesData)
     },
     changeIndustry(industry) {
       this.industry = industry
-      console.log(this.industry)
     },
     progressBar(progress) {
       this.$nextTick(() => {

@@ -1,222 +1,144 @@
 {
   "Retail": [
     {
-      "id": 229,
       "name": "Sales Board 1",
       "width": "1920",
       "height": "1080",
       "preview_image": "Retail/pic/1.png",
-      "tags": ["Bubble tea"],
       "type": "canvas_template",
-      "created_at": "2022-01-04T15:45:08.000000Z",
-      "updated_at": "2022-01-04T15:45:08.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin",
       "duration": 10000
     },
     {
-      "id": 469,
       "name": "New Collection",
       "width": "1920",
       "height": "1080",
       "preview_image": "Retail/pic/2.png",
-      "tags": ["Coffee & Tea"],
-      "type": "library",
-      "created_at": "2022-02-08T23:21:41.000000Z",
-      "updated_at": "2022-02-08T23:21:41.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin"
+      "type": "canvas_template",
+      "duration": 10000
     },
     {
-      "id": 595,
       "name": "Sales Board 2",
       "width": "1920",
       "height": "1080",
       "preview_image": "Retail/pic/3.png",
-      "tags": ["Pizza", "Café"],
-      "type": "library",
-      "created_at": "2022-02-18T13:50:47.000000Z",
-      "updated_at": "2022-02-18T13:50:47.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin"
+      "type": "canvas_template",
+      "duration": 10000
     },
     {
-      "id": 578,
       "name": "Sales Board 3",
       "width": "1920",
       "height": "1080",
       "preview_image": "Retail/pic/4.png",
-      "tags": ["Hamburger restaurant"],
-      "type": "library",
-      "created_at": "2022-02-18T13:50:40.000000Z",
-      "updated_at": "2022-02-18T13:50:40.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin"
+      "type": "canvas_template",
+      "duration": 10000
     },
     {
-      "id": 584,
       "name": "Fashion Trend",
       "width": "1920",
       "height": "1080",
       "preview_image": "Retail/pic/5.png",
-      "tags": ["Hamburger restaurant"],
-      "type": "library",
-      "created_at": "2022-02-18T13:50:42.000000Z",
-      "updated_at": "2022-02-18T13:50:42.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin"
+      "type": "canvas_template",
+      "duration": 10000
     },
     {
-      "id": 586,
       "name": "Nellie Iglesias",
       "width": "1920",
       "height": "1080",
       "preview_image": "Retail/pic/6.png",
-      "tags": ["Hamburger restaurant"],
-      "type": "library",
-      "created_at": "2022-02-18T13:50:42.000000Z",
-      "updated_at": "2022-02-18T13:50:42.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin"
+      "type": "canvas_template",
+      "duration": 10000
     },
     {
-      "id": 592,
       "name": "Sales Board 4",
       "width": "1920",
       "height": "1080",
       "preview_image": "Retail/pic/7.png",
-      "tags": ["Hamburger restaurant"],
-      "type": "library",
-      "created_at": "2022-02-18T13:50:46.000000Z",
-      "updated_at": "2022-02-18T13:50:46.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin"
+      "type": "canvas_template",
+      "duration": 10000
     },
     {
-      "id": 576,
       "name": "Glasses Collection",
       "width": "1920",
       "height": "1080",
       "preview_image": "Retail/pic/8.png",
-      "tags": ["Hamburger restaurant"],
-      "type": "library",
-      "created_at": "2022-02-18T13:50:38.000000Z",
-      "updated_at": "2022-02-18T13:50:38.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin"
+      "type": "canvas_template",
+      "duration": 10000
     }
   ],
   "Education": [
     {
-      "id": 229,
       "name": "School Admission",
       "width": "1920",
       "height": "1080",
       "preview_image": "Education/pic/1.png",
-      "tags": ["Bubble tea"],
       "type": "canvas_template",
-      "created_at": "2022-01-04T15:45:08.000000Z",
-      "updated_at": "2022-01-04T15:45:08.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin",
       "duration": 10000
     },
     {
-      "id": 229,
       "name": "School Supply Drive",
       "width": "1920",
       "height": "1080",
       "preview_image": "Education/pic/2.png",
-      "tags": ["Bubble tea"],
       "type": "canvas_template",
-      "created_at": "2022-01-04T15:45:08.000000Z",
-      "updated_at": "2022-01-04T15:45:08.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin",
       "duration": 10000
     },
     {
-      "id": 229,
       "name": "Special School Party",
       "width": "1920",
       "height": "1080",
       "preview_image": "Education/pic/3.png",
-      "tags": ["Bubble tea"],
+
       "type": "canvas_template",
-      "created_at": "2022-01-04T15:45:08.000000Z",
-      "updated_at": "2022-01-04T15:45:08.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin",
+
       "duration": 10000
     },
     {
-      "id": 229,
       "name": "Special School Party 2",
       "width": "1920",
       "height": "1080",
       "preview_image": "Education/pic/4.png",
-      "tags": ["Bubble tea"],
+
       "type": "canvas_template",
-      "created_at": "2022-01-04T15:45:08.000000Z",
-      "updated_at": "2022-01-04T15:45:08.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin",
+
       "duration": 10000
     },
     {
-      "id": 229,
       "name": "School Party Invitation",
       "width": "1920",
       "height": "1080",
       "preview_image": "Education/pic/5.png",
-      "tags": ["Bubble tea"],
+
       "type": "canvas_template",
-      "created_at": "2022-01-04T15:45:08.000000Z",
-      "updated_at": "2022-01-04T15:45:08.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin",
+
       "duration": 10000
     },
     {
-      "id": 229,
       "name": "School Food Menu",
       "width": "1920",
       "height": "1080",
       "preview_image": "Education/pic/6.png",
-      "tags": ["Bubble tea"],
+
       "type": "canvas_template",
-      "created_at": "2022-01-04T15:45:08.000000Z",
-      "updated_at": "2022-01-04T15:45:08.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin",
+
       "duration": 10000
     },
     {
-      "id": 229,
       "name": "Learning Board",
       "width": "1920",
       "height": "1080",
       "preview_image": "Education/pic/7.png",
-      "tags": ["Bubble tea"],
       "type": "canvas_template",
-      "created_at": "2022-01-04T15:45:08.000000Z",
-      "updated_at": "2022-01-04T15:45:08.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin",
+
       "duration": 10000
     },
     {
-      "id": 229,
       "name": "Sports Board",
       "width": "1920",
       "height": "1080",
       "preview_image": "Education/pic/8.png",
-      "tags": ["Bubble tea"],
+
       "type": "canvas_template",
-      "created_at": "2022-01-04T15:45:08.000000Z",
-      "updated_at": "2022-01-04T15:45:08.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin",
+
       "duration": 10000
     }
   ],
@@ -336,560 +258,412 @@
   ],
   "Fitness": [
     {
-      "id": 229,
-      "name": "Bubble Tea - light back 2",
+      "name": "Build Your Body",
       "width": "1920",
       "height": "1080",
-      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/canvas_objects_preview_images/PQWjdrpIKd1XyLChwQ34HNkj9HBsPgyJIGxNS3L9.jpg",
-      "tags": ["Bubble tea"],
+      "preview_image": "Fitness/pic/1.png",
+
       "type": "canvas_template",
-      "created_at": "2022-01-04T15:45:08.000000Z",
-      "updated_at": "2022-01-04T15:45:08.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin",
+
       "duration": 10000
     },
     {
-      "id": 229,
-      "name": "Bubble Tea - light back 2",
+      "name": "Fit Your Body",
       "width": "1920",
       "height": "1080",
-      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/canvas_objects_preview_images/PQWjdrpIKd1XyLChwQ34HNkj9HBsPgyJIGxNS3L9.jpg",
-      "tags": ["Bubble tea"],
+      "preview_image": "Fitness/pic/2.png",
+
       "type": "canvas_template",
-      "created_at": "2022-01-04T15:45:08.000000Z",
-      "updated_at": "2022-01-04T15:45:08.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin",
+
       "duration": 10000
     },
     {
-      "id": 229,
-      "name": "Bubble Tea - light back 2",
+      "name": "Training schedule",
       "width": "1920",
       "height": "1080",
-      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/canvas_objects_preview_images/PQWjdrpIKd1XyLChwQ34HNkj9HBsPgyJIGxNS3L9.jpg",
-      "tags": ["Bubble tea"],
+      "preview_image": "Fitness/pic/3.png",
+
       "type": "canvas_template",
-      "created_at": "2022-01-04T15:45:08.000000Z",
-      "updated_at": "2022-01-04T15:45:08.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin",
+
       "duration": 10000
     },
     {
-      "id": 229,
-      "name": "Bubble Tea - light back 2",
+      "name": "Build Your Body 2",
       "width": "1920",
       "height": "1080",
-      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/canvas_objects_preview_images/PQWjdrpIKd1XyLChwQ34HNkj9HBsPgyJIGxNS3L9.jpg",
-      "tags": ["Bubble tea"],
+      "preview_image": "Fitness/pic/4.png",
+
       "type": "canvas_template",
-      "created_at": "2022-01-04T15:45:08.000000Z",
-      "updated_at": "2022-01-04T15:45:08.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin",
+
       "duration": 10000
     },
     {
-      "id": 229,
-      "name": "Bubble Tea - light back 2",
+      "name": "Build Your Body 3",
       "width": "1920",
       "height": "1080",
-      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/canvas_objects_preview_images/PQWjdrpIKd1XyLChwQ34HNkj9HBsPgyJIGxNS3L9.jpg",
-      "tags": ["Bubble tea"],
+      "preview_image": "Fitness/pic/5.png",
+
       "type": "canvas_template",
-      "created_at": "2022-01-04T15:45:08.000000Z",
-      "updated_at": "2022-01-04T15:45:08.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin",
+
       "duration": 10000
     },
     {
-      "id": 229,
-      "name": "Bubble Tea - light back 2",
+      "name": "Training schedule 2",
       "width": "1920",
       "height": "1080",
-      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/canvas_objects_preview_images/PQWjdrpIKd1XyLChwQ34HNkj9HBsPgyJIGxNS3L9.jpg",
-      "tags": ["Bubble tea"],
+      "preview_image": "Fitness/pic/6.png",
+
       "type": "canvas_template",
-      "created_at": "2022-01-04T15:45:08.000000Z",
-      "updated_at": "2022-01-04T15:45:08.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin",
+
       "duration": 10000
     },
     {
-      "id": 229,
-      "name": "Bubble Tea - light back 2",
+      "name": "Stay Focused",
       "width": "1920",
       "height": "1080",
-      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/canvas_objects_preview_images/PQWjdrpIKd1XyLChwQ34HNkj9HBsPgyJIGxNS3L9.jpg",
-      "tags": ["Bubble tea"],
+      "preview_image": "Fitness/pic/7.png",
+
       "type": "canvas_template",
-      "created_at": "2022-01-04T15:45:08.000000Z",
-      "updated_at": "2022-01-04T15:45:08.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin",
+
       "duration": 10000
     },
     {
-      "id": 229,
-      "name": "Bubble Tea - light back 2",
+      "name": "New Training Center",
       "width": "1920",
       "height": "1080",
-      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/canvas_objects_preview_images/PQWjdrpIKd1XyLChwQ34HNkj9HBsPgyJIGxNS3L9.jpg",
-      "tags": ["Bubble tea"],
+      "preview_image": "Fitness/pic/8.png",
+
       "type": "canvas_template",
-      "created_at": "2022-01-04T15:45:08.000000Z",
-      "updated_at": "2022-01-04T15:45:08.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin",
+
       "duration": 10000
     }
   ],
   "Healthcare": [
     {
-      "id": 229,
       "name": "Solidarity",
       "width": "1920",
       "height": "1080",
       "preview_image": "Healthcare/pic/1.png",
-      "tags": ["Bubble tea"],
+
       "type": "canvas_template",
-      "created_at": "2022-01-04T15:45:08.000000Z",
-      "updated_at": "2022-01-04T15:45:08.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin",
+
       "duration": 10000
     },
     {
-      "id": 229,
       "name": "World Health Day",
       "width": "1920",
       "height": "1080",
       "preview_image": "Healthcare/pic/2.png",
-      "tags": ["Bubble tea"],
+
       "type": "canvas_template",
-      "created_at": "2022-01-04T15:45:08.000000Z",
-      "updated_at": "2022-01-04T15:45:08.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin",
+
       "duration": 10000
     },
     {
-      "id": 229,
       "name": "Carying For Your Health",
       "width": "1920",
       "height": "1080",
       "preview_image": "Healthcare/pic/3.png",
-      "tags": ["Bubble tea"],
+
       "type": "canvas_template",
-      "created_at": "2022-01-04T15:45:08.000000Z",
-      "updated_at": "2022-01-04T15:45:08.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin",
+
       "duration": 10000
     },
     {
-      "id": 229,
       "name": "Sales Board",
       "width": "1920",
       "height": "1080",
       "preview_image": "Healthcare/pic/4.png",
-      "tags": ["Bubble tea"],
+
       "type": "canvas_template",
-      "created_at": "2022-01-04T15:45:08.000000Z",
-      "updated_at": "2022-01-04T15:45:08.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin",
+
       "duration": 10000
     },
     {
-      "id": 229,
       "name": "We Care For Your Health",
       "width": "1920",
       "height": "1080",
       "preview_image": "Healthcare/pic/5.png",
-      "tags": ["Bubble tea"],
+
       "type": "canvas_template",
-      "created_at": "2022-01-04T15:45:08.000000Z",
-      "updated_at": "2022-01-04T15:45:08.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin",
+
       "duration": 10000
     },
     {
-      "id": 229,
       "name": "Ypur Health Is Our Priority",
       "width": "1920",
       "height": "1080",
       "preview_image": "Healthcare/pic/6.png",
-      "tags": ["Bubble tea"],
+
       "type": "canvas_template",
-      "created_at": "2022-01-04T15:45:08.000000Z",
-      "updated_at": "2022-01-04T15:45:08.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin",
+
       "duration": 10000
     },
     {
-      "id": 229,
       "name": "On Guard Of Your Health",
       "width": "1920",
       "height": "1080",
       "preview_image": "Healthcare/pic/7.png",
-      "tags": ["Bubble tea"],
+
       "type": "canvas_template",
-      "created_at": "2022-01-04T15:45:08.000000Z",
-      "updated_at": "2022-01-04T15:45:08.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin",
+
       "duration": 10000
     },
     {
-      "id": 229,
       "name": "Take Care Of Yourself",
       "width": "1920",
       "height": "1080",
       "preview_image": "Healthcare/pic/8.png",
-      "tags": ["Bubble tea"],
+
       "type": "canvas_template",
-      "created_at": "2022-01-04T15:45:08.000000Z",
-      "updated_at": "2022-01-04T15:45:08.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin",
+
       "duration": 10000
     }
   ],
   "Manufacturing": [
     {
-      "id": 229,
       "name": "Quotation",
       "width": "1920",
       "height": "1080",
       "preview_image": "Manufacturing/pic/1.png",
-      "tags": ["Bubble tea"],
+
       "type": "canvas_template",
-      "created_at": "2022-01-04T15:45:08.000000Z",
-      "updated_at": "2022-01-04T15:45:08.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin",
+
       "duration": 10000
     },
     {
-      "id": 229,
       "name": "Construction ",
       "width": "1920",
       "height": "1080",
       "preview_image": "Manufacturing/pic/2.png",
-      "tags": ["Bubble tea"],
+
       "type": "canvas_template",
-      "created_at": "2022-01-04T15:45:08.000000Z",
-      "updated_at": "2022-01-04T15:45:08.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin",
+
       "duration": 10000
     },
     {
-      "id": 229,
       "name": "Questionnaire",
       "width": "1920",
       "height": "1080",
       "preview_image": "Manufacturing/pic/3.png",
-      "tags": ["Bubble tea"],
+
       "type": "canvas_template",
-      "created_at": "2022-01-04T15:45:08.000000Z",
-      "updated_at": "2022-01-04T15:45:08.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin",
+
       "duration": 10000
     },
     {
-      "id": 229,
       "name": "Alert Board",
       "width": "1920",
       "height": "1080",
       "preview_image": "Manufacturing/pic/4.png",
-      "tags": ["Bubble tea"],
+
       "type": "canvas_template",
-      "created_at": "2022-01-04T15:45:08.000000Z",
-      "updated_at": "2022-01-04T15:45:08.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin",
+
       "duration": 10000
     },
     {
-      "id": 229,
       "name": "Notice Board",
       "width": "1920",
       "height": "1080",
       "preview_image": "Manufacturing/pic/5.png",
-      "tags": ["Bubble tea"],
+
       "type": "canvas_template",
-      "created_at": "2022-01-04T15:45:08.000000Z",
-      "updated_at": "2022-01-04T15:45:08.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin",
+
       "duration": 10000
     },
     {
-      "id": 229,
       "name": "Quotation 2",
       "width": "1920",
       "height": "1080",
       "preview_image": "Manufacturing/pic/6.png",
-      "tags": ["Bubble tea"],
+
       "type": "canvas_template",
-      "created_at": "2022-01-04T15:45:08.000000Z",
-      "updated_at": "2022-01-04T15:45:08.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin",
+
       "duration": 10000
     },
     {
-      "id": 229,
       "name": "Notice Board 2",
       "width": "1920",
       "height": "1080",
       "preview_image": "Manufacturing/pic/7.png",
-      "tags": ["Bubble tea"],
+
       "type": "canvas_template",
-      "created_at": "2022-01-04T15:45:08.000000Z",
-      "updated_at": "2022-01-04T15:45:08.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin",
+
       "duration": 10000
     },
     {
-      "id": 229,
       "name": "Notice Board 3",
       "width": "1920",
       "height": "1080",
       "preview_image": "Manufacturing/pic/8.png",
-      "tags": ["Bubble tea"],
+
       "type": "canvas_template",
-      "created_at": "2022-01-04T15:45:08.000000Z",
-      "updated_at": "2022-01-04T15:45:08.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin",
+
       "duration": 10000
     }
   ],
   "Digital Menu Boards": [
     {
-      "id": 229,
       "name": "Mexican Food",
       "width": "1920",
       "height": "1080",
       "preview_image": "Digital Menu Boards/pic/1.png",
-      "tags": ["Bubble tea"],
+
       "type": "canvas_template",
-      "created_at": "2022-01-04T15:45:08.000000Z",
-      "updated_at": "2022-01-04T15:45:08.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin",
+
       "duration": 10000
     },
     {
-      "id": 242,
       "name": "Ice Cream",
       "width": "1920",
       "height": "1080",
       "preview_image": "Digital Menu Boards/pic/2.png",
-      "tags": ["Bubble tea"],
-      "type": "library",
-      "created_at": "2022-01-04T15:45:09.000000Z",
-      "updated_at": "2022-01-04T15:45:09.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin"
+
+      "type": "canvas_template",
+
+      "duration": 10000
     },
     {
-      "id": 229,
       "name": "Burgers Gouemet Beef",
       "width": "1920",
       "height": "1080",
       "preview_image": "Digital Menu Boards/pic/3.png",
-      "tags": ["Bubble tea"],
+
       "type": "canvas_template",
-      "created_at": "2022-01-04T15:45:08.000000Z",
-      "updated_at": "2022-01-04T15:45:08.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin",
+
       "duration": 10000
     },
     {
-      "id": 2055,
       "name": "Cafe Menu",
       "width": "1920",
       "height": "1080",
       "preview_image": "Digital Menu Boards/pic/4.png",
-      "tags": ["Mexican"],
-      "type": "library",
-      "created_at": "2024-01-19T14:01:40.000000Z",
-      "updated_at": "2024-01-19T14:01:40.000000Z",
-      "created_by": "Natalia Kozak",
-      "updated_by": "Natalia Kozak"
+
+      "type": "canvas_template",
+
+      "duration": 10000
     },
     {
-      "id": 592,
       "name": "Cafe Menu 2",
       "width": "1920",
       "height": "1080",
       "preview_image": "Digital Menu Boards/pic/5.png",
-      "tags": ["Hamburger restaurant"],
-      "type": "library",
-      "created_at": "2022-02-18T13:50:46.000000Z",
-      "updated_at": "2022-02-18T13:50:46.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin"
+
+      "type": "canvas_template",
+
+      "duration": 10000
     },
     {
-      "id": 1081,
       "name": "pizza3",
       "width": "1920",
       "height": "1080",
       "preview_image": "Digital Menu Boards/pic/6.png",
-      "tags": ["Pizza"],
-      "type": "library",
-      "created_at": "2023-01-15T20:09:43.000000Z",
-      "updated_at": "2023-01-15T20:09:43.000000Z",
-      "created_by": "Vlad Weblancer",
-      "updated_by": "Root Admin"
+
+      "type": "canvas_template",
+
+      "duration": 10000
     },
     {
-      "id": 2182,
       "name": "Hamburgers Menu",
       "width": "1920",
       "height": "1080",
       "preview_image": "Digital Menu Boards/pic/7.png",
-      "tags": ["Hamburger restaurant"],
-      "type": "library",
-      "created_at": "2024-01-30T13:54:17.000000Z",
-      "updated_at": "2024-01-30T13:54:17.000000Z",
-      "created_by": "Андрей Сапожников",
-      "updated_by": "Root Admin"
+
+      "type": "canvas_template",
+
+      "duration": 10000
     },
     {
-      "id": 758,
       "name": "Coffe Menu",
       "width": "1920",
       "height": "1080",
       "preview_image": "Digital Menu Boards/pic/8.png",
-      "tags": ["Ice Cream", "Vintage"],
-      "type": "library",
-      "created_at": "2022-02-27T17:09:27.000000Z",
-      "updated_at": "2022-02-27T17:09:27.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin"
+
+      "type": "canvas_template",
+
+      "duration": 10000
     }
   ],
   "Corporate": [
     {
-      "id": 229,
       "name": "Corporate Presentation",
       "width": "1920",
       "height": "1080",
       "preview_image": "Corporate/pic/Corporate Presenatation.png",
-      "tags": ["Bubble tea"],
+
       "type": "canvas_template",
-      "created_at": "2022-01-04T15:45:08.000000Z",
-      "updated_at": "2022-01-04T15:45:08.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin",
+
       "duration": 10000
     },
     {
-      "id": 242,
       "name": "Birthday",
       "width": "1920",
       "height": "1080",
       "preview_image": "Corporate/pic/Rectangle 205.png",
-      "tags": ["Bubble tea"],
-      "type": "library",
-      "created_at": "2022-01-04T15:45:09.000000Z",
-      "updated_at": "2022-01-04T15:45:09.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin"
+
+      "type": "canvas_template",
+
+      "duration": 10000
     },
     {
-      "id": 229,
       "name": "Senior Consultant",
       "width": "1920",
       "height": "1080",
       "preview_image": "Corporate/pic/Rectangle 206.png",
-      "tags": ["Bubble tea"],
+
       "type": "canvas_template",
-      "created_at": "2022-01-04T15:45:08.000000Z",
-      "updated_at": "2022-01-04T15:45:08.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin",
+
       "duration": 10000
     },
     {
-      "id": 2055,
       "name": "Digital Agency",
       "width": "1920",
       "height": "1080",
       "preview_image": "Corporate/pic/Rectangle 207.png",
-      "tags": ["Mexican"],
-      "type": "library",
-      "created_at": "2024-01-19T14:01:40.000000Z",
-      "updated_at": "2024-01-19T14:01:40.000000Z",
-      "created_by": "Natalia Kozak",
-      "updated_by": "Natalia Kozak"
+
+      "type": "canvas_template",
+
+      "duration": 10000
     },
     {
-      "id": 592,
       "name": "World Time",
       "width": "1920",
       "height": "1080",
       "preview_image": "Corporate/pic/Rectangle 209.png",
-      "tags": ["Hamburger restaurant"],
-      "type": "library",
-      "created_at": "2022-02-18T13:50:46.000000Z",
-      "updated_at": "2022-02-18T13:50:46.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin"
+
+      "type": "canvas_template",
+
+      "duration": 10000
     },
     {
-      "id": 1081,
       "name": "Weather",
       "width": "1920",
       "height": "1080",
       "preview_image": "Corporate/pic/Rectangle 210.png",
-      "tags": ["Pizza"],
-      "type": "library",
-      "created_at": "2023-01-15T20:09:43.000000Z",
-      "updated_at": "2023-01-15T20:09:43.000000Z",
-      "created_by": "Vlad Weblancer",
-      "updated_by": "Root Admin"
+
+      "type": "canvas_template",
+
+      "duration": 10000
     },
     {
-      "id": 2182,
       "name": "Veterans Affairs",
       "width": "1920",
       "height": "1080",
       "preview_image": "Corporate/pic/Rectangle 211.png",
-      "tags": ["Hamburger restaurant"],
-      "type": "library",
-      "created_at": "2024-01-30T13:54:17.000000Z",
-      "updated_at": "2024-01-30T13:54:17.000000Z",
-      "created_by": "Андрей Сапожников",
-      "updated_by": "Root Admin"
+
+      "type": "canvas_template",
+
+      "duration": 10000
     },
     {
-      "id": 758,
       "name": "International Convention",
       "width": "1920",
       "height": "1080",
       "preview_image": "Corporate/pic/Rectangle212.png",
-      "tags": ["Ice Cream", "Vintage"],
-      "type": "library",
-      "created_at": "2022-02-27T17:09:27.000000Z",
-      "updated_at": "2022-02-27T17:09:27.000000Z",
-      "created_by": "Root Admin",
-      "updated_by": "Root Admin"
+
+      "type": "canvas_template",
+
+      "duration": 10000
     }
   ]
 }

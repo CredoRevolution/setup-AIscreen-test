@@ -125,7 +125,6 @@ export default {
   methods: {
     pushTemplatesData(i) {
       this.layoutsData[i].zones[0].content.push(this.templatesData)
-      console.log('layoutsData', this.layoutsData)
     },
     nextScreen() {
       if (this.checkValidation()) {
@@ -149,7 +148,6 @@ export default {
       } else {
         this.$refs.nextBtn.classList.remove('grey')
       }
-      console.log(el)
     },
     deactivateAllScreens() {
       for (let i = 0; i < this.$refs.template.length; i++) {
@@ -189,8 +187,6 @@ export default {
     },
   },
   mounted() {
-    console.log('layoutsDataOriginal', layoutsDataOriginal)
-    console.log('layoutsData', this.layoutsData)
     this.$emit('progressBar', this.$refs.progress)
   },
 }

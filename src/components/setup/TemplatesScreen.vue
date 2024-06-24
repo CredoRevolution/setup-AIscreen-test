@@ -150,7 +150,6 @@ export default {
           })
         }
       })
-      console.log(this.activeScreensData)
       this.$emit('getTemplatesData', this.activeScreensData)
     },
     getActiveData(el) {
@@ -199,7 +198,6 @@ export default {
     handleSlideChange(swiper) {
       this.reachedEnd = swiper.isEnd
       this.reachedBeginning = swiper.isBeginning
-      console.log(this.reachedEnd)
     },
   },
   setup() {

@@ -254,7 +254,7 @@ export default {
           this.validationCount++
         }
       })
-      console.log(this.validationCount, 'validations of', validations.length)
+
       if (this.selectedCountry !== 'United States') {
         if (this.validationCount === validations.length - 1) {
           return true

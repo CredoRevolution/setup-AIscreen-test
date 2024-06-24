@@ -153,12 +153,10 @@ export default {
           list.style.maxHeight = '200px'
 
           if (selectedIndex !== -1) {
-            console.log('есть совпадение', selectedIndex)
             const listItemSelected = listItems[selectedIndex]
             const listItemSelectedTop =
               listItemSelected.offsetTop - list.offsetTop
             list.scrollTop = listItemSelectedTop
-            console.log(list.scrollTop, listItemSelectedTop)
           }
         }
       })
@@ -185,7 +183,6 @@ export default {
         this.handleOtherVariant()
       }
       if (this.value.name) {
-        console.log(this.value.name)
         this.$emit('USAState', this.value.name)
       }
       if (this.industry) {
@@ -249,7 +246,8 @@ export default {
     box-sizing: border-box;
     &.error {
       .multiselect__tags {
-        border: 1px solid red;
+        border: 1px solid red !important;
+        box-shadow: none !important;
       }
     }
     &.valid {

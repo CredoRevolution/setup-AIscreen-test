@@ -221,7 +221,6 @@ export default {
         this.TeamMembers.push({ ...this.MemberData, date: formatedDate, name: this.MemberData.name })
         this.MemberData.name = ''
         this.MemberData.email = ''
-        console.log(this.TeamMembers)
       }
     },
     deleteMember(index) {
