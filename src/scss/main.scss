@@ -845,8 +845,9 @@ button {
   border-radius: rem(17px) !important;
   overflow: hidden !important;
   video {
-    width: auto !important;
+    width: 100% !important;
     height: 100% !important;
     pointer-events: none !important;
+    object-fit: cover;
   }
 }
