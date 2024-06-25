@@ -36,6 +36,7 @@
               ref="validation1"
               :defaultErrorText="'This field is required'"
               :input-name="'Company'"
+              @getData="getData"
             />
           </div>
           <div class="main-screen__form-item">
@@ -50,6 +51,7 @@
               :industry="true"
               :search="false"
               @getInfo="getInfo"
+              @getData="getData"
             />
           </div>
 
@@ -63,6 +65,7 @@
               :optionsCount="Countries"
               :defaultText="'Select Country'"
               :defaultErrorText="'Select country'"
+              @getData="getData"
             />
           </div>
           <div
@@ -77,6 +80,7 @@
               :optionsCount="States"
               :defaultText="'Select State'"
               :defaultErrorText="'Select state'"
+              @getData="getData"
             />
           </div>
           <button
@@ -213,6 +217,7 @@ export default {
       Countries: [],
       States: [],
       validationCount: 0,
+      data: {},
     }
   },
   components: {
@@ -257,15 +262,20 @@ export default {
 
       if (this.selectedCountry !== 'United States') {
         if (this.validationCount === validations.length - 1) {
+          this.getData()
           return true
         }
       }
       if (this.validationCount === validations.length) {
+        this.getData()
         return true
       }
     },
+    getData(fieldName, value) {
+      this.data[fieldName] = value
+    },
     nextScreen() {
-      if (this.checkAllValidations()) this.$emit('nextScreen')
+      if (this.checkAllValidations()) this.$emit('nextScreen', this.data)
     },
     changeIndustry() {
       this.$emit('changeIndustry', this.industry)

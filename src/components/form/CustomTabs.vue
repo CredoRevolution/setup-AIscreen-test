@@ -52,10 +52,15 @@ export default {
       type: String,
       required: false,
     },
+    definition: {
+      type: String,
+      required: false,
+    },
   },
   data() {
     return {
       showError: false,
+      selected: '1-10',
     }
   },
   validations: {
@@ -69,16 +74,21 @@ export default {
         '.main-screen__form-switch-btn.active'
       )
       if (activeButtons.length > 0) {
+        this.getData()
         return true
       } else {
         this.showError = true
         return false
       }
     },
+    getData() {
+      this.$emit('getData', this.definition, this.selected)
+    },
     resetValidation() {
       this.$v.$reset()
       this.showError = false
     },
+
     makeActive(e) {
       const slider = this.$el?.querySelector('.main-screen__form-switch-slider')
       const buttons = this.$el?.querySelectorAll(
@@ -89,6 +99,7 @@ export default {
         button.classList.remove('passive')
       })
       e.target?.classList.add('active')
+      this.selected = e.target?.textContent
 
       const sliderContainer = slider?.parentElement
       const activeButton = Array.from(buttons || []).find((button) =>
@@ -200,14 +211,14 @@ export default {
     border: 1px solid red;
   }
   .main-screen__form-switch-btn {
-    padding: rem(12px) rem(17px);
-    background: transparent;
+    padding: rem(12px) rem(17px) !important;
+    background: transparent !important;
     border-radius: rem(999px);
     font-weight: 500;
     font-size: rem(17px);
     line-height: rem(21px);
     color: #86868b;
-    border: 1px solid transparent;
+    border: 1px solid transparent !important;
     transition: all 0.3s ease;
     position: relative;
     //   &:not(:last-child):after {
@@ -220,7 +231,7 @@ export default {
     //     border-left: 1px solid #86868b80;
     //   }
     &.passive {
-      background: #f5f5f8;
+      background: #f5f5f8 !important;
       &::after {
         content: '';
         margin-left: 0;
@@ -232,8 +243,8 @@ export default {
       transition: all 0.5s ease;
       border-radius: rem(999px);
       color: #fff;
-      background: transparent;
-      border: 1px solid transparent;
+      background: transparent !important;
+      border: 1px solid transparent !important;
       &::after {
         content: '';
         margin-left: 0;
@@ -248,21 +259,21 @@ export default {
     justify-content: space-between;
     flex-wrap: nowrap;
     .main-screen__form-switch-btn {
-      padding: rem(12px) rem(10px);
+      padding: rem(12px) rem(10px) !important;
     }
   }
 }
 @media (max-width: 800px) {
   .main-screen__form-switch {
     .main-screen__form-switch-btn {
-      padding: rem(8px) rem(5px);
+      padding: rem(8px) rem(5px) !important;
     }
   }
 }
 @media (max-width: 768px) {
   .main-screen__form-switch {
     .main-screen__form-switch-btn {
-      padding: rem(12px) rem(10px);
+      padding: rem(12px) rem(10px) !important;
     }
   }
 }

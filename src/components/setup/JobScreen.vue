@@ -23,9 +23,10 @@
           <div class="main-screen__form-item">
             <CustomInput
               :placeholderText="'Job Title'"
+              :input-name="'Job'"
               ref="validation1"
               :defaultErrorText="'This field is required'"
-              :input-name="'Job'"
+              @getData="getData"
             />
           </div>
           <div class="main-screen__form-item">
@@ -45,16 +46,34 @@
               :defaultText="'Job function'"
               :defaultErrorText="'Select job function'"
               :search="false"
+              @getData="getData"
             />
           </div>
 
           <div class="main-screen__form-item">
-            <CustomInput
+            <!-- <CustomInput
+              ref="validation3"
               :placeholderText="'Phone number'"
               :phone="true"
-              ref="validation3"
               :defaultErrorText="'This field is required'"
               :input-name="'Phone'"
+              @getData="getData"
+            /> -->
+            <VuePhoneNumberInput
+              v-model="phone"
+              fetch-country
+              class="main-screen__form-input"
+              :class="{ error: phoneValid && isPhoneDirty && phone !== '' }"
+              :required="true"
+              :placeholder="'Phone number'"
+              @update="checkPhone"
+              ref="validation3"
+              :error="!phoneValid && isPhoneDirty"
+              :borderRadius="13"
+              :errorColor="'red'"
+              :validColor="'#0071e2'"
+              :color="'#0071e2'"
+              :size="'lg'"
             />
           </div>
           <p class="main-screen__form-text">
@@ -62,8 +81,10 @@
           </p>
           <CustomTabs
             ref="validation4"
-            :defaultErrorText="'Select amount'"
             class="custom-tabs"
+            :defaultErrorText="'Select amount'"
+            :definition="'amount of screens'"
+            @getData="getData"
           />
           <button
             class="main-screen__form-btn hover-btn blue-btn"
@@ -133,12 +154,18 @@
 import CustomInput from '@/components/form/CustomInput.vue'
 import CustomTabs from '@/components/form/CustomTabs.vue'
 import SearchSelect from '../form/SearchSelect.vue'
+import { data } from 'qrcode.vue'
+
+import VuePhoneNumberInput from 'vue-phone-number-input'
+import 'vue-phone-number-input/dist/vue-phone-number-input.css'
+
 export default {
   name: 'LastlyScreen',
   components: {
     CustomInput,
     CustomTabs,
     SearchSelect,
+    VuePhoneNumberInput,
   },
   data() {
     return {
@@ -146,6 +173,8 @@ export default {
       validationCount: 0,
       amount: 0,
       adaptationResolution: 0,
+      data: {},
+      isPhoneDirty: false,
       jobFunctions: [
         {
           name: 'Data & Analytics',
@@ -175,6 +204,11 @@ export default {
           name: 'Other',
         },
       ],
+      phone:
+        this.countryCode && this.values && this.values.Phone
+          ? '+' + this.countryCode + ' ' + this.values.Phone
+          : '',
+      phoneValid: true,
     }
   },
 
@@ -182,15 +216,26 @@ export default {
     onresize() {
       this.adaptationResolution = window.innerWidth
     },
+    checkPhone() {
+      this.phoneValid = this.$refs.validation3.results.isValid
+      this.isPhoneDirty = true
+      console.log(this.phoneValid)
+      if (this.phoneValid) {
+        this.data.phone = this.$refs.validation3.results.formattedNumber
+        return true
+      }
+    },
     prevScreen() {
       this.$emit('prevScreen')
+    },
+    getData(fieldName, value) {
+      this.data[fieldName] = value
     },
     checkAllValidations() {
       this.validationCount = 0
       const validations = [
         this.$refs.validation1,
         this.$refs.validation2,
-        this.$refs.validation3,
         this.$refs.validation4,
       ]
       validations.forEach((item) => {
@@ -204,21 +249,39 @@ export default {
         }
       })
       if (this.validationCount === validations.length) {
+        this.getData()
         return true
       }
     },
     nextScreen() {
-      if (this.checkAllValidations()) this.$emit('nextScreen')
+      if (this.checkAllValidations() && this.checkPhone())
+        this.$emit('nextScreen', this.data)
     },
   },
   props: {
     industry: {
       type: String,
-      default: 'plug',
+      default: 'Industry',
     },
   },
   created() {
     this.onresize()
   },
+  mounted() {
+    console.log(this.$refs.validation3)
+  },
 }
 </script>
+
+<style lang="scss" scoped>
+@function rem($px) {
+  @return $px / 16px + 0rem;
+}
+
+.input-tel.lg .input-tel__input {
+  font-size: rem(17px);
+  line-height: rem(21px);
+  font-weight: 500;
+  font-family: Satoshi-variable, sans-serif;
+}
+</style>

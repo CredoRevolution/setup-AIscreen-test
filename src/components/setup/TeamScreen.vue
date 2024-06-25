@@ -310,11 +310,11 @@ export default {
 
     &-btn {
       height: 100%;
-      font-size: rem(19px);
-      line-height: rem(23px);
+      font-size: rem(19px)!important;
+      line-height: rem(23px)!important;
       font-weight: 700;
       border-radius: rem(999px);
-      padding: rem(15px) rem(56px);
+      padding: rem(15px) rem(56px) !important;
       &::before {
         border-radius: rem(10px);
       }
@@ -510,18 +510,18 @@ export default {
       font-weight: 700;
       font-size: rem(19px);
       line-height: rem(23px);
-      padding-top: rem(12px);
-      padding-bottom: rem(12px);
+      padding-top: rem(12px)!important;
+      padding-bottom: rem(12px)!important;
       letter-spacing: 0.02em;
       margin-top: rem(7px);
       color: rgba(20, 18, 31, 1);
-      border: 2px solid rgba(20, 18, 31, 1);
-      background-color: #fff;
+      border: 2px solid rgba(20, 18, 31, 1)!important;
+      background-color: #fff!important;
       border-radius: rem(999px);
       transition: all 0.3s ease;
       margin-bottom: rem(34px);
       &:hover {
-        background-color: rgba(20, 18, 31, 1);
+        background-color: rgba(20, 18, 31, 1)!important;
         color: #fff;
         transition: all 0.3s ease;
       }

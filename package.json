@@ -11,9 +11,9 @@
     "core-js": "^3.8.3",
     "qrcode.vue": "^1.7.0",
     "swiper": "^11.1.4",
-    "vee-validate": "^3.4.15",
     "vue": "^2.6.14",
     "vue-multiselect": "^2.1.9",
+    "vue-phone-number-input": "^1.12.13",
     "vuelidate": "^0.7.7"
   },
   "devDependencies": {

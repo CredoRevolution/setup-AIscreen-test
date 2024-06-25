@@ -1,145 +1,246 @@
 {
   "Retail": [
     {
-      "name": "Sales Board 1",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Retail/pic/1.png",
-      "type": "canvas_template",
-      "duration": 10000
-    },
-    {
-      "name": "New Collection",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Retail/pic/2.png",
-      "type": "canvas_template",
-      "duration": 10000
-    },
-    {
-      "name": "Sales Board 2",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Retail/pic/3.png",
-      "type": "canvas_template",
-      "duration": 10000
-    },
-    {
-      "name": "Sales Board 3",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Retail/pic/4.png",
-      "type": "canvas_template",
-      "duration": 10000
-    },
-    {
+      "uuid": "9c5ebbb1-7701-4de7-9f89-c8ae09144286",
+      "parent_id": "9c5eb8ce-2e83-4ed6-a033-73c16ee2a546",
       "name": "Fashion Trend",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Retail/pic/5.png",
-      "type": "canvas_template",
-      "duration": 10000
+      "duraion": 10000,
+      "type": "file",
+      "total_size": 573003,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/kt6IuXEZbjCJ1GY6TPrPCOC3VLPtvTUiJ1I6vi0Z.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/kt6IuXEZbjCJ1GY6TPrPCOC3VLPtvTUiJ1I6vi0Z.png",
+      "created_at": "2024-06-25T09:14:58.000000Z",
+      "updated_at": "2024-06-25T09:14:58.000000Z"
     },
     {
-      "name": "Nellie Iglesias",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Retail/pic/6.png",
-      "type": "canvas_template",
-      "duration": 10000
-    },
-    {
-      "name": "Sales Board 4",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Retail/pic/7.png",
-      "type": "canvas_template",
-      "duration": 10000
-    },
-    {
+      "uuid": "9c5ebbb1-95c0-4c63-b9d3-2a4a6035f6b3",
+      "parent_id": "9c5eb8ce-2e83-4ed6-a033-73c16ee2a546",
       "name": "Glasses Collection",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Retail/pic/8.png",
-      "type": "canvas_template",
-      "duration": 10000
+      "duraion": 10000,
+      "type": "file",
+      "total_size": 501361,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/pM7pkCL4PmvWoronrrm9iu76VBeg79Rv2ckZV5h5.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/pM7pkCL4PmvWoronrrm9iu76VBeg79Rv2ckZV5h5.png",
+      "created_at": "2024-06-25T09:14:58.000000Z",
+      "updated_at": "2024-06-25T09:14:58.000000Z"
+    },
+    {
+      "uuid": "9c5ebbb1-81a5-4f30-93b0-95a9ee33d4cc",
+      "parent_id": "9c5eb8ce-2e83-4ed6-a033-73c16ee2a546",
+      "name": "Nellie Iglesias",
+      "duraion": 10000,
+      "type": "file",
+      "total_size": 671186,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/vlFyG31IG9iuohBn9kAzmT3M3lacbzN0V53U8PzM.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/vlFyG31IG9iuohBn9kAzmT3M3lacbzN0V53U8PzM.png",
+      "created_at": "2024-06-25T09:14:58.000000Z",
+      "updated_at": "2024-06-25T09:14:58.000000Z"
+    },
+    {
+      "uuid": "9c5ebbb4-54ed-47c1-bd07-fd742601ec45",
+      "parent_id": "9c5eb8ce-2e83-4ed6-a033-73c16ee2a546",
+      "name": "New Collection",
+      "duraion": 10000,
+      "type": "file",
+      "total_size": 638613,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/5S3gagKjCQl8JlZjH8IquzTHqJORZU4oTuixrN3v.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/5S3gagKjCQl8JlZjH8IquzTHqJORZU4oTuixrN3v.png",
+      "created_at": "2024-06-25T09:15:00.000000Z",
+      "updated_at": "2024-06-25T09:15:00.000000Z"
+    },
+    {
+      "uuid": "9c5ebbb4-a59e-4ed6-ac7a-50fff94db032",
+      "parent_id": "9c5eb8ce-2e83-4ed6-a033-73c16ee2a546",
+      "name": "Sales Board 1",
+      "duraion": 10000,
+      "type": "file",
+      "total_size": 909522,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/XO766RXWS49S3AlcIxrthaCxqYqFmkR3bfYyn2Qh.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/XO766RXWS49S3AlcIxrthaCxqYqFmkR3bfYyn2Qh.png",
+      "created_at": "2024-06-25T09:15:00.000000Z",
+      "updated_at": "2024-06-25T09:15:00.000000Z"
+    },
+    {
+      "uuid": "9c5ebbb5-25d4-4a5e-8c68-36dad424d2d2",
+      "parent_id": "9c5eb8ce-2e83-4ed6-a033-73c16ee2a546",
+      "name": "Sales Board 2",
+      "duraion": 10000,
+      "type": "file",
+      "total_size": 1330037,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/Xweex334KklW14fnUxbTa3nkGYrdupZDftiwsC1T.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/Xweex334KklW14fnUxbTa3nkGYrdupZDftiwsC1T.png",
+      "created_at": "2024-06-25T09:15:00.000000Z",
+      "updated_at": "2024-06-25T09:15:00.000000Z"
+    },
+    {
+      "uuid": "9c5ebbb7-06b7-4bd7-b920-c8c22ccd24c9",
+      "parent_id": "9c5eb8ce-2e83-4ed6-a033-73c16ee2a546",
+      "name": "Sales Board 3",
+      "duraion": 10000,
+      "type": "file",
+      "total_size": 448164,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/q6IXP8yErLl28JcvmXBCmVLLg4onQoUPK8J4TgGM.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/q6IXP8yErLl28JcvmXBCmVLLg4onQoUPK8J4TgGM.png",
+      "created_at": "2024-06-25T09:15:01.000000Z",
+      "updated_at": "2024-06-25T09:15:01.000000Z"
+    },
+    {
+      "uuid": "9c5ebbb8-73c6-4f1d-bad1-e2cc1fa23f7d",
+      "parent_id": "9c5eb8ce-2e83-4ed6-a033-73c16ee2a546",
+      "name": "Sales Board 4",
+      "duraion": 10000,
+      "type": "file",
+      "total_size": 1085965,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/i1sb1rJZV4AlLwGgIdmnZIyEGbwxYDq7seHH3uig.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/i1sb1rJZV4AlLwGgIdmnZIyEGbwxYDq7seHH3uig.png",
+      "created_at": "2024-06-25T09:15:02.000000Z",
+      "updated_at": "2024-06-25T09:15:02.000000Z"
     }
   ],
   "Education": [
     {
-      "name": "School Admission",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Education/pic/1.png",
-      "type": "canvas_template",
-      "duration": 10000
-    },
-    {
-      "name": "School Supply Drive",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Education/pic/2.png",
-      "type": "canvas_template",
-      "duration": 10000
-    },
-    {
-      "name": "Special School Party",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Education/pic/3.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
-    },
-    {
-      "name": "Special School Party 2",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Education/pic/4.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
-    },
-    {
-      "name": "School Party Invitation",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Education/pic/5.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
-    },
-    {
-      "name": "School Food Menu",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Education/pic/6.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
-    },
-    {
+      "uuid": "9c5f0477-5d53-4aa6-a36d-3860ac85082b",
+      "parent_id": "9c5eb923-f60e-4932-9eb2-4b09f5a45f17",
       "name": "Learning Board",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Education/pic/7.png",
-      "type": "canvas_template",
-
-      "duration": 10000
+      "duration": 10000,
+      "type": "file",
+      "total_size": 884549,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/KNsGD1MEYe8lqmgRYD8iZ2fg5CAdzXVvmS0dUjop.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/KNsGD1MEYe8lqmgRYD8iZ2fg5CAdzXVvmS0dUjop.png",
+      "created_at": "2024-06-25T12:38:27.000000Z",
+      "updated_at": "2024-06-25T12:38:27.000000Z"
     },
     {
+      "uuid": "9c5f047b-941a-4b25-ac4f-ae0c419047fb",
+      "parent_id": "9c5eb923-f60e-4932-9eb2-4b09f5a45f17",
+      "name": "School Admission",
+      "duration": 10000,
+      "type": "file",
+      "total_size": 1394988,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/KP4PHFUnxRi0S9SMgJDB0VuazFRrDodGF2Yi0gd8.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/KP4PHFUnxRi0S9SMgJDB0VuazFRrDodGF2Yi0gd8.png",
+      "created_at": "2024-06-25T12:38:30.000000Z",
+      "updated_at": "2024-06-25T12:38:30.000000Z"
+    },
+    {
+      "uuid": "9c5f047b-ee8d-4878-a396-d18cb889f290",
+      "parent_id": "9c5eb923-f60e-4932-9eb2-4b09f5a45f17",
+      "name": "School Food Menu",
+      "duration": 10000,
+      "type": "file",
+      "total_size": 359462,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/wBhgDTZJRvRysxpr7gjwMhX2QIvtxeAckRAcUCA3.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/wBhgDTZJRvRysxpr7gjwMhX2QIvtxeAckRAcUCA3.png",
+      "created_at": "2024-06-25T12:38:30.000000Z",
+      "updated_at": "2024-06-25T12:38:30.000000Z"
+    },
+    {
+      "uuid": "9c5f047e-668a-4a16-94d5-c63e25eca011",
+      "parent_id": "9c5eb923-f60e-4932-9eb2-4b09f5a45f17",
+      "name": "School Party Invitation",
+      "duration": 10000,
+      "type": "file",
+      "total_size": 2411283,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/qQISISwrCbW19m1ao1tcD5I9EnkUfCR1dmuUysNe.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/qQISISwrCbW19m1ao1tcD5I9EnkUfCR1dmuUysNe.png",
+      "created_at": "2024-06-25T12:38:32.000000Z",
+      "updated_at": "2024-06-25T12:38:32.000000Z"
+    },
+    {
+      "uuid": "9c5f0482-758b-4afb-abf2-f91d12921786",
+      "parent_id": "9c5eb923-f60e-4932-9eb2-4b09f5a45f17",
+      "name": "School Supply Drive",
+      "duration": 10000,
+      "type": "file",
+      "total_size": 1718136,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/I1zJdD2xLJAdXPMlX9duMU2dGI5bV0Kio47K6dsJ.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/I1zJdD2xLJAdXPMlX9duMU2dGI5bV0Kio47K6dsJ.png",
+      "created_at": "2024-06-25T12:38:34.000000Z",
+      "updated_at": "2024-06-25T12:38:34.000000Z"
+    },
+    {
+      "uuid": "9c5f0482-6c93-4e45-b6c6-074a822f41c7",
+      "parent_id": "9c5eb923-f60e-4932-9eb2-4b09f5a45f17",
+      "name": "Special School Party 2",
+      "duration": 10000,
+      "type": "file",
+      "total_size": 892305,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/X1HjCvx5xEpWRZE8PyHdBEqfAIMzYzSZCniymZIi.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/X1HjCvx5xEpWRZE8PyHdBEqfAIMzYzSZCniymZIi.png",
+      "created_at": "2024-06-25T12:38:34.000000Z",
+      "updated_at": "2024-06-25T12:38:34.000000Z"
+    },
+    {
+      "uuid": "9c5f0477-894b-4670-b7c0-ce88744f016a",
+      "parent_id": "9c5eb923-f60e-4932-9eb2-4b09f5a45f17",
+      "name": "Special School Party",
+      "duration": 10000,
+      "type": "file",
+      "total_size": 1282075,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/DvirVFvJJTClcjDNV2hFTJTeeWTEB6Jh71HY0Nb6.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/DvirVFvJJTClcjDNV2hFTJTeeWTEB6Jh71HY0Nb6.png",
+      "created_at": "2024-06-25T12:38:27.000000Z",
+      "updated_at": "2024-06-25T12:38:27.000000Z"
+    },
+    {
+      "uuid": "9c5f0476-0e1a-4187-a192-52a7d0d2c74c",
+      "parent_id": "9c5eb923-f60e-4932-9eb2-4b09f5a45f17",
       "name": "Sports Board",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Education/pic/8.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
+      "duration": 10000,
+      "type": "file",
+      "total_size": 756691,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/tLV7kZEsGRQxbpFRDXZMI0VvJ0X8ia1lgxGBQtky.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/tLV7kZEsGRQxbpFRDXZMI0VvJ0X8ia1lgxGBQtky.png",
+      "created_at": "2024-06-25T12:38:26.000000Z",
+      "updated_at": "2024-06-25T12:38:26.000000Z"
     }
   ],
   "Finance": [
@@ -258,412 +359,612 @@
   ],
   "Fitness": [
     {
-      "name": "Build Your Body",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Fitness/pic/1.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
-    },
-    {
-      "name": "Fit Your Body",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Fitness/pic/2.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
-    },
-    {
-      "name": "Training schedule",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Fitness/pic/3.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
-    },
-    {
+      "uuid": "9c5f0558-7c99-4faa-bb32-2366f5665ce7",
+      "parent_id": "9c5eb933-1635-44a6-b65b-06134d44c140",
       "name": "Build Your Body 2",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Fitness/pic/4.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
+      "duration": 10000,
+      "type": "file",
+      "total_size": 995090,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/Gd6leBDbET5sN7WLDy3VQlhjT64cAcI8jgC1liZn.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/Gd6leBDbET5sN7WLDy3VQlhjT64cAcI8jgC1liZn.png",
+      "created_at": "2024-06-25T12:40:55.000000Z",
+      "updated_at": "2024-06-25T12:40:55.000000Z"
     },
     {
+      "uuid": "9c5f055c-bf1b-4573-8046-987748e4022d",
+      "parent_id": "9c5eb933-1635-44a6-b65b-06134d44c140",
       "name": "Build Your Body 3",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Fitness/pic/5.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
+      "duration": 10000,
+      "type": "file",
+      "total_size": 988733,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/7BfxwjC679hAFS1I4ErKj0HomNuNW9DAU9qeKF5u.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/7BfxwjC679hAFS1I4ErKj0HomNuNW9DAU9qeKF5u.png",
+      "created_at": "2024-06-25T12:40:57.000000Z",
+      "updated_at": "2024-06-25T12:40:57.000000Z"
     },
     {
-      "name": "Training schedule 2",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Fitness/pic/6.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
+      "uuid": "9c5f055e-36f3-417d-a40a-96d924ca7fd8",
+      "parent_id": "9c5eb933-1635-44a6-b65b-06134d44c140",
+      "name": "Build Your Body",
+      "duration": 10000,
+      "type": "file",
+      "total_size": 1801369,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/XhIMCnpC3VQUBoCIWUAaTytnKH1tuJkUyTQZh7iX.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/XhIMCnpC3VQUBoCIWUAaTytnKH1tuJkUyTQZh7iX.png",
+      "created_at": "2024-06-25T12:40:58.000000Z",
+      "updated_at": "2024-06-25T12:40:58.000000Z"
     },
     {
-      "name": "Stay Focused",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Fitness/pic/7.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
+      "uuid": "9c5f055b-f84b-4f60-9b80-b2a9c6edf227",
+      "parent_id": "9c5eb933-1635-44a6-b65b-06134d44c140",
+      "name": "Fit Your Body",
+      "duration": 10000,
+      "type": "file",
+      "total_size": 536812,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/PaJGyWeiidfdDIZM8Z7JSt1DChVQkaaAGGCknCrE.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/PaJGyWeiidfdDIZM8Z7JSt1DChVQkaaAGGCknCrE.png",
+      "created_at": "2024-06-25T12:40:57.000000Z",
+      "updated_at": "2024-06-25T12:40:57.000000Z"
     },
     {
+      "uuid": "9c5f0562-dbcf-405c-b803-4d6d81fede9f",
+      "parent_id": "9c5eb933-1635-44a6-b65b-06134d44c140",
       "name": "New Training Center",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Fitness/pic/8.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
+      "duration": 10000,
+      "type": "file",
+      "total_size": 355054,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/Ex96H51Sr6OK12rFohTGGXWxpArQ8gDP4GTgip1q.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/Ex96H51Sr6OK12rFohTGGXWxpArQ8gDP4GTgip1q.png",
+      "created_at": "2024-06-25T12:41:01.000000Z",
+      "updated_at": "2024-06-25T12:41:01.000000Z"
+    },
+    {
+      "uuid": "9c5f0566-e89d-4590-aeff-5f06d566b1b6",
+      "parent_id": "9c5eb933-1635-44a6-b65b-06134d44c140",
+      "name": "Stay Focused",
+      "duration": 10000,
+      "type": "file",
+      "total_size": 1202914,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/v8uitoOo43CGqMRACP45XgwpF1GBvtDPXHwptLA5.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/v8uitoOo43CGqMRACP45XgwpF1GBvtDPXHwptLA5.png",
+      "created_at": "2024-06-25T12:41:04.000000Z",
+      "updated_at": "2024-06-25T12:41:04.000000Z"
+    },
+    {
+      "uuid": "9c5f0558-0e89-4a1f-99a5-2333ff004554",
+      "parent_id": "9c5eb933-1635-44a6-b65b-06134d44c140",
+      "name": "Training schedule 2",
+      "duration": 10000,
+      "type": "file",
+      "total_size": 585879,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/GxpFdV1hIKTFJEBiVNBiWHnxYGHGDq2Z9bYYaE2Y.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/GxpFdV1hIKTFJEBiVNBiWHnxYGHGDq2Z9bYYaE2Y.png",
+      "created_at": "2024-06-25T12:40:54.000000Z",
+      "updated_at": "2024-06-25T12:40:54.000000Z"
+    },
+    {
+      "uuid": "9c5f0557-c2a7-4955-a5cf-c9f657064713",
+      "parent_id": "9c5eb933-1635-44a6-b65b-06134d44c140",
+      "name": "Training schedule",
+      "duration": 10000,
+      "type": "file",
+      "total_size": 397785,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/QLa8ezazw7enc9uXAZuCNaVx9V7HXfMVNf9PWAAM.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/QLa8ezazw7enc9uXAZuCNaVx9V7HXfMVNf9PWAAM.png",
+      "created_at": "2024-06-25T12:40:54.000000Z",
+      "updated_at": "2024-06-25T12:40:54.000000Z"
     }
   ],
   "Healthcare": [
     {
-      "name": "Solidarity",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Healthcare/pic/1.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
-    },
-    {
-      "name": "World Health Day",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Healthcare/pic/2.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
-    },
-    {
+      "uuid": "9c5f0640-ee39-46a4-9fb4-daf5ce4003cc",
+      "parent_id": "9c5eb8eb-89db-4b07-ab47-2fb6846e14ac",
       "name": "Carying For Your Health",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Healthcare/pic/3.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
+      "duration": 10000,
+      "type": "file",
+      "total_size": 563567,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/4VYLIIbCKpknDFq0RZQGh9aBdz974QRSdsDCLn1I.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/4VYLIIbCKpknDFq0RZQGh9aBdz974QRSdsDCLn1I.png",
+      "created_at": "2024-06-25T12:43:27.000000Z",
+      "updated_at": "2024-06-25T12:43:27.000000Z"
     },
     {
-      "name": "Sales Board",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Healthcare/pic/4.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
-    },
-    {
-      "name": "We Care For Your Health",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Healthcare/pic/5.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
-    },
-    {
-      "name": "Ypur Health Is Our Priority",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Healthcare/pic/6.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
-    },
-    {
+      "uuid": "9c5f0644-3ee8-41e7-9886-a324b7929db3",
+      "parent_id": "9c5eb8eb-89db-4b07-ab47-2fb6846e14ac",
       "name": "On Guard Of Your Health",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Healthcare/pic/7.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
+      "duration": 10000,
+      "type": "file",
+      "total_size": 1050126,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/pv4kWAKixdL8PnTAW5zCQzfVCDwx2qD7zVpFlRze.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/pv4kWAKixdL8PnTAW5zCQzfVCDwx2qD7zVpFlRze.png",
+      "created_at": "2024-06-25T12:43:29.000000Z",
+      "updated_at": "2024-06-25T12:43:29.000000Z"
     },
     {
+      "uuid": "9c5f0646-9b12-49f0-8f80-3388e531dc67",
+      "parent_id": "9c5eb8eb-89db-4b07-ab47-2fb6846e14ac",
+      "name": "Sales Board",
+      "duration": 10000,
+      "type": "file",
+      "total_size": 567984,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/3zHKDA9vVgGBd3sypAywd4qS6sBVKY6gzaaeGlaz.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/3zHKDA9vVgGBd3sypAywd4qS6sBVKY6gzaaeGlaz.png",
+      "created_at": "2024-06-25T12:43:31.000000Z",
+      "updated_at": "2024-06-25T12:43:31.000000Z"
+    },
+    {
+      "uuid": "9c5f0647-1cd5-45f0-880e-f0ebc5991e66",
+      "parent_id": "9c5eb8eb-89db-4b07-ab47-2fb6846e14ac",
+      "name": "Solidarity",
+      "duration": 10000,
+      "type": "file",
+      "total_size": 658749,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/E5ORG5CxjEBySnluNJqrG5oSMVWAl5mVeI6x5qq5.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/E5ORG5CxjEBySnluNJqrG5oSMVWAl5mVeI6x5qq5.png",
+      "created_at": "2024-06-25T12:43:31.000000Z",
+      "updated_at": "2024-06-25T12:43:31.000000Z"
+    },
+    {
+      "uuid": "9c5f0649-0b5e-4b4b-bac4-8019ec80def2",
+      "parent_id": "9c5eb8eb-89db-4b07-ab47-2fb6846e14ac",
       "name": "Take Care Of Yourself",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Healthcare/pic/8.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
+      "duration": 10000,
+      "type": "file",
+      "total_size": 566736,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/cnK3rVgLsJHbdxkUuLKsk3o3z67f5GgYhc89VGsy.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/cnK3rVgLsJHbdxkUuLKsk3o3z67f5GgYhc89VGsy.png",
+      "created_at": "2024-06-25T12:43:32.000000Z",
+      "updated_at": "2024-06-25T12:43:32.000000Z"
+    },
+    {
+      "uuid": "9c5f064a-e2f2-4bfa-aa2d-b48d24edae74",
+      "parent_id": "9c5eb8eb-89db-4b07-ab47-2fb6846e14ac",
+      "name": "We Care For Your Health",
+      "duration": 10000,
+      "type": "file",
+      "total_size": 182193,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/8HyV9K5uxW0t16kkUs1K6SKrx8elBSSMqmHrMe6F.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/8HyV9K5uxW0t16kkUs1K6SKrx8elBSSMqmHrMe6F.png",
+      "created_at": "2024-06-25T12:43:33.000000Z",
+      "updated_at": "2024-06-25T12:43:33.000000Z"
+    },
+    {
+      "uuid": "9c5f0642-1145-421a-815e-ca3a75c32f53",
+      "parent_id": "9c5eb8eb-89db-4b07-ab47-2fb6846e14ac",
+      "name": "World Health Day",
+      "duration": 10000,
+      "type": "file",
+      "total_size": 1136576,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/wCbLHLfCeBnjoE3yJy97jLpp98WL4mUyZywiabuy.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/wCbLHLfCeBnjoE3yJy97jLpp98WL4mUyZywiabuy.png",
+      "created_at": "2024-06-25T12:43:28.000000Z",
+      "updated_at": "2024-06-25T12:43:28.000000Z"
+    },
+    {
+      "uuid": "9c5f0642-599b-4e92-b71e-fcd233cde391",
+      "parent_id": "9c5eb8eb-89db-4b07-ab47-2fb6846e14ac",
+      "name": "Your Health Is Our Priority",
+      "duration": 10000,
+      "type": "file",
+      "total_size": 1214636,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/1mhcModV2NLk2ndwu9ekwIauc6kp55PbknRniUNO.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/1mhcModV2NLk2ndwu9ekwIauc6kp55PbknRniUNO.png",
+      "created_at": "2024-06-25T12:43:28.000000Z",
+      "updated_at": "2024-06-25T12:43:28.000000Z"
     }
   ],
   "Manufacturing": [
     {
-      "name": "Quotation",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Manufacturing/pic/1.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
-    },
-    {
-      "name": "Construction ",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Manufacturing/pic/2.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
-    },
-    {
-      "name": "Questionnaire",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Manufacturing/pic/3.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
-    },
-    {
+      "uuid": "9c5f0781-8625-4be3-b811-281ed9aa006f",
+      "parent_id": "9c5eb853-46d8-45b7-a3ff-3fad5980da6e",
       "name": "Alert Board",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Manufacturing/pic/4.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
+      "duration": 10000,
+      "type": "file",
+      "total_size": 1125746,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/FOguWcWaiHRRf9jzDSQ7TX4IL3iCQhmaqk5O9JxB.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/FOguWcWaiHRRf9jzDSQ7TX4IL3iCQhmaqk5O9JxB.png",
+      "created_at": "2024-06-25T12:46:57.000000Z",
+      "updated_at": "2024-06-25T12:46:57.000000Z"
     },
     {
-      "name": "Notice Board",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Manufacturing/pic/5.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
+      "uuid": "9c5f0773-61a6-4458-9b29-ad0faeafa860",
+      "parent_id": "9c5eb853-46d8-45b7-a3ff-3fad5980da6e",
+      "name": "Construction",
+      "duration": 10000,
+      "type": "file",
+      "total_size": 868393,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/cAMad7XKqxI5j8ZkI8ApuiLrxysdZqRTzoHcdWQ3.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/cAMad7XKqxI5j8ZkI8ApuiLrxysdZqRTzoHcdWQ3.png",
+      "created_at": "2024-06-25T12:46:48.000000Z",
+      "updated_at": "2024-06-25T12:46:48.000000Z"
     },
     {
-      "name": "Quotation 2",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Manufacturing/pic/6.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
-    },
-    {
+      "uuid": "9c5f0773-b61e-4c72-8f4f-c240abacf420",
+      "parent_id": "9c5eb853-46d8-45b7-a3ff-3fad5980da6e",
       "name": "Notice Board 2",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Manufacturing/pic/7.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
+      "duration": 10000,
+      "type": "file",
+      "total_size": 1021069,
+      "mime_type": "image",
+      "duration": 10000,
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/sAHxhhkJiKDTlnLnm9F5lfGJB5CFPJWkm8brsiGE.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/sAHxhhkJiKDTlnLnm9F5lfGJB5CFPJWkm8brsiGE.png",
+      "created_at": "2024-06-25T12:46:48.000000Z",
+      "updated_at": "2024-06-25T12:46:48.000000Z"
     },
     {
+      "uuid": "9c5f0772-a34f-4333-b90b-2c7858ac8567",
+      "parent_id": "9c5eb853-46d8-45b7-a3ff-3fad5980da6e",
       "name": "Notice Board 3",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Manufacturing/pic/8.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
+      "duration": 10000,
+      "type": "file",
+      "total_size": 650634,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/L1HxHRyPrxYBYv1gSmRKcMCCsFPh6Yyqc7IXe1zn.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/L1HxHRyPrxYBYv1gSmRKcMCCsFPh6Yyqc7IXe1zn.png",
+      "created_at": "2024-06-25T12:46:47.000000Z",
+      "updated_at": "2024-06-25T12:46:47.000000Z"
+    },
+    {
+      "uuid": "9c5f0777-f607-4b18-ac10-dce1c096342f",
+      "parent_id": "9c5eb853-46d8-45b7-a3ff-3fad5980da6e",
+      "name": "Notice Board",
+      "duration": 10000,
+      "type": "file",
+      "total_size": 519925,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/5fQomNiNMDQypMGlWU0pWZmvUUPykBoYJUZG4opI.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/5fQomNiNMDQypMGlWU0pWZmvUUPykBoYJUZG4opI.png",
+      "created_at": "2024-06-25T12:46:51.000000Z",
+      "updated_at": "2024-06-25T12:46:51.000000Z"
+    },
+    {
+      "uuid": "9c5f077a-f602-4383-8d1f-0143a3b08775",
+      "parent_id": "9c5eb853-46d8-45b7-a3ff-3fad5980da6e",
+      "name": "Questionnaire",
+      "duration": 10000,
+      "type": "file",
+      "total_size": 1074750,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/Cc4s48Ck5lVmWB8QSD8gF9ue1gZAzPITK19j5ckF.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/Cc4s48Ck5lVmWB8QSD8gF9ue1gZAzPITK19j5ckF.png",
+      "created_at": "2024-06-25T12:46:53.000000Z",
+      "updated_at": "2024-06-25T12:46:53.000000Z"
+    },
+    {
+      "uuid": "9c5f077b-2945-4c6e-ade5-ede41888fdb4",
+      "parent_id": "9c5eb853-46d8-45b7-a3ff-3fad5980da6e",
+      "name": "Quotation 2",
+      "duration": 10000,
+      "type": "file",
+      "total_size": 900442,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/fdHsYHetNzohcgdXUXyLzm94COPtzdh1RR5rbW5y.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/fdHsYHetNzohcgdXUXyLzm94COPtzdh1RR5rbW5y.png",
+      "created_at": "2024-06-25T12:46:53.000000Z",
+      "updated_at": "2024-06-25T12:46:53.000000Z"
+    },
+    {
+      "uuid": "9c5f077e-daa0-4404-8f8f-7f69062b55e3",
+      "parent_id": "9c5eb853-46d8-45b7-a3ff-3fad5980da6e",
+      "name": "Quotation.png",
+      "type": "file",
+      "total_size": 1046848,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/5Ie8duiiWvGzgeDtkq1PqsClRrHWjgAUhV96kguv.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/5Ie8duiiWvGzgeDtkq1PqsClRrHWjgAUhV96kguv.png",
+      "created_at": "2024-06-25T12:46:55.000000Z",
+      "updated_at": "2024-06-25T12:46:55.000000Z"
     }
   ],
   "Digital Menu Boards": [
     {
-      "name": "Mexican Food",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Digital Menu Boards/pic/1.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
-    },
-    {
-      "name": "Ice Cream",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Digital Menu Boards/pic/2.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
-    },
-    {
+      "uuid": "9c5f02c3-7b80-4bf8-856d-c39580c73838",
+      "parent_id": "9c5eb901-4bef-4339-af94-be1e062b2f05",
       "name": "Burgers Gouemet Beef",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Digital Menu Boards/pic/3.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
+      "type": "file",
+      "total_size": 2286887,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/VLHVX6BaoaYqLYAJIgEW61WUL9zYF7fo8N5R5QZT.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/VLHVX6BaoaYqLYAJIgEW61WUL9zYF7fo8N5R5QZT.png",
+      "created_at": "2024-06-25T12:33:41.000000Z",
+      "duration": 10000,
+      "updated_at": "2024-06-25T12:33:41.000000Z"
     },
     {
-      "name": "Cafe Menu",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Digital Menu Boards/pic/4.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
-    },
-    {
+      "uuid": "9c5f02c8-690a-4d8f-8785-c3f29bb9497c",
+      "parent_id": "9c5eb901-4bef-4339-af94-be1e062b2f05",
       "name": "Cafe Menu 2",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Digital Menu Boards/pic/5.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
+      "type": "file",
+      "total_size": 718531,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/h3Bq50EBQAQ33JCIb3KSuTFffUbPd8nIpWDbU9X1.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/h3Bq50EBQAQ33JCIb3KSuTFffUbPd8nIpWDbU9X1.png",
+      "created_at": "2024-06-25T12:33:45.000000Z",
+      "duration": 10000,
+      "updated_at": "2024-06-25T12:33:45.000000Z"
     },
     {
-      "name": "pizza3",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Digital Menu Boards/pic/6.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
+      "uuid": "9c5f02c8-9918-47b8-b52e-5537cabab633",
+      "parent_id": "9c5eb901-4bef-4339-af94-be1e062b2f05",
+      "name": "Cafe Menu",
+      "type": "file",
+      "total_size": 1004441,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/H2c8d64jgG0LXfLVxYsFHTcVGebNaM2NEDvcVMnl.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/H2c8d64jgG0LXfLVxYsFHTcVGebNaM2NEDvcVMnl.png",
+      "created_at": "2024-06-25T12:33:45.000000Z",
+      "duration": 10000,
+      "updated_at": "2024-06-25T12:33:45.000000Z"
     },
     {
-      "name": "Hamburgers Menu",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Digital Menu Boards/pic/7.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
-    },
-    {
+      "uuid": "9c5f02ca-a7be-4bd2-8b98-69ac1f077a09",
+      "parent_id": "9c5eb901-4bef-4339-af94-be1e062b2f05",
       "name": "Coffe Menu",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Digital Menu Boards/pic/8.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
+      "type": "file",
+      "total_size": 1645260,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/9XxUhAKG73Lebpr5uowfMrcRWqmu9Q3B23oP1A9F.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/9XxUhAKG73Lebpr5uowfMrcRWqmu9Q3B23oP1A9F.png",
+      "created_at": "2024-06-25T12:33:46.000000Z",
+      "duration": 10000,
+      "updated_at": "2024-06-25T12:33:46.000000Z"
+    },
+    {
+      "uuid": "9c5f02d1-6590-4e21-875b-d0a2c16ee4dc",
+      "parent_id": "9c5eb901-4bef-4339-af94-be1e062b2f05",
+      "name": "Hamburgers Menu",
+      "type": "file",
+      "total_size": 1834510,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/Z7ou3aGbjMP0cko0N8TDVeqblFPDUwovOmqnG42S.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/Z7ou3aGbjMP0cko0N8TDVeqblFPDUwovOmqnG42S.png",
+      "created_at": "2024-06-25T12:33:51.000000Z",
+      "duration": 10000,
+      "updated_at": "2024-06-25T12:33:51.000000Z"
+    },
+    {
+      "uuid": "9c5f02d1-3e19-45f7-87d4-b42c77c78b3c",
+      "parent_id": "9c5eb901-4bef-4339-af94-be1e062b2f05",
+      "name": "Ice Cream",
+      "type": "file",
+      "total_size": 1323019,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/TY1WPlR0xk32TaDmYeauYoVD5R1Y1CztHuQBTOCH.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/TY1WPlR0xk32TaDmYeauYoVD5R1Y1CztHuQBTOCH.png",
+      "created_at": "2024-06-25T12:33:50.000000Z",
+      "duration": 10000,
+      "updated_at": "2024-06-25T12:33:50.000000Z"
+    },
+    {
+      "uuid": "9c5f02c3-67fa-497a-aafe-57689904b3cb",
+      "parent_id": "9c5eb901-4bef-4339-af94-be1e062b2f05",
+      "name": "Mexican Food",
+      "type": "file",
+      "total_size": 1263904,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/RPFf8coXEkAJxOIeDJF3cUFJ9PGkwmpr0tq25vbM.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/RPFf8coXEkAJxOIeDJF3cUFJ9PGkwmpr0tq25vbM.png",
+      "created_at": "2024-06-25T12:33:41.000000Z",
+      "duration": 10000,
+      "updated_at": "2024-06-25T12:33:41.000000Z"
+    },
+    {
+      "uuid": "9c5f02c4-23ef-43fe-b233-38d3769e18ff",
+      "parent_id": "9c5eb901-4bef-4339-af94-be1e062b2f05",
+      "name": "pizza3",
+      "type": "file",
+      "total_size": 2615199,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/EdzwzttoZY8FpnZ4iBnZ73qILWUe1YVrzZcRG2ys.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/EdzwzttoZY8FpnZ4iBnZ73qILWUe1YVrzZcRG2ys.png",
+      "created_at": "2024-06-25T12:33:42.000000Z",
+      "duration": 10000,
+      "updated_at": "2024-06-25T12:33:42.000000Z"
     }
   ],
   "Corporate": [
     {
-      "name": "Corporate Presentation",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Corporate/pic/Corporate Presenatation.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
-    },
-    {
+      "uuid": "9c5ebead-56db-41fe-9b8e-4d733dc9e9aa",
+      "parent_id": "9c5eb914-e254-4fea-92b2-a1f3d379221d",
       "name": "Birthday",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Corporate/pic/Rectangle 205.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
+      "type": "file",
+      "total_size": 740508,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/zPkr3ZVR0k59qqwxapWntx1EBIms1QHCtuREH5nV.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/zPkr3ZVR0k59qqwxapWntx1EBIms1QHCtuREH5nV.png",
+      "created_at": "2024-06-25T09:23:18.000000Z",
+      "duration": 10000,
+      "updated_at": "2024-06-25T09:23:18.000000Z"
     },
     {
-      "name": "Senior Consultant",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Corporate/pic/Rectangle 206.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
+      "uuid": "9c5eba5e-c2ea-4f57-af0a-c65ab9956a42",
+      "parent_id": "9c5eb914-e254-4fea-92b2-a1f3d379221d",
+      "name": "Corporate Presenatation",
+      "type": "file",
+      "total_size": 1445033,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/XKgDtO3oFCIXVVc6UyI1bktkyL2V0PuXfu0O7DQW.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/XKgDtO3oFCIXVVc6UyI1bktkyL2V0PuXfu0O7DQW.png",
+      "created_at": "2024-06-25T09:11:16.000000Z",
+      "duration": 10000,
+      "updated_at": "2024-06-25T09:11:16.000000Z"
     },
     {
+      "uuid": "9c5ebea8-1d74-497c-afa7-698657f67e71",
+      "parent_id": "9c5eb914-e254-4fea-92b2-a1f3d379221d",
       "name": "Digital Agency",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Corporate/pic/Rectangle 207.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
+      "type": "file",
+      "total_size": 745975,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/C0X6S11IlJ7DFAhUdi7eA10KF6uF5SuoL6qdrUGW.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/C0X6S11IlJ7DFAhUdi7eA10KF6uF5SuoL6qdrUGW.png",
+      "created_at": "2024-06-25T09:23:15.000000Z",
+      "duration": 10000,
+      "updated_at": "2024-06-25T09:23:15.000000Z"
     },
     {
-      "name": "World Time",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Corporate/pic/Rectangle 209.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
-    },
-    {
-      "name": "Weather",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Corporate/pic/Rectangle 210.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
-    },
-    {
-      "name": "Veterans Affairs",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Corporate/pic/Rectangle 211.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
-    },
-    {
+      "uuid": "9c5ebea8-5f03-4e17-8570-73263723a637",
+      "parent_id": "9c5eb914-e254-4fea-92b2-a1f3d379221d",
       "name": "International Convention",
-      "width": "1920",
-      "height": "1080",
-      "preview_image": "Corporate/pic/Rectangle212.png",
-
-      "type": "canvas_template",
-
-      "duration": 10000
+      "type": "file",
+      "total_size": 1181438,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/jQm5xABkQCecCVkoeZoczSQvanQzHEDrQK9UTQi1.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/jQm5xABkQCecCVkoeZoczSQvanQzHEDrQK9UTQi1.png",
+      "created_at": "2024-06-25T09:23:15.000000Z",
+      "duration": 10000,
+      "updated_at": "2024-06-25T09:23:15.000000Z"
+    },
+    {
+      "uuid": "9c5ebea7-c4db-441f-ad60-4bccb1786410",
+      "parent_id": "9c5eb914-e254-4fea-92b2-a1f3d379221d",
+      "name": "Senior Consultant",
+      "type": "file",
+      "total_size": 519471,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/RnB1kfPUDNRppQZIVlAt6XI1vI6u8XIh4bgoTxO7.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/RnB1kfPUDNRppQZIVlAt6XI1vI6u8XIh4bgoTxO7.png",
+      "created_at": "2024-06-25T09:23:15.000000Z",
+      "duration": 10000,
+      "updated_at": "2024-06-25T09:23:15.000000Z"
+    },
+    {
+      "uuid": "9c5ebeaa-702a-4b2c-b9c9-a6aa9e2c93f5",
+      "parent_id": "9c5eb914-e254-4fea-92b2-a1f3d379221d",
+      "name": "Veterans Affairs",
+      "type": "file",
+      "total_size": 276907,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/hLBnvpp8lRlhtq1trZGSrjpM3kcolQc3rPpTnd9D.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/hLBnvpp8lRlhtq1trZGSrjpM3kcolQc3rPpTnd9D.png",
+      "created_at": "2024-06-25T09:23:16.000000Z",
+      "duration": 10000,
+      "updated_at": "2024-06-25T09:23:16.000000Z"
+    },
+    {
+      "uuid": "9c5ebeaa-a91b-4501-b9e1-40ffd8fba5ad",
+      "parent_id": "9c5eb914-e254-4fea-92b2-a1f3d379221d",
+      "name": "Weather",
+      "type": "file",
+      "total_size": 270060,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/VZBj3Tiu6EDKhV3AGDmVNhHqz9JSRtQQeY9ZQ5bB.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/VZBj3Tiu6EDKhV3AGDmVNhHqz9JSRtQQeY9ZQ5bB.png",
+      "created_at": "2024-06-25T09:23:17.000000Z",
+      "duration": 10000,
+      "updated_at": "2024-06-25T09:23:17.000000Z"
+    },
+    {
+      "uuid": "9c5ebeaa-5d82-469f-b5a7-e124674fb2c4",
+      "parent_id": "9c5eb914-e254-4fea-92b2-a1f3d379221d",
+      "name": "World Time",
+      "type": "file",
+      "total_size": 31641,
+      "mime_type": "image/png",
+      "preview_image": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/files/Z66iFgWqMyFPfH4VL4E5VYvs87cupkkCszvGKCzx.png",
+      "created_by": "Александр Магдысюк",
+      "updated_by": "Александр Магдысюк",
+      "link": "https://media-s3.aiscreen.io/media-s3.aiscreen.io/users/9c6d1587-048c-43a7-9632-459fedb7372e/Z66iFgWqMyFPfH4VL4E5VYvs87cupkkCszvGKCzx.png",
+      "created_at": "2024-06-25T09:23:16.000000Z",
+      "duration": 10000,
+      "updated_at": "2024-06-25T09:23:16.000000Z"
     }
   ]
 }

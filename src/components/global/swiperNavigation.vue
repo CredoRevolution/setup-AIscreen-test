@@ -34,6 +34,10 @@ export default {
       type: Boolean,
       default: true,
     },
+    qrLink: {
+      type: String,
+      default: '',
+    },
   },
 }
 </script>
@@ -61,10 +65,10 @@ export default {
     width: rem(7px);
   }
   &.next-slide-btn {
-    right: rem(-42px);
+    right: rem(-38px);
   }
   &.prev-slide-btn {
-    left: rem(-42px);
+    left: rem(-38px);
     img {
       transform: rotate(180deg);
     }

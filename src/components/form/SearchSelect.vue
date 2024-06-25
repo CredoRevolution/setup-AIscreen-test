@@ -97,6 +97,7 @@ export default {
       if (this.$v) {
         this.$v.$touch()
         if (!this.$v.$invalid) {
+          this.getData()
           return true
         }
         this.showError = true
@@ -108,6 +109,9 @@ export default {
         }, 0)
         return false
       }
+    },
+    getData() {
+      this.$emit('getData', this.defaultText, this.value.name)
     },
     checkLabel() {
       if (this.value.name === this.defaultText) {

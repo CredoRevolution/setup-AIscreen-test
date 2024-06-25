@@ -11,6 +11,7 @@
         'main-screen__form-item-warnings',
         $v.name.$error ? 'error' : '',
         !$v.name.$error && $v.name.$model ? 'valid' : '',
+        initialValue ? 'textOverflow' : '',
       ]"
       :required="required"
       v-model.trim="$v.name.$model"
@@ -58,6 +59,10 @@ export default {
       default: true,
       required: false,
     },
+    initialValue: {
+      type: String,
+      required: false,
+    },
   },
   data() {
     return {
@@ -96,6 +101,7 @@ export default {
         this.$v.$touch()
         if (!this.$v.$invalid) {
           this.isValid = true
+          this.getData()
         } else {
           this.isValid = false
           this.showError = true
@@ -122,6 +128,15 @@ export default {
         this.active = true
       }
     },
+    getData() {
+      this.$emit('getData', this.inputName, this.name)
+    },
+  },
+
+  mounted() {
+    if (this.initialValue) {
+      this.name = this.initialValue
+    }
   },
 }
 </script>
@@ -171,6 +186,12 @@ export default {
     &.valid {
       border: 1px solid #0071e2;
       transition: all 0.3s ease;
+    }
+    &.textOverflow {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding-right: 25%;
     }
     &::placeholder {
       color: #86868b;
@@ -243,6 +264,9 @@ export default {
     .main-screen__form-input {
       padding: rem(23px) rem(15px) rem(8px) rem(15px);
     }
+  }
+  .input-wrapper .main-screen__form-input.textOverflow {
+    padding-right: 30%;
   }
 }
 </style>

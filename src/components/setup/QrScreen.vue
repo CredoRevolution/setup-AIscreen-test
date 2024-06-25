@@ -33,14 +33,25 @@
               :defaultErrorText="'Please enter a link'"
               class="main-screen__input_qr"
               :input-name="'QR'"
+              :initialValue="qrLink"
             />
           </div>
+          <button class="main-screen__qr-btn blue-btn" @click.prevent="copy">
+            Copy
+          </button>
           <button
             class="main-screen__form-btn hover-btn blue-btn"
             @click.prevent="openQr"
           >
-            Show me how this looks!
+            Book live demo
           </button>
+          <a
+            href="#"
+            class="main-screen__btn prev-btn"
+            @click="closeQr"
+            ref="prevBtn"
+            >Close</a
+          >
         </form>
       </div>
       <div class="main-screen__img">
@@ -79,9 +90,13 @@ import qrcode from 'qrcode.vue'
 export default {
   name: 'QrScreen',
   data() {
-    return {
-      qrLink: 'https://github.com/scopewu/qrcode.vue',
-    }
+    return {}
+  },
+  props: {
+    qrLink: {
+      type: String,
+      default: 'https://aiscreen.com',
+    },
   },
   components: {
     CustomInput,
@@ -89,17 +104,17 @@ export default {
   },
   methods: {
     openQr() {
-      window.open('https://www.google.com', '_blank')
-      this.$emit('nextScreen')
+      this.$emit('openQr')
     },
-    prevScreen() {
-      this.$emit('prevScreen')
+    closeQr() {
+      this.$emit('closeQr')
     },
     copy() {
-      console.log('something copying in future')
+      navigator.clipboard.writeText(this.qrLink)
     },
   },
   mounted() {
+    console.log(this.qrLink)
     this.$refs.validation1.value = 'https://aiscreen.com'
   },
 }
@@ -161,14 +176,16 @@ export default {
       }
     }
     .main-screen__qr-btn {
-      position: absolute;
-      right: rem(6px);
-      top: rem(7px);
-      font-size: rem(17px);
-      line-height: rem(21px);
-      font-weight: 500;
-      border-radius: rem(9px);
-      padding: rem(10px) rem(19px);
+      position: absolute !important;
+      right: rem(6px) !important;
+      top: rem(7px) !important;
+      font-size: rem(17px) !important;
+      line-height: rem(21px) !important;
+      font-weight: 500 !important;
+      border-radius: rem(9px) !important;
+      padding: rem(10px) rem(19px) !important;
+      background: rgba(0, 113, 226, 1) !important;
+      color: rgba(245, 245, 248, 1);
       &::before {
         border-radius: rem(10px);
       }
@@ -196,8 +213,10 @@ export default {
 }
 
 @media (max-height: 900px) {
-  .main-screen_qr .main-screen-main__form_qr .main-screen__qr-btn {
-    top: rem(6px);
+  .main-screen_qr
+    .main-screen-main__form.main-screen-main__form_qr
+    .main-screen__qr-btn {
+    top: rem(6px) !important;
     padding: rem(7px) rem(17px) !important;
   }
 }
@@ -213,6 +232,8 @@ export default {
     .main-screen-main__form.main-screen-main__form_qr
     .main-screen__qr-btn {
     padding: rem(10px) rem(23px) !important;
+    padding-top: rem(10px) !important;
+    padding-bottom: rem(12px) !important;
   }
 }
 </style>

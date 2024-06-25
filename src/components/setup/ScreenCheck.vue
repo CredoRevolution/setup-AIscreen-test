@@ -32,7 +32,7 @@
           </button>
           <button
             class="main-screen__form-btn main-screen__form-btn_additional"
-            @click.prevent="nextScreen"
+            @click.prevent="myOwnScreen"
           >
             Continue with my own screen
           </button>
@@ -106,6 +106,9 @@ export default {
   methods: {
     nextScreen() {
       this.$emit('nextScreen')
+    },
+    myOwnScreen() {
+      this.$emit('myOwnScreen')
     },
   },
   mounted() {},

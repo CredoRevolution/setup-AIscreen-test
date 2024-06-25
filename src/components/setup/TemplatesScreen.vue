@@ -24,11 +24,7 @@
         :key="index"
         :text="template.name"
         :background="false"
-        :imgSrc="
-          template.preview_image
-            ? require(`@/assets/img/${template.preview_image}`)
-            : null
-        "
+        :imgSrc="template.preview_image"
         :data="template"
         @getActiveData="getActiveData"
         ref="screen"
@@ -47,7 +43,7 @@
       <SwiperSlide v-for="(template, index) in templates" :key="index">
         <Template
           :text="template.name"
-          :imgSrc="require(`@/assets/img/${template.preview_image}`)"
+          :imgSrc="template.preview_image"
           :data="template"
           @getActiveData="getActiveData"
           ref="screen"

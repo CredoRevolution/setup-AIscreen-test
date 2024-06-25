@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <ProductFunnel />
+    <ProductFunnel :qrLink="'https://manager.aiscreen.io/login'" />
   </div>
 </template>
 
