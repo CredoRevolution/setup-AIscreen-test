@@ -92,6 +92,7 @@ export default {
     display: flex;
     flex-direction: row;
     gap: rem(17px);
+    width: 30%;
     align-items: center;
     img {
       border-radius: 50%;
@@ -99,6 +100,7 @@ export default {
       height: rem(48px);
       object-fit: cover;
     }
+
     .team-screen__member-wrapper_horizontal {
       display: flex;
       flex-direction: column;
@@ -165,6 +167,12 @@ export default {
         }
       }
     }
+  }
+}
+
+@media (max-width: 1000px) {
+  .team-screen__member-wrapper {
+    width: unset;
   }
 }
 

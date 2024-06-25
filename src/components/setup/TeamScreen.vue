@@ -467,6 +467,14 @@ export default {
   }
 }
 
+@media (max-height: 800px) {
+  .main-screen.main-screen_team{
+    .select-wrapper .multiselect .multiselect__content-wrapper{
+      max-height: 200px!important;
+    }
+  }
+}
+
 @media (max-width: 768px) {
   .main-screen.main-screen_team .main-screen__exit {
     background: none;

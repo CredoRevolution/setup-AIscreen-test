@@ -41,19 +41,46 @@
       <div class="main-screen__img">
         <div class="backgorund">
           <img
-            :src="require(`@/assets/img/Industry/bg.png`)"
+            v-if="industry !== 'Digital Menu Boards' && industry !== 'Retail'"
+            :src="require(`@/assets/img/${industry}/bg.png`)"
+            alt="img"
+            class="backgorund__img"
+          />
+          <video
+            v-else-if="industry === 'Digital Menu Boards'"
+            autoplay
+            muted
+            loop
+            alt="img"
+            class="backgorund__img"
+            playsinline
+            ref="bigImg"
+          >
+            <source
+              :src="require(`@/assets/img/${industry}/bg.mp4`)"
+              type="video/mp4"
+              alt="img"
+            />
+          </video>
+          <video
+            v-else-if="industry === 'Retail'"
+            autoplay
+            playsinline
+            muted
+            loop
             alt="img"
             class="backgorund__img"
             ref="bigImg"
-          />
+          >
+            <source
+              :src="require(`@/assets/img/${industry}/bg.mp4`)"
+              type="video/mp4"
+              alt="img"
+            />
+          </video>
         </div>
         <div class="img-wrapper">
-          <img
-            :src="require(`@/assets/img/Industry/main.png`)"
-            alt="img"
-            class="main-screen-main__small-img background"
-            ref="smallImg"
-          />
+          <img :src="require(`@/assets/img/${industry}/main.png`)" alt="img" />
         </div>
       </div>
     </div>
@@ -65,9 +92,14 @@ export default {
   name: 'GreetingsScreen',
   data() {
     return {
-      industry: '',
       validationCount: 0,
     }
+  },
+  props: {
+    industry: {
+      type: String,
+      required: true,
+    },
   },
   components: {},
   computed: {},

@@ -140,6 +140,7 @@ export default {
       for (let i = 0; i < this.$refs.template.length; i++) {
         if (this.$refs.template[i].isActive()) {
           activeScreens++
+          this.$emit('moveProgressBarOnce', this.$refs.progress)
         }
       }
       if (activeScreens < 1) {

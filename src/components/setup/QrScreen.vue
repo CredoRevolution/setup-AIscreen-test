@@ -39,21 +39,9 @@
             class="main-screen__form-btn hover-btn blue-btn"
             @click.prevent="openQr"
           >
-            Open
+            Show me how this looks!
           </button>
-          <a
-            href="#"
-            class="main-screen__btn prev-btn"
-            @click="prevScreen"
-            ref="prevBtn"
-            >Previous step</a
-          >
         </form>
-        <p class="main-screen-main__paragraph">
-          Rorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-          vulputate libero et velit interdum, ac aliquet odio mattis.
-          <a href="#">Check here.</a>
-        </p>
       </div>
       <div class="main-screen__img">
         <div class="backgorund">
@@ -160,7 +148,7 @@ export default {
   }
   .main-screen-main__form.main-screen-main__form_qr {
     position: relative;
-    margin-bottom: 0;
+    margin-bottom: auto;
     .main-screen__form-item {
       .main-screen__input_qr {
         cursor: not-allowed;

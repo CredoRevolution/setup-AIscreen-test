@@ -11,7 +11,11 @@
       :industry="industry"
       @prevScreen="prevScreen"
     />
-    <ScreenCheck v-if="currentScreen === 2" @nextScreen="nextScreen" />
+    <ScreenCheck
+      v-if="currentScreen === 2"
+      @nextScreen="nextScreen"
+      :industry="industry"
+    />
     <TemplatesScreen
       v-if="currentScreen === 3"
       :industry="industry"
@@ -107,7 +111,7 @@ export default {
             progress.style.width = this.progressBarPercent + '%'
             setTimeout(() => {
               progress.style.transition = 'width 0.5s ease'
-              progress.style.width = '85%'
+              progress.style.width = '92%'
             }, 200)
           }
         }
@@ -124,6 +128,13 @@ export default {
             progress.style.width = `${currentWidth + 15.5}%`
             this.progressBarPercent = parseInt(progress.style.width)
           }
+        }
+      })
+    },
+    moveProgressBarOnce(progress) {
+      this.$nextTick(() => {
+        if (progress) {
+          progress.style.width = '95%'
         }
       })
     },

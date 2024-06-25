@@ -426,6 +426,11 @@ export default {
 
 @media (max-height: 900px) {
   .select-wrapper {
+    &.active {
+      label {
+        top: rem(3px);
+      }
+    }
     label {
       top: rem(12px);
       left: rem(12px);
@@ -454,6 +459,11 @@ export default {
     label {
       top: rem(15px);
       left: rem(15px);
+    }
+    &.active {
+      label {
+        top: rem(6px);
+      }
     }
     .multiselect {
       .multiselect__tags {
