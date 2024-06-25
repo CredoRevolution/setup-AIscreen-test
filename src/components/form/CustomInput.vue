@@ -217,6 +217,12 @@ export default {
       top: rem(10px);
       left: rem(12px);
     }
+    &.active {
+      label {
+        top: rem(3px);
+      }
+    }
+
     .main-screen__form-input {
       padding: rem(19px) rem(12px) rem(4px) rem(14px);
     }
@@ -228,6 +234,11 @@ export default {
     label {
       top: rem(15px);
       left: rem(15px);
+    }
+    &.active {
+      label {
+        top: rem(6px);
+      }
     }
     .main-screen__form-input {
       padding: rem(23px) rem(15px) rem(8px) rem(15px);
