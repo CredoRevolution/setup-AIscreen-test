@@ -219,7 +219,6 @@ export default {
     checkPhone() {
       this.phoneValid = this.$refs.validation3.results.isValid
       this.isPhoneDirty = true
-      console.log(this.phoneValid)
       if (this.phoneValid) {
         this.data.phone = this.$refs.validation3.results.formattedNumber
         return true
@@ -267,9 +266,7 @@ export default {
   created() {
     this.onresize()
   },
-  mounted() {
-    console.log(this.$refs.validation3)
-  },
+  mounted() {},
 }
 </script>
 

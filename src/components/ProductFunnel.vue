@@ -11,14 +11,47 @@
       :industry="industry"
       @prevScreen="prevScreen"
     />
-    <ScreenCheck
+    <QuestionsScreen
       v-if="currentScreen === 2"
+      @nextScreen="nextScreen"
+      :step="1"
+      :title="'What are your main goals for digital signage?'"
+      :answers="[
+        'Communicate With Employees',
+        'Customer Facing Screens',
+        'Communicate With Students Or Members',
+        'Replace Existing Signage Software',
+        'Performance Dashboards',
+        'Health & Safety Compliance',
+        'Emergency Messaging',
+        'Event Signage',
+        'Menu Boards',
+      ]"
+    />
+    <QuestionsScreen
+      v-if="currentScreen === 3"
+      @nextScreen="nextScreen"
+      :step="2"
+      :answers="[
+        'Increase Employee Engagement',
+        'Improve Comms For Deskless Workers',
+        'Reduce Employee Churn',
+        'Improve Productivity',
+        'Create A Modern, Paper-Free Workplace',
+        'Drive Sales',
+        'Enhance Customer Experience',
+        'Other',
+      ]"
+      :title="'What do you hope to achieve with AIScreen?'"
+    />
+    <ScreenCheck
+      v-if="currentScreen === 4"
       @nextScreen="nextScreen"
       @myOwnScreen="myOwnScreen"
       :industry="industry"
     />
     <TemplatesScreen
-      v-if="currentScreen === 3"
+      v-if="currentScreen === 5"
       :industry="industry"
       @nextScreen="nextScreen"
       @prevScreen="prevScreen"
@@ -28,7 +61,7 @@
       ref="templates"
     />
     <ZonesScreen
-      v-if="currentScreen === 4"
+      v-if="currentScreen === 6"
       :industry="industry"
       :templatesData="templatesData"
       @prevScreen="prevScreen"
@@ -36,7 +69,7 @@
       @progressBar="progressBar"
     />
     <QrScreen
-      v-if="currentScreen === 5"
+      v-if="currentScreen === 7"
       :industry="industry"
       :qrLink="qrLink"
       @closeQr="closeQr"
@@ -44,7 +77,7 @@
       @closeScreen="closeScreen"
     />
     <TeamScreen
-      v-if="currentScreen === 6"
+      v-if="currentScreen === 8"
       :industry="industry"
       @prevScreen="prevScreen"
       @nextScreen="nextScreen"
@@ -61,6 +94,7 @@ import JobScreen from './setup/JobScreen.vue'
 import ZonesScreen from './setup/ZonesScreen.vue'
 import TeamScreen from './setup/TeamScreen.vue'
 import QrScreen from './setup/QrScreen.vue'
+import QuestionsScreen from './setup/QuestionsScreen.vue'
 export default {
   name: 'ProductFunnel',
   components: {
@@ -71,6 +105,7 @@ export default {
     TeamScreen,
     QrScreen,
     ScreenCheck,
+    QuestionsScreen,
   },
   data() {
     return {
@@ -91,8 +126,8 @@ export default {
   methods: {
     nextScreen(data) {
       this.currentScreen++
+      window.scrollTo(0, 0)
       this.gatheredData = { ...this.gatheredData, ...data }
-      console.log(this.gatheredData)
       this.progressBar()
     },
     prevScreen() {
@@ -102,7 +137,6 @@ export default {
       this.currentScreen = 999
     },
     myOwnScreen() {
-      console.log('myOwnScreen')
       this.currentScreen++
     },
     getTemplatesData(templatesData) {
@@ -111,24 +145,21 @@ export default {
     changeIndustry(industry) {
       this.industry = industry
     },
-    closeQr() {
-      console.log('closeQr')
-    },
+    closeQr() {},
     openQr() {
-      console.log('openQr')
       this.currentScreen++
     },
     progressBar(progress) {
       this.$nextTick(() => {
         if (progress) {
-          if (this.currentScreen === 3) {
+          if (this.currentScreen === 5) {
             progress.style.width = '0'
             setTimeout(() => {
               progress.style.transition = 'width 0.5s ease'
               progress.style.width = '25%'
             }, 200)
           }
-          if (this.currentScreen === 4) {
+          if (this.currentScreen === 6) {
             progress.style.width = this.progressBarPercent + '%'
             setTimeout(() => {
               progress.style.transition = 'width 0.5s ease'
@@ -174,6 +205,11 @@ export default {
 
 @function rem($value) {
   @return $value / 16px + rem;
+}
+
+.vue-phone-number-input {
+  position: relative;
+  z-index: 10 !important;
 }
 
 #productFunnel {
